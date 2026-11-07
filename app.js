@@ -1,16 +1,555 @@
 /**
  * Ruang EAP — Application Logic & Question Engine
  * Universitas Muhammadiyah Surakarta — Teknik Informatika
- * 
- * 100% Sesuai Dokumen & Kunci Resmi Dosen:
- * READING Drilling ANS - Word (Questions 1 - 30 Lengkap dengan Kunci Hijau & Underline)
  */
 
-// ==========================================
-// 1. DOKUMEN RESMI DOSEN: 30 SOAL DRILLING LENGKAP
-// Kunci jawaban disinkronkan 100% dengan highlight hijau dosen
-// ==========================================
+// 1. LISTENING DRILLS
+const LISTENING_DRILLS = [
+  {
+    "id": "lis-nathan",
+    "title": "Exercise 1: Radio Interview — Nathan's School (Brooklyn Free School)",
+    "source": "Lecturer Document: Meeting 2 (Listening exercise.docx)",
+    "transcript": "[RADIO INTERVIEW TRANSCRIPT]\nHost: \"Welcome back to Education Today. Today we're visiting Brooklyn Free School in New York to speak with Nathan, a 16-year-old high school student. Nathan, tell us about how your school works.\"\nNathan: \"Hi! Well, Brooklyn Free School is really unique. There are no tests, no homework, and no mandatory grades. In my section of the school, students are aged 12 to 18, and there are about 60 students in total. We choose what we want to study every day.\"\nHost: \"Do you have regular classes with kids your own age?\"\nNathan: \"Actually, I rarely sit next to students who are only my age. We mix together. For instance, the boy who helps me with advanced mathematics is only 13 years old, but he's a genius at calculus! Our daily lessons run from 9:00 a.m. to 3:00 p.m. And while some think it's completely free, standard tuition actually costs about $12,000 a year, though they offer financial aid.\"\nHost: \"Do you enjoy coming to school?\"\nNathan: \"I absolutely love it. It's an inspiring place to learn.\"",
+    "questions": [
+      {
+        "id": "ln-1",
+        "q": "1. Nathan is ___ years old.",
+        "options": [
+          "15",
+          "16",
+          "17"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (16). Transkrip: <u>\"...to speak with Nathan, a 16-year-old high school student.\"</u>"
+      },
+      {
+        "id": "ln-2",
+        "q": "2. In Nathan's part of the school the students are aged ___.",
+        "options": [
+          "4-11",
+          "4-18",
+          "12-18"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (12-18). Transkrip: <u>\"In my section of the school, students are aged 12 to 18...\"</u>"
+      },
+      {
+        "id": "ln-3",
+        "q": "3. Nathan's part of the school has about ___ students.",
+        "options": [
+          "16",
+          "60",
+          "66"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (60). Transkrip: <u>\"...and there are about 60 students in total.\"</u>"
+      },
+      {
+        "id": "ln-4",
+        "q": "4. Nathan ___ sits next to students of his own age.",
+        "options": [
+          "sometimes",
+          "never",
+          "always"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (sometimes). Transkrip: Nathan belajar bercampur usia, sehingga hanya kadang-kadang duduk dengan yang seumuran."
+      },
+      {
+        "id": "ln-5",
+        "q": "5. The boy who helps Nathan with maths is ___ years old.",
+        "options": [
+          "11",
+          "13",
+          "18"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (13). Transkrip: <u>\"the boy who helps me with advanced mathematics is only 13 years old...\"</u>"
+      },
+      {
+        "id": "ln-6",
+        "q": "6. Lessons are from ___.",
+        "options": [
+          "8 a.m. to 3 p.m.",
+          "9 a.m. to 3 p.m.",
+          "9 a.m. to 4 p.m."
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (9 a.m. to 3 p.m.). Transkrip: <u>\"Our daily lessons run from 9:00 a.m. to 3:00 p.m.\"</u>"
+      },
+      {
+        "id": "ln-7",
+        "q": "7. It costs ___ a year to study at the school.",
+        "options": [
+          "$2,000",
+          "$12,000",
+          "$20,000"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B ($12,000). Transkrip: <u>\"...standard tuition actually costs about $12,000 a year...\"</u>"
+      }
+    ]
+  },
+  {
+    "id": "lis-miley",
+    "title": "Exercise 2: Biography Profile — Miley Cyrus Short Biography",
+    "source": "Lecturer Document: Meeting 2 (Listening exercise.docx)",
+    "transcript": "[BIOGRAPHY AUDIO TRANSCRIPT]\nNarrator: \"Miley Cyrus was born to be a star. She was born on November 23rd, 1992, in Franklin, Tennessee. Cyrus became famous worldwide when she starred in the television show 'Hannah Montana' on Disney Channel. Two years later, she expanded her fame into mainstream pop music. Her 3D concert movie obtained more than 55 million dollars at the box office on opening weekend. Remarkably, by age 16, Miley already had achieved two number-one albums on the Billboard charts. Her energetic single 'Party in the USA' became her best-selling single across the United States. Many music critics and fans respect her because she fearlessly takes artistic risks. In 2011, she was officially ranked in Hollywood as the second richest person under 25. Later in 2012, Miley made a notable guest appearance in the sitcom 'Two and a Half Men', participating a few times throughout the season.\"",
+    "questions": [
+      {
+        "id": "mc-1",
+        "q": "1. Miley Cyrus was born to be:",
+        "options": [
+          "a fan",
+          "a star",
+          "a sensation"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (a star). Transkrip: <u>\"Miley Cyrus was born to be a star.\"</u>"
+      },
+      {
+        "id": "mc-2",
+        "q": "2. When was she born?",
+        "options": [
+          "On November 21st, 1992",
+          "On November 23rd, 1992",
+          "On November 23rd, 1994"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (On November 23rd, 1992). Transkrip: <u>\"She was born on November 23rd, 1992...\"</u>"
+      },
+      {
+        "id": "mc-3",
+        "q": "3. Miley Cyrus became famous:",
+        "options": [
+          "in a TV show",
+          "in a concert",
+          "in a commercial"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (in a TV show). Transkrip: <u>\"...when she starred in the television show 'Hannah Montana'...\"</u>"
+      },
+      {
+        "id": "mc-4",
+        "q": "4. Cyrus became more famous with her music:",
+        "options": [
+          "2 years later",
+          "3 years later",
+          "5 years later"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (2 years later). Transkrip: <u>\"Two years later, she expanded her fame into mainstream pop music.\"</u>"
+      },
+      {
+        "id": "mc-5",
+        "q": "5. The 3D movie obtained more than:",
+        "options": [
+          "55 million dollars",
+          "155 million dollars",
+          "115 million dollars"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (55 million dollars). Transkrip: <u>\"Her 3D concert movie obtained more than 55 million dollars...\"</u>"
+      },
+      {
+        "id": "mc-6",
+        "q": "6. At 16 Miley Cyrus had:",
+        "options": [
+          "4 #1 albums",
+          "2 #1 albums",
+          "3 #1 albums"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (2 #1 albums). Transkrip: <u>\"by age 16, Miley already had achieved two number-one albums...\"</u>"
+      },
+      {
+        "id": "mc-7",
+        "q": "7. What single became best-selling single in the USA?",
+        "options": [
+          "The climb",
+          "Party in the USA",
+          "Hannah Montana"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (Party in the USA). Transkrip: <u>\"Her energetic single 'Party in the USA' became her best-selling single...\"</u>"
+      },
+      {
+        "id": "mc-8",
+        "q": "8. The speaker likes Miley Cyrus because she:",
+        "options": [
+          "takes risks",
+          "sings very well",
+          "is a good actress"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (takes risks). Transkrip: <u>\"respect her because she fearlessly takes artistic risks.\"</u>"
+      },
+      {
+        "id": "mc-9",
+        "q": "9. In 2011, Cyrus was named ___ in Hollywood.",
+        "options": [
+          "the first young actress",
+          "the best singer",
+          "the second richest person"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (the second richest person). Transkrip: <u>\"...ranked in Hollywood as the second richest person under 25.\"</u>"
+      },
+      {
+        "id": "mc-10",
+        "q": "10. In 2012, Miley participated ___ in the sitcom \"Two and a Half Men\":",
+        "options": [
+          "many times",
+          "sometimes",
+          "few times"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (few times). Transkrip: <u>\"...participating a few times throughout the season.\"</u>"
+      }
+    ]
+  },
+  {
+    "id": "lis-council",
+    "title": "Exercise 3: IELTS Form Completion — Joining Youth Council (Roger Brown)",
+    "source": "Lecturer Document: Meeting 2 (Listening exercise.docx)",
+    "transcript": "[IELTS SECTION 1 CONVERSATION]\nOfficer: \"Good morning, Youth Council office. How can I help you?\"\nRoger: \"Hello, my name is Roger Brown, and I'd like to ask about joining the Youth Council.\"\nOfficer: \"Great! Let me take down a few details. You're 18, correct? And where are you currently living?\"\nRoger: \"During weekdays, I'm staying in a hostel near the college. My permanent home postal address is 17 Buckworth Street, Stamford, Lincs.\"\nOfficer: \"And what is your postcode?\"\nRoger: \"It's PE9 7JR.\"\nOfficer: \"Thanks. Are you working at the moment?\"\nRoger: \"I'm a full-time university student, but I work a part-time job as a waiter on weekends. My major subject of study is politics, with history as my minor subject.\"\nOfficer: \"What about personal hobbies and interests?\"\nRoger: \"I do a lot of cycling, and I'm very interested in the cinema.\"\nOfficer: \"Splendid. Which community focus area would you prefer on the Council?\"\nRoger: \"I really want to work with young people who are disabled. I want to help improve accessibility.\"\nOfficer: \"That's wonderful. Could you come in to speak with the Elections Officer next Monday at 4:30 pm? And please leave your mobile number.\"\nRoger: \"Yes, 4:30 pm is perfect. My mobile number is 07788 136711.\"",
+    "questions": [
+      {
+        "id": "yc-1",
+        "q": "1. Currently staying in a [_____] during the week",
+        "options": [
+          "apartment",
+          "hostel",
+          "dormitory"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (hostel). Transkrip: <u>\"I'm staying in a hostel near the college.\"</u>"
+      },
+      {
+        "id": "yc-2",
+        "q": "2. Postal street address: 17, [_____] Street",
+        "options": [
+          "Buckworth",
+          "Blackwell",
+          "Barker"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (Buckworth). Transkrip: <u>\"17 Buckworth Street, Stamford\"</u>"
+      },
+      {
+        "id": "yc-3",
+        "q": "3. Part-time job as a [_____]",
+        "options": [
+          "librarian",
+          "waiter",
+          "cashier"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (waiter). Transkrip: <u>\"work a part-time job as a waiter on weekends.\"</u>"
+      },
+      {
+        "id": "yc-4",
+        "q": "4. Major subject of study: [_____]",
+        "options": [
+          "history",
+          "politics",
+          "literature"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (politics). Transkrip: <u>\"My major subject of study is politics...\"</u>"
+      },
+      {
+        "id": "yc-5",
+        "q": "5. On Youth Council, wants to work with young people who are [_____]",
+        "options": [
+          "unemployed",
+          "homeless",
+          "disabled"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (disabled). Transkrip: <u>\"work with young people who are disabled.\"</u>"
+      }
+    ]
+  }
+];
 
+// 2. GRAMMAR DRILLS
+const GRAMMAR_DRILLS = [
+  {
+    "id": "g-pos",
+    "title": "Drill 1: Parts of Speech Mastery (Meeting 3)",
+    "source": "Lecturer Document: Meeting 3 (Part of Speech Exercise.docx)",
+    "questions": [
+      {
+        "id": "pos-1",
+        "cat": "NOUN",
+        "q": "1. The engineer checked the _____ before starting the test.",
+        "options": [
+          "equipment",
+          "carefully",
+          "because",
+          "strong"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (equipment). Noun dibutuhkan sebagai objek setelah kata sandang 'the'."
+      },
+      {
+        "id": "pos-2",
+        "cat": "NOUN",
+        "q": "2. Regular _____ can prevent machine failure.",
+        "options": [
+          "maintains",
+          "maintenance",
+          "maintained",
+          "efficient"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (maintenance). 'Maintenance' adalah Noun yang berfungsi sebagai Subject."
+      },
+      {
+        "id": "pos-3",
+        "cat": "PRONOUN",
+        "q": "3. The engineers finished the test, and _____ wrote a report.",
+        "options": [
+          "they",
+          "them",
+          "their",
+          "theirs"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (they). Subject Pronoun jamak menggantikan 'The engineers'."
+      },
+      {
+        "id": "pos-4",
+        "cat": "VERB",
+        "q": "4. The machine _____ automatically when the temperature is too high.",
+        "options": [
+          "stops",
+          "stopping",
+          "stop",
+          "stopped"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (stops). Subjek tunggal membutuhkan Present Verb berakhiran -s."
+      },
+      {
+        "id": "pos-5",
+        "cat": "ADJECTIVE",
+        "q": "5. The technician used an _____ instrument.",
+        "options": [
+          "accuracy",
+          "accurately",
+          "accurate",
+          "accurateness"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (accurate). Adjective menerangkan kata benda 'instrument'."
+      },
+      {
+        "id": "pos-6",
+        "cat": "ADVERB",
+        "q": "6. The technician measured the temperature _____.",
+        "options": [
+          "accurate",
+          "accuracy",
+          "accurately",
+          "accurateness"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (accurately). Adverb of manner menerangkan kata kerja 'measured'."
+      },
+      {
+        "id": "pos-7",
+        "cat": "PREPOSITION",
+        "q": "7. The sensor is _____ the two components.",
+        "options": [
+          "between",
+          "during",
+          "because",
+          "with"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (between). Preposisi 'between' menunjukkan letak di antara dua benda."
+      },
+      {
+        "id": "pos-8",
+        "cat": "CONJUNCTION",
+        "q": "8. The motor is small, _____ it is powerful.",
+        "options": [
+          "although",
+          "but",
+          "because",
+          "when"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (but). Konjungsi koordinatif FANBOYS 'but' menyatakan pertentangan."
+      }
+    ]
+  },
+  {
+    "id": "g-sent-types",
+    "title": "Drill 2: Identify Sentence Types (Simple, Compound, Complex - Meeting 4)",
+    "source": "Lecturer Slide: Meeting 4 (Slide 6 - Sentence Types)",
+    "questions": [
+      {
+        "id": "st-1",
+        "q": "1. \"The internet helps students to find information quickly.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (Simple Sentence). Memiliki 1 klausa independen (Subject: The internet, Verb: helps)."
+      },
+      {
+        "id": "st-2",
+        "q": "2. \"I like programming, and I also enjoy designing websites.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (Compound Sentence). 2 klausa independen dihubungkan oleh FANBOYS 'and' + koma."
+      },
+      {
+        "id": "st-3",
+        "q": "3. \"She stayed at home because it was raining heavily.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (Complex Sentence). 1 klausa independen + 1 klausa dependen diawali subordinator 'because'."
+      },
+      {
+        "id": "st-4",
+        "q": "4. \"The server crashed, so the technician fixed it immediately.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (Compound Sentence). Dihubungkan oleh FANBOYS 'so' (akibat logis)."
+      },
+      {
+        "id": "st-5",
+        "q": "5. \"If students practice every day, they will become better at programming.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (Complex Sentence). Diawali klausa dependen bersyarat 'If...' + koma."
+      },
+      {
+        "id": "st-6",
+        "q": "6. \"Computers are very useful in education.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (Simple Sentence). Satu klausa independen tunggal."
+      },
+      {
+        "id": "st-7",
+        "q": "7. \"I wanted to buy a new laptop, but it was too expensive.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (Compound Sentence). Dihubungkan FANBOYS 'but' untuk kontras."
+      },
+      {
+        "id": "st-8",
+        "q": "8. \"Although he was nervous, he gave a good presentation.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (Complex Sentence). Diawali subordinating conjunction 'Although' + koma."
+      }
+    ]
+  }
+];
+
+// 3. WRITING MODELS (MEETING 5: 100-150 WORDS)
+const WRITING_TOPIC_MODELS = [
+  {
+    "topic": "The Importance of Technology in Daily Life",
+    "modelParagraph": "Technology plays a vital role in our daily lives because it modernizes routine tasks and connects society globally. It helps individuals communicate much faster, and it makes sharing critical academic information substantially easier across diverse platforms. For example, many university students utilize digital portals when they need to submit assignments because online submission saves valuable time and conserves environmental paper resources. Technology also provides widespread digital entertainment, which people can readily access anywhere. Furthermore, it supports modern business enterprises, and it continuously generates novel employment opportunities in computing sectors. Therefore, modern technology serves an indispensable function in rendering human life significantly more efficient and productive.",
+    "wordCount": 105,
+    "analysis": [
+      {
+        "type": "Topic Sentence (TS)",
+        "text": "Technology plays a vital role in our daily lives because it modernizes routine tasks and connects society globally."
+      },
+      {
+        "type": "Supporting 1 (Compound)",
+        "text": "It helps individuals communicate much faster, and it makes sharing critical academic information substantially easier across diverse platforms."
+      },
+      {
+        "type": "Supporting 2 (Complex)",
+        "text": "For example, many university students utilize digital portals when they need to submit assignments because online submission saves valuable time and conserves environmental paper resources."
+      },
+      {
+        "type": "Supporting 3 (Simple)",
+        "text": "Technology also provides widespread digital entertainment, which people can readily access anywhere."
+      },
+      {
+        "type": "Supporting 4 (Compound)",
+        "text": "Furthermore, it supports modern business enterprises, and it continuously generates novel employment opportunities in computing sectors."
+      },
+      {
+        "type": "Concluding Sentence (CS)",
+        "text": "Therefore, modern technology serves an indispensable function in rendering human life significantly more efficient and productive."
+      }
+    ]
+  },
+  {
+    "topic": "Why I Chose Informatics Engineering as My Major",
+    "modelParagraph": "I chose Informatics Engineering as my undergraduate major because I have been deeply fascinated by computer software and digital innovation since my childhood. Writing program code stimulates logical thinking, and constructing algorithmic systems allows me to solve complex real-world challenges systematically. When I first learned fundamental programming languages, I developed an interactive educational website because I wanted to assist my peers in learning mathematics effectively. Information technology continuously transforms modern healthcare, finance, and industrial infrastructure. In addition, software engineering provides abundant career pathways, and it allows professionals to collaborate with international research teams seamlessly. In summary, pursuing an Informatics Engineering degree represents the most fulfilling pathway toward developing impactful technological solutions for the broader community.",
+    "wordCount": 115,
+    "analysis": [
+      {
+        "type": "Topic Sentence (TS)",
+        "text": "I chose Informatics Engineering as my undergraduate major because I have been deeply fascinated by computer software and digital innovation since my childhood."
+      },
+      {
+        "type": "Supporting 1 (Compound)",
+        "text": "Writing program code stimulates logical thinking, and constructing algorithmic systems allows me to solve complex real-world challenges systematically."
+      },
+      {
+        "type": "Supporting 2 (Complex)",
+        "text": "When I first learned fundamental programming languages, I developed an interactive educational website because I wanted to assist my peers in learning mathematics effectively."
+      },
+      {
+        "type": "Supporting 3 (Simple)",
+        "text": "Information technology continuously transforms modern healthcare, finance, and industrial infrastructure."
+      },
+      {
+        "type": "Supporting 4 (Compound)",
+        "text": "In addition, software engineering provides abundant career pathways, and it allows professionals to collaborate with international research teams seamlessly."
+      },
+      {
+        "type": "Concluding Sentence (CS)",
+        "text": "In summary, pursuing an Informatics Engineering degree represents the most fulfilling pathway toward developing impactful technological solutions for the broader community."
+      }
+    ]
+  }
+];
+
+// 4. AUTHENTIC READING DRILLING (QUESTIONS 1 - 30)
 const DRILLING_PASSAGES = [
   // PASSAGE 1: QUESTIONS 1 - 4
   {
@@ -581,6 +1120,7 @@ Ultimately, this framework could help engineers develop complex systems like aut
 // (Listening 25 pts, Grammar 20 pts, Reading 35 pts, Writing 20 pts)
 // ==========================================
 
+// 5. UTS FULL SIMULATION QUESTION DATA (100 PTS)
 const UTS_EXAM_DATA = {
   // SECTION 1: LISTENING (25 pts / 5 Qs @ 5 pts)
   listening: [
@@ -865,27 +1405,31 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
 // 3. APPLICATION STATE & CONTROLLER
 // ==========================================
 
+// 6. APPLICATION STATE & CONTROLLER
 const AppState = {
-  activeTab: 'panel-drilling',
+  activeTab: 'panel-syllabus',
   drillingAnswers: {},
+  listeningAnswers: {},
+  grammarAnswers: {},
   examAnswers: {},
   examTimer: null,
-  examSecondsLeft: 90 * 60, // 90 mins
+  examSecondsLeft: 90 * 60,
   examStarted: false,
   examSubmitted: false
 };
 
-// Initialize App
 document.addEventListener('DOMContentLoaded', () => {
   initTabs();
   initAccordions();
+  renderListeningDrills();
+  renderGrammarDrills();
   renderDrillingQuestions();
   initExamTimerControls();
   renderExamQuestions();
   initOutlineBuilder();
+  renderWritingModels();
 });
 
-// ================= Tab Navigation =================
 function initTabs() {
   const tabBtns = document.querySelectorAll('.tab-btn');
   const panels = document.querySelectorAll('.panel');
@@ -893,7 +1437,6 @@ function initTabs() {
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetPanelId = btn.getAttribute('data-target');
-      
       tabBtns.forEach(b => b.classList.remove('active'));
       panels.forEach(p => p.classList.remove('active'));
 
@@ -908,7 +1451,6 @@ function initTabs() {
   });
 }
 
-// ================= Accordion Modules =================
 function initAccordions() {
   const moduleHeaders = document.querySelectorAll('.module-header');
   moduleHeaders.forEach(header => {
@@ -921,7 +1463,199 @@ function initAccordions() {
   });
 }
 
-// ================= Render Drilling Questions =================
+function renderListeningDrills() {
+  const container = document.getElementById('listening-content-container');
+  if (!container) return;
+
+  let html = '';
+  LISTENING_DRILLS.forEach(drill => {
+    html += `
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title">${escapeHtml(drill.title)}</h3>
+            <span class="badge badge-teal" style="margin-top: 6px;">${escapeHtml(drill.source)}</span>
+          </div>
+        </div>
+
+        <div class="passage-card" style="background: var(--blue-soft); border-color: var(--blue);">
+          <h4>🎧 Audio Transcript & Dialogue Scenario:</h4>
+          <pre style="white-space: pre-wrap; font-family: var(--font); margin: 0; font-size: 14px; line-height: 1.6;">${escapeHtml(drill.transcript)}</pre>
+        </div>
+
+        <div class="drilling-questions-wrap">
+    `;
+
+    drill.questions.forEach(q => {
+      html += `
+        <div class="question-block" id="lis-box-${q.id}">
+          <div class="q-header">
+            <span class="q-text">${escapeHtml(q.q)}</span>
+            <span class="q-clo-badge">CLO 1</span>
+          </div>
+          <div class="options-list">
+      `;
+
+      q.options.forEach((opt, optIdx) => {
+        const letter = String.fromCharCode(65 + optIdx);
+        html += `
+          <button type="button" class="opt-btn" onclick="handleListeningAnswer('\${drill.id}', '\${q.id}', ${optIdx})">
+            <span class="opt-letter">${letter}</span>
+            <span>${escapeHtml(opt)}</span>
+          </button>
+        `;
+      });
+
+      html += `
+          </div>
+          <div class="explanation-card" id="lis-expl-${q.id}">
+            <strong>💡 Penjelasan & Transkrip yang Digarisbawahi:</strong>
+            <div style="margin-top: 6px; line-height: 1.6;">${q.expl}</div>
+          </div>
+        </div>
+      `;
+    });
+
+    html += `
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+}
+
+window.handleListeningAnswer = function(drillId, questionId, selectedIdx) {
+  const drill = LISTENING_DRILLS.find(d => d.id === drillId);
+  if (!drill) return;
+  const question = drill.questions.find(q => q.id === questionId);
+  if (!question) return;
+
+  const box = document.getElementById(`lis-box-${questionId}`);
+  if (!box) return;
+
+  const buttons = box.querySelectorAll('.opt-btn');
+  const isCorrect = selectedIdx === question.answer;
+
+  buttons.forEach((btn, idx) => {
+    btn.disabled = true;
+    if (idx === question.answer) {
+      btn.classList.add('correct');
+    } else if (idx === selectedIdx && !isCorrect) {
+      btn.classList.add('wrong');
+    }
+  });
+
+  const expl = document.getElementById(`lis-expl-${questionId}`);
+  if (expl) expl.classList.add('show');
+
+  AppState.listeningAnswers[questionId] = isCorrect;
+  updateListeningBadge();
+};
+
+function updateListeningBadge() {
+  const badge = document.getElementById('listening-progress-badge');
+  if (!badge) return;
+  const total = LISTENING_DRILLS.reduce((acc, d) => acc + d.questions.length, 0);
+  const answered = Object.keys(AppState.listeningAnswers).length;
+  const correct = Object.values(AppState.listeningAnswers).filter(Boolean).length;
+  badge.textContent = `Dijawab: ${answered} / ${total} | Benar: ${correct}`;
+}
+
+function renderGrammarDrills() {
+  const container = document.getElementById('grammar-content-container');
+  if (!container) return;
+
+  let html = '';
+  GRAMMAR_DRILLS.forEach(drill => {
+    html += `
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title">${escapeHtml(drill.title)}</h3>
+            <span class="badge badge-mustard" style="margin-top: 6px;">${escapeHtml(drill.source)}</span>
+          </div>
+        </div>
+
+        <div class="drilling-questions-wrap">
+    `;
+
+    drill.questions.forEach(q => {
+      html += `
+        <div class="question-block" id="gram-box-${q.id}">
+          <div class="q-header">
+            <span class="q-text">${escapeHtml(q.q)}</span>
+            <span class="q-clo-badge">${q.cat || 'CLO 2'}</span>
+          </div>
+          <div class="options-list">
+      `;
+
+      q.options.forEach((opt, optIdx) => {
+        const letter = String.fromCharCode(65 + optIdx);
+        html += `
+          <button type="button" class="opt-btn" onclick="handleGrammarAnswer('\${drill.id}', '\${q.id}', ${optIdx})">
+            <span class="opt-letter">${letter}</span>
+            <span>${escapeHtml(opt)}</span>
+          </button>
+        `;
+      });
+
+      html += `
+          </div>
+          <div class="explanation-card" id="gram-expl-${q.id}">
+            <strong>💡 Pembahasan Kaidah Gramatika:</strong>
+            <div style="margin-top: 6px; line-height: 1.6;">${q.expl}</div>
+          </div>
+        </div>
+      `;
+    });
+
+    html += `
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+}
+
+window.handleGrammarAnswer = function(drillId, questionId, selectedIdx) {
+  const drill = GRAMMAR_DRILLS.find(d => d.id === drillId);
+  if (!drill) return;
+  const question = drill.questions.find(q => q.id === questionId);
+  if (!question) return;
+
+  const box = document.getElementById(`gram-box-${questionId}`);
+  if (!box) return;
+
+  const buttons = box.querySelectorAll('.opt-btn');
+  const isCorrect = selectedIdx === question.answer;
+
+  buttons.forEach((btn, idx) => {
+    btn.disabled = true;
+    if (idx === question.answer) {
+      btn.classList.add('correct');
+    } else if (idx === selectedIdx && !isCorrect) {
+      btn.classList.add('wrong');
+    }
+  });
+
+  const expl = document.getElementById(`gram-expl-${questionId}`);
+  if (expl) expl.classList.add('show');
+
+  AppState.grammarAnswers[questionId] = isCorrect;
+  updateGrammarBadge();
+};
+
+function updateGrammarBadge() {
+  const badge = document.getElementById('grammar-progress-badge');
+  if (!badge) return;
+  const total = GRAMMAR_DRILLS.reduce((acc, d) => acc + d.questions.length, 0);
+  const answered = Object.keys(AppState.grammarAnswers).length;
+  const correct = Object.values(AppState.grammarAnswers).filter(Boolean).length;
+  badge.textContent = `Dijawab: ${answered} / ${total} | Benar: ${correct}`;
+}
+
 function renderDrillingQuestions() {
   const container = document.getElementById('drilling-content-container');
   if (!container) return;
@@ -961,7 +1695,7 @@ function renderDrillingQuestions() {
       q.options.forEach((opt, optIdx) => {
         const letter = String.fromCharCode(65 + optIdx);
         html += `
-          <button type="button" class="opt-btn" onclick="handleDrillAnswer('${passage.id}', '${q.id}', ${optIdx})">
+          <button type="button" class="opt-btn" onclick="handleDrillAnswer('\${passage.id}', '\${q.id}', ${optIdx})">
             <span class="opt-letter">${letter}</span>
             <span>${escapeHtml(opt)}</span>
           </button>
@@ -988,7 +1722,6 @@ function renderDrillingQuestions() {
   updateDrillStats(totalDrillQs);
 }
 
-// Handle Drilling Answer Selection
 window.handleDrillAnswer = function(passageId, questionId, selectedIdx) {
   const passage = DRILLING_PASSAGES.find(p => p.id === passageId);
   if (!passage) return;
@@ -1034,7 +1767,51 @@ function updateDrillStats(totalOverride) {
   statsEl.textContent = `Dijawab: ${answeredKeys.length} / ${total} | Benar: ${correctCount}`;
 }
 
-// ================= 90-Minute Exam Simulator =================
+function renderWritingModels() {
+  const container = document.getElementById('writing-models-container');
+  if (!container) return;
+
+  let html = '';
+  WRITING_TOPIC_MODELS.forEach((m, idx) => {
+    html += `
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">
+          <div>
+            <h4 class="card-title" style="font-size: 18px;">Contoh Paragraf Akademik ${idx + 1}: ${escapeHtml(m.topic)}</h4>
+            <span class="badge badge-teal" style="margin-top: 4px;">Panjang: ${m.wordCount} Kata (Standar Dosen: 100–150 Kata)</span>
+          </div>
+        </div>
+
+        <div class="passage-card" style="background: var(--mustard-soft); border-color: var(--mustard); font-size: 15px; line-height: 1.65;">
+          ${escapeHtml(m.modelParagraph)}
+        </div>
+
+        <h5 style="margin: 12px 0 6px; font-family: var(--display); font-size: 14px;">Bedah Struktur Jenis Kalimat:</h5>
+        <div class="rubrik-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 190px;">Komponen Kalimat</th>
+                <th>Kalimat dalam Paragraf</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${m.analysis.map(a => `
+                <tr>
+                  <td><strong>${escapeHtml(a.type)}</strong></td>
+                  <td>${escapeHtml(a.text)}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+}
+
 function initExamTimerControls() {
   const startBtn = document.getElementById('btn-timer-toggle');
   const resetBtn = document.getElementById('btn-timer-reset');
@@ -1101,7 +1878,6 @@ function resetExam() {
   const resultCard = document.getElementById('uts-result-card');
   if (resultCard) resultCard.classList.remove('show');
 
-  // Re-enable options
   const buttons = document.querySelectorAll('.exam-opt-btn');
   buttons.forEach(b => {
     b.disabled = false;
@@ -1129,9 +1905,7 @@ function renderTimerDisplay() {
   }
 }
 
-// Render UTS Simulation Questions
 function renderExamQuestions() {
-  // 1. Listening
   const listeningContainer = document.getElementById('exam-listening-container');
   if (listeningContainer) {
     let html = '';
@@ -1141,7 +1915,6 @@ function renderExamQuestions() {
     listeningContainer.innerHTML = html;
   }
 
-  // 2. Grammar
   const grammarContainer = document.getElementById('exam-grammar-container');
   if (grammarContainer) {
     let html = '';
@@ -1151,7 +1924,6 @@ function renderExamQuestions() {
     grammarContainer.innerHTML = html;
   }
 
-  // 3. Reading
   const readingContainer = document.getElementById('exam-reading-container');
   if (readingContainer) {
     let html = '';
@@ -1184,7 +1956,7 @@ function createExamQuestionHTML(q, section) {
   q.options.forEach((opt, idx) => {
     const letter = String.fromCharCode(65 + idx);
     optionsHTML += `
-      <button type="button" class="opt-btn exam-opt-btn" id="opt-${q.id}-${idx}" onclick="selectExamAnswer('${q.id}', ${idx}, '${section}')">
+      <button type="button" class="opt-btn exam-opt-btn" id="opt-${q.id}-${idx}" onclick="selectExamAnswer('\${q.id}', ${idx}, '\${section}')">
         <span class="opt-letter">${letter}</span>
         <span>${escapeHtml(opt)}</span>
       </button>
@@ -1220,7 +1992,6 @@ window.selectExamAnswer = function(questionId, selectedIdx, section) {
     section: section
   };
 
-  // Visual selection
   const box = document.getElementById(`exam-q-${questionId}`);
   if (box) {
     const buttons = box.querySelectorAll('.exam-opt-btn');
@@ -1248,25 +2019,65 @@ function updateLJKSummary() {
   }
 }
 
-// ================= Writing Outline Builder & Rubric =================
 function initOutlineBuilder() {
   const tsInput = document.getElementById('outline-ts');
   const sd1Input = document.getElementById('outline-sd1');
   const sd2Input = document.getElementById('outline-sd2');
   const sd3Input = document.getElementById('outline-sd3');
   const csInput = document.getElementById('outline-cs');
+  const fullParagraphArea = document.getElementById('full-paragraph-area');
 
   const inputs = [tsInput, sd1Input, sd2Input, sd3Input, csInput];
   inputs.forEach(input => {
     if (input) {
-      input.addEventListener('input', evaluateWritingRubric);
+      input.addEventListener('input', () => {
+        evaluateWritingRubric();
+        syncFullParagraphDraft();
+      });
     }
   });
+
+  if (fullParagraphArea) {
+    fullParagraphArea.addEventListener('input', updateParagraphWordCounter);
+  }
 
   const checkboxes = document.querySelectorAll('.checklist-item input');
   checkboxes.forEach(cb => {
     cb.addEventListener('change', evaluateWritingRubric);
   });
+}
+
+function syncFullParagraphDraft() {
+  const ts = document.getElementById('outline-ts')?.value.trim() || '';
+  const sd1 = document.getElementById('outline-sd1')?.value.trim() || '';
+  const sd2 = document.getElementById('outline-sd2')?.value.trim() || '';
+  const sd3 = document.getElementById('outline-sd3')?.value.trim() || '';
+  const cs = document.getElementById('outline-cs')?.value.trim() || '';
+
+  const area = document.getElementById('full-paragraph-area');
+  if (area && !area.getAttribute('data-manual-edit')) {
+    const sentences = [ts, sd1, sd2, sd3, cs].filter(Boolean);
+    area.value = sentences.join(' ');
+    updateParagraphWordCounter();
+  }
+}
+
+function updateParagraphWordCounter() {
+  const area = document.getElementById('full-paragraph-area');
+  const badge = document.getElementById('paragraph-word-counter');
+  if (!area || !badge) return;
+
+  const text = area.value.trim();
+  const words = text ? text.split(/\s+/).filter(Boolean).length : 0;
+  badge.textContent = `${words} Kata (Target Dosen: 100–150 Kata)`;
+
+  if (words >= 100 && words <= 150) {
+    badge.className = 'badge badge-teal';
+  } else if (words > 150) {
+    badge.className = 'badge badge-tomato';
+  } else {
+    badge.className = 'badge badge-mustard';
+  }
 }
 
 function evaluateWritingRubric() {
@@ -1277,26 +2088,22 @@ function evaluateWritingRubric() {
   const sd3Val = document.getElementById('outline-sd3')?.value.trim() || '';
   const csVal = document.getElementById('outline-cs')?.value.trim() || '';
 
-  // 1. Topic Sentence & Controlling Idea (max 5 pts)
   if (tsVal.length > 25) {
     writingScore += 5;
   } else if (tsVal.length > 10) {
     writingScore += 3;
   }
 
-  // 2. Supporting Details 1-3 (max 6 pts: 2 pts each)
   if (sd1Val.length > 15) writingScore += 2;
   if (sd2Val.length > 15) writingScore += 2;
   if (sd3Val.length > 15) writingScore += 2;
 
-  // 3. Concluding Sentence (max 4 pts)
   if (csVal.length > 20) {
     writingScore += 4;
   } else if (csVal.length > 8) {
     writingScore += 2;
   }
 
-  // 4. Checklist Self-Audit (max 5 pts)
   const cbChecked = document.querySelectorAll('.checklist-item input:checked').length;
   writingScore += Math.min(5, Math.round((cbChecked / 5) * 5));
 
@@ -1310,7 +2117,6 @@ function evaluateWritingRubric() {
   return writingScore;
 }
 
-// ================= Submit UTS Exam =================
 window.submitUTSExam = function() {
   if (AppState.examSubmitted) {
     alert('Ujian telah dikumpulkan. Silakan lihat hasil evaluasi di atas.');
@@ -1324,7 +2130,6 @@ window.submitUTSExam = function() {
   let grammarScore = 0;
   let readingScore = 0;
 
-  // Grade Listening (25 pts)
   UTS_EXAM_DATA.listening.forEach(q => {
     const userAns = AppState.examAnswers[q.id];
     const isCorrect = userAns && userAns.selected === q.answer;
@@ -1332,7 +2137,6 @@ window.submitUTSExam = function() {
     revealQuestionResult(q, userAns);
   });
 
-  // Grade Grammar (20 pts)
   UTS_EXAM_DATA.grammar.forEach(q => {
     const userAns = AppState.examAnswers[q.id];
     const isCorrect = userAns && userAns.selected === q.answer;
@@ -1340,7 +2144,6 @@ window.submitUTSExam = function() {
     revealQuestionResult(q, userAns);
   });
 
-  // Grade Reading (35 pts)
   UTS_EXAM_DATA.reading.forEach(q => {
     const userAns = AppState.examAnswers[q.id];
     const isCorrect = userAns && userAns.selected === q.answer;
@@ -1348,12 +2151,9 @@ window.submitUTSExam = function() {
     revealQuestionResult(q, userAns);
   });
 
-  // Grade Writing (20 pts)
   const writingScore = evaluateWritingRubric();
-
   const totalScore = listeningScore + grammarScore + readingScore + writingScore;
 
-  // Render Result Card
   renderExamResultCard(totalScore, listeningScore, grammarScore, readingScore, writingScore);
 };
 
@@ -1413,7 +2213,6 @@ function renderExamResultCard(total, lScore, gScore, rScore, wScore) {
   resultCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// Utility: HTML Escape
 function escapeHtml(str) {
   if (!str) return '';
   return str

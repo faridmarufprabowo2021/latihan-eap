@@ -213,12 +213,10 @@ img, svg { max-width: 100%; height: auto; }
 /* ================= Navigation Tabs ================= */
 .tab-nav {
   display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding: 4px 4px 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 4px 0 16px;
   margin-bottom: 24px;
-  scrollbar-width: thin;
-  -webkit-overflow-scrolling: touch;
 }
 
 .tab-btn {
@@ -234,8 +232,11 @@ img, svg { max-width: 100%; height: auto; }
   border-radius: 12px;
   box-shadow: var(--shadow-sm);
   white-space: nowrap;
+  flex-shrink: 0;
+  min-inline-size: max-content;
   transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
   user-select: none;
+  cursor: pointer;
 }
 
 .tab-btn:hover {

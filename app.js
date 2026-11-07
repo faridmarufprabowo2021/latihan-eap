@@ -2044,6 +2044,21 @@ function countAcademicWords(text) {
   return matches ? matches.length : 0;
 }
 
+function countAcademicSentences(text) {
+  if (!text || typeof text !== 'string') return 0;
+  // Split by terminal punctuation (. ! ?)
+  const segments = text.split(/[.!?]+/);
+  let count = 0;
+  segments.forEach(seg => {
+    // Only count as a sentence if the segment contains at least one genuine word
+    // Standalone dots, blank lines, or spaces will NEVER be counted as sentences
+    if (countAcademicWords(seg) > 0) {
+      count++;
+    }
+  });
+  return count;
+}
+
 function updateParagraphWordCounter() {
   const area = document.getElementById('full-paragraph-area');
   const badge = document.getElementById('paragraph-word-counter');
@@ -2060,9 +2075,8 @@ function updateParagraphWordCounter() {
   const charsNoSpace = cleanNoSpace.length;
   const charsTotal = text.length;
 
-  // Sentences: separated by ., ?, ! followed by space or end of string
-  const sentenceMatches = text.trim().match(/[^.!?]+[.!?]+(\s|$)/g);
-  const sentences = sentenceMatches ? sentenceMatches.length : (words > 0 ? 1 : 0);
+  // Sentences: genuine sentence segments containing actual words
+  const sentences = countAcademicSentences(text);
   const avgWordsPerSentence = sentences > 0 ? (words / sentences).toFixed(1) : 0;
 
   // Update DOM elements if present

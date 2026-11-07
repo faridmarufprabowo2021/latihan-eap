@@ -217,7 +217,264 @@ Roger: "Yes, 4:30 pm is perfect. My mobile number is 07788 136711."`,
         expl: 'Kunci: C (disabled). Transkrip: <u>"work with young people who are disabled."</u>'
       }
     ]
-  }
+  },
+  {
+  "id": "lis-festival",
+  "title": "Exercise 4: Table & Note Completion — Stretton Community Festival",
+  "source": "Latihan Dosen: Meeting 2 (Set 4) | Cambridge IELTS 11 Test 4 (UK RP)",
+  "audioUrl": "audio/lis-festival.mp3",
+  "officialSourceUrl": "https://mini-ielts.com/1297/listening/stretton-festival",
+  "transcript": "[IELTS SECTION 1 CONVERSATION — STRETTON FESTIVAL]\nRob: \"Good morning. Stretton Festival box office. How can I help you?\"\nMelanie: \"Oh, hello. My family and I are on holiday in the area, and we've seen some posters about the festival this week. Could you tell me about some of the events, please?\"\nRob: \"Of course.\"\nMelanie: \"First of all, are there still tickets available for the jazz band on Saturday?\"\nRob: \"There are, but only £15. The £12 seats have all been sold.\"\nMelanie: \"OK. And the venue is the school, isn't it?\"\nRob: \"Yes, that's right, the secondary school. Make sure you don't go to the primary school by mistake! And there's an additional performer who isn't mentioned on the posters — Carolyn Hart is going to play with the band.\"\nMelanie: \"Oh, I think I've heard her on the radio. Doesn't she play the oboe, or flute or something?\"\nRob: \"Yes, the flute. She usually plays with symphony orchestras, and apparently this is her first time with a jazz band.\"\nMelanie: \"Well, I'd certainly like to hear her. Then the next thing I want to ask about is the duck races — I saw a poster beside a river. What are they, exactly?\"\nRob: \"Well, you buy a yellow plastic duck — or as many as you like — they're a pound each. And you write your name on each one. There'll be several races, depending on the number of ducks taking part. And John Stevens, a champion swimmer who lives locally, is going to start the races. All the ducks will be launched into the river at the back of the cinema, then they'll float along the river for 500 metres, as far as the railway bridge.\"\nMelanie: \"And are there any prizes?\"\nRob: \"Yes, the first duck in each race to arrive at the finishing line wins its owner free tickets for the concert on the last night of the festival.\"\nMelanie: \"You said you can buy a duck? I'm sure my children will both want one.\"\nRob: \"They're on sale at a stall in the market. You can't miss it — it's got an enormous sign showing a couple of ducks.\"\nMelanie: \"OK. I'll go there this afternoon. I remember walking past there yesterday. Now could you tell me something about the flower show, please?\"\nRob: \"Well, admission is free, and the show is being held in Bythwaite Hall.\"\nMelanie: \"Sorry, how do you spell that?\"\nRob: \"B-Y-T-H-W-A-I-T-E. Bythwaite.\"\nMelanie: \"Is it easy to find? I'm not very familiar with the town yet.\"\nRob: \"Oh, you won't have any problem. It's right in the centre of Stretton. It's the only old building in the town, so it's easy to recognise. But if you want to see the best flowers, you'll need to be there at 5 o'clock, when the prizes are presented by a well-known actor — Kevin Shapless.\"\nMelanie: \"Right. Now, what about the plays? I'd like to know which are suitable for my children, and which ones my husband and I might go to.\"\nRob: \"How old are your children?\"\nMelanie: \"Five and seven. What about The Mystery of Muldoon?\"\nRob: \"That's aimed at five to ten-year-olds.\"\nMelanie: \"Oh, right.\"\nRob: \"If you and your husband want to leave your children with a babysitter, you might like to see Fire and Flood — it's about events that really happened in Stretton two hundred years ago, and children might find it rather frightening.\"\nMelanie: \"I see. And what about the third play, Silly Sailor?\"\nRob: \"That's a comedy, and it's for young and old. It won an award in the Stretton Drama Festival a couple of months ago.\"\nMelanie: \"Fantastic. Thank you very much for your help!\"\nRob: \"You're very welcome. Enjoy the festival!\"",
+  "questions": [
+    {
+      "id": "fest-1",
+      "q": "1. [Jazz band] The venue for the Saturday jazz concert is the _____ school.",
+      "options": [
+        "primary",
+        "secondary",
+        "boarding",
+        "grammar"
+      ],
+      "answer": 1,
+      "expl": "Kunci: B (secondary). Transkrip: <u>\"Yes, that's right, the secondary school. Make sure you don't go to the primary school by mistake!\"</u>"
+    },
+    {
+      "id": "fest-2",
+      "q": "2. [Jazz band] Additional performer Carolyn Hart plays the _____.",
+      "options": [
+        "oboe",
+        "flute",
+        "violin",
+        "trumpet"
+      ],
+      "answer": 1,
+      "expl": "Kunci: B (flute). Transkrip: <u>\"Yes, the flute. She usually plays with symphony orchestras...\"</u>"
+    },
+    {
+      "id": "fest-3",
+      "q": "3. [Duck races] All the plastic ducks will be launched into the river at the back of the _____.",
+      "options": [
+        "railway bridge",
+        "cinema",
+        "town hall",
+        "market stall"
+      ],
+      "answer": 1,
+      "expl": "Kunci: B (cinema). Transkrip: <u>\"All the ducks will be launched into the river at the back of the cinema...\"</u>"
+    },
+    {
+      "id": "fest-4",
+      "q": "4. [Duck races] The prize for the winning duck in each race is tickets for the _____.",
+      "options": [
+        "jazz band",
+        "concert",
+        "drama show",
+        "flower exhibition"
+      ],
+      "answer": 1,
+      "expl": "Kunci: B (concert). Transkrip: <u>\"wins its owner free tickets for the concert on the last night of the festival.\"</u>"
+    },
+    {
+      "id": "fest-5",
+      "q": "5. [Duck races] Plastic ducks can be bought at a stall in the _____.",
+      "options": [
+        "school",
+        "cinema",
+        "market",
+        "library"
+      ],
+      "answer": 2,
+      "expl": "Kunci: C (market). Transkrip: <u>\"They're on sale at a stall in the market. You can't miss it...\"</u>"
+    },
+    {
+      "id": "fest-6",
+      "q": "6. [Flower show] Admission is free, and the flower show is being held in _____ Hall.",
+      "options": [
+        "Bythwaite",
+        "Blythewood",
+        "Braithwaite",
+        "Borthwick"
+      ],
+      "answer": 0,
+      "expl": "Kunci: A (Bythwaite). Transkrip: <u>\"B-Y-T-H-W-A-I-T-E. Bythwaite.\"</u>"
+    },
+    {
+      "id": "fest-7",
+      "q": "7. [Flower show] Prizes will be presented at 5:00 pm by a well-known _____.",
+      "options": [
+        "champion swimmer",
+        "actor",
+        "musician",
+        "mayor"
+      ],
+      "answer": 1,
+      "expl": "Kunci: B (actor). Transkrip: <u>\"...when the prizes are presented by a well-known actor — Kevin Shapless.\"</u>"
+    },
+    {
+      "id": "fest-8",
+      "q": "8. [Plays] The play \"The Mystery of Muldoon\" is suitable for:",
+      "options": [
+        "mainly for children (aged 5–10)",
+        "mainly for adults",
+        "suitable for people of all ages"
+      ],
+      "answer": 0,
+      "expl": "Kunci: A (mainly for children). Transkrip: <u>\"That's aimed at five to ten-year-olds.\"</u>"
+    },
+    {
+      "id": "fest-9",
+      "q": "9. [Plays] The play \"Fire and Flood\" is suitable for:",
+      "options": [
+        "mainly for children",
+        "mainly for adults",
+        "suitable for people of all ages"
+      ],
+      "answer": 1,
+      "expl": "Kunci: B (mainly for adults). Transkrip: <u>\"If you and your husband want to leave your children with a babysitter, you might like to see Fire and Flood... children might find it rather frightening.\"</u>"
+    },
+    {
+      "id": "fest-10",
+      "q": "10. [Plays] The comedy play \"Silly Sailor\" is suitable for:",
+      "options": [
+        "mainly for children",
+        "mainly for adults",
+        "suitable for people of all ages"
+      ],
+      "answer": 2,
+      "expl": "Kunci: C (suitable for people of all ages). Transkrip: <u>\"That's a comedy, and it's for young and old.\"</u>"
+    }
+  ]
+},
+  {
+  "id": "lis-conference",
+  "title": "Exercise 5: Note Completion — Future Directions in Computing Conference",
+  "source": "Latihan Dosen: Meeting 2 (Set 5) | Cambridge IELTS 6 Test 4 (UK RP)",
+  "audioUrl": "audio/lis-conference.mp3",
+  "officialSourceUrl": "https://mini-ielts.com/1298/listening/future-directions-in-computing",
+  "transcript": "[IELTS SECTION 1 CONVERSATION — COMPUTING CONFERENCE]\nClerk: \"Conference Centre Reservations. Good morning.\"\nWoman: \"Hi. I'm interested in the computing conference next month.\"\nClerk: \"Future Directions in Computing?\"\nWoman: \"Yes, that's right. Could I ask you a few questions about it?\"\nClerk: \"Of course.\"\nWoman: \"OK. I know the conference is for three days, but actually I want to attend on the Friday and Saturday only. Will that work out to be any cheaper?\"\nClerk: \"Let me have a look. Well, you could register for the two days separately, but that wouldn't actually save you very much as it still costs £35 for each day. In fact, if you register for the three days, you also get an invitation to a free dinner on the Saturday night, so that's probably the better option.\"\nWoman: \"Right, I'll do that. How much will the fees be in that case?\"\nClerk: \"It is £75.\"\nWoman: \"All right. I'd like to register for the full three days. Now, can I pay that by credit card?\"\nClerk: \"I'm afraid not. You'll have to send a cheque to us, or you can pay in person at the conference office.\"\nWoman: \"Fine. So it's probably easiest if I pay by cheque. Now then, what else do I need to arrange? How about accommodation? I guess that's not included in the price.\"\nClerk: \"No, I'm sorry, it's not. But we do have a few rooms available for delegates at the conference centre, if you'd like. Those are very cheap, but if you're interested, you'll need to book soon because there's always a heavy demand for them. They are only £15 per night, but they are very basic, and you'd have to get your own breakfast because they don't provide you with that. But it's very convenient because it's in the same building as the conference rooms. Oh, there's also a very reasonable guesthouse which is £25 per night, and I think that includes your breakfast.\"\nWoman: \"Is it close to the conference centre?\"\nClerk: \"It would be about a 10-minute walk away from here.\"\nWoman: \"I see. That sounds quite reasonable.\"\nClerk: \"Shall I send you a conference pack and an application form?\"\nWoman: \"Yes, please.\"\nClerk: \"OK. Now about the location. The conference centre is on South Park Road.\"\nWoman: \"Right.\"\nClerk: \"And it's next to the library.\"\nWoman: \"Right, thank you. And is there any public transport from the station?\"\nClerk: \"Yes, a taxi will cost about £5, or you can take bus number 21A from the station.\"\nWoman: \"Great. Thanks very much for all your help.\"\nClerk: \"You're welcome. Have a wonderful day.\"",
+  "questions": [
+    {
+      "id": "conf-1",
+      "q": "1. The total registration fee for attending the full three-day conference is £_____.",
+      "options": [
+        "35",
+        "70",
+        "75",
+        "105"
+      ],
+      "answer": 2,
+      "expl": "Kunci: C (75). Transkrip: <u>\"In fact, if you register for the three days... How much will the fees be in that case? It is £75.\"</u>"
+    },
+    {
+      "id": "conf-2",
+      "q": "2. Since credit cards are not accepted, advance payment must be made by _____ or upon arrival.",
+      "options": [
+        "cash",
+        "cheque",
+        "bank transfer",
+        "money order"
+      ],
+      "answer": 1,
+      "expl": "Kunci: B (cheque). Transkrip: <u>\"You'll have to send a cheque to us, or you can pay at the conference office.\"</u>"
+    },
+    {
+      "id": "conf-3",
+      "q": "3. Accommodation at the Conference Centre costs £_____ per night.",
+      "options": [
+        "10",
+        "15",
+        "25",
+        "35"
+      ],
+      "answer": 1,
+      "expl": "Kunci: B (15). Transkrip: <u>\"They are only £15 per night, but they are very basic...\"</u>"
+    },
+    {
+      "id": "conf-4",
+      "q": "4. Accommodation at the nearby Guest House costs £_____ per night (including breakfast).",
+      "options": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ],
+      "answer": 2,
+      "expl": "Kunci: C (25). Transkrip: <u>\"there's a very reasonable guesthouse which is £25 per night, and I think that includes your breakfast.\"</u>"
+    },
+    {
+      "id": "conf-5",
+      "q": "5. The Guest House is approximately a _____ walk away from the Conference Centre.",
+      "options": [
+        "5-minute",
+        "10-minute",
+        "15-minute",
+        "20-minute"
+      ],
+      "answer": 1,
+      "expl": "Kunci: B (10-minute). Transkrip: <u>\"It would be about a 10-minute walk away from here.\"</u>"
+    },
+    {
+      "id": "conf-6",
+      "q": "6. The clerk will send the woman an application form and a _____.",
+      "options": [
+        "conference pack",
+        "hotel directory",
+        "campus map",
+        "speaker list"
+      ],
+      "answer": 0,
+      "expl": "Kunci: A (conference pack). Transkrip: <u>\"Shall I send you a conference pack and an application form?\"</u>"
+    },
+    {
+      "id": "conf-7",
+      "q": "7. The Conference Centre is located on _____ Park Road.",
+      "options": [
+        "North",
+        "South",
+        "East",
+        "West"
+      ],
+      "answer": 1,
+      "expl": "Kunci: B (South). Transkrip: <u>\"The conference centre is on South Park Road.\"</u>"
+    },
+    {
+      "id": "conf-8",
+      "q": "8. The Conference Centre building is located right next to the _____.",
+      "options": [
+        "train station",
+        "city council",
+        "library",
+        "shopping mall"
+      ],
+      "answer": 2,
+      "expl": "Kunci: C (library). Transkrip: <u>\"And it's next to the library.\"</u>"
+    },
+    {
+      "id": "conf-9",
+      "q": "9. Taking a taxi from the railway station to the Conference Centre costs approximately £_____.",
+      "options": [
+        "3",
+        "5",
+        "8",
+        "12"
+      ],
+      "answer": 1,
+      "expl": "Kunci: B (5). Transkrip: <u>\"Yes, a taxi will cost about £5...\"</u>"
+    },
+    {
+      "id": "conf-10",
+      "q": "10. Delegates can also reach the Conference Centre from the station by taking bus number _____.",
+      "options": [
+        "12A",
+        "15B",
+        "21A",
+        "32C"
+      ],
+      "answer": 2,
+      "expl": "Kunci: C (21A). Transkrip: <u>\"...or you can take bus number 21A.\"</u>"
+    }
+  ]
+}
 ];
 
 // ==========================================

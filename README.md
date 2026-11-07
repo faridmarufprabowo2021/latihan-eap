@@ -44,12 +44,14 @@ Aplikasi ini membagi seluruh materi kuliah ke dalam halaman dan modul mandiri ya
 
 ## 🌟 Modul & Halaman Interaktif
 
-### 1. 🎧 Listening Arena (Pertemuan 1 & 2)
-Memuat ringkasan strategi mendengarkan akademik dan paket latihan audio otentik dosen yang dilengkapi **Audio Player Interaktif Beraksen British (UK RP)** dengan fitur kontrol kecepatan (0.8x, 1.0x, 1.2x) serta toggle transkrip tersembunyi:
+### 1. 🎧 Listening Arena (Pertemuan 1 & 2 - Total 42 Soal Otentik)
+Memuat ringkasan strategi mendengarkan akademik dan 5 paket latihan audio otentik dosen yang dilengkapi **Audio Player Interaktif Beraksen British (UK RP)** dengan fitur kontrol kecepatan (0.8x, 1.0x, 1.2x) serta toggle transkrip tersembunyi:
 - **Set 1:** *Nathan's School (Brooklyn Free School)* — 7 butir soal pilihan ganda dialog Host & Nathan (Aksen British, sumber *Oxford Solutions*).
 - **Set 2:** *Miley Cyrus Biography* — 10 butir soal riwayat karier dan prestasi Billboard (Narasi British yang jernih).
 - **Set 3:** *Roger Brown Youth Council* — 5 butir soal formulir identitas, pekerjaan, dan komite disabilitas (Dialog Otentik *Cambridge IELTS 11 Test 2 Section 1* lengkap dengan link rekaman asli).
-- **Set 4 & 5 (UTS Exam Simulator):** Skenario audio akademik beraksen British untuk kuliah algoritma, konsultasi KRS, pengumuman seminar AI, diskusi jurnal cloud security, dan briefing ujian.
+- **Set 4:** *Stretton Community Festival Events* — 10 butir soal tabel dan catatan acara festival, pameran seni Bythwaite Hall, dan drama (*Cambridge IELTS 11 Test 4 Section 1*).
+- **Set 5:** *Future Directions in Computing Conference* — 10 butir soal pendaftaran konferensi ilmu komputer, biaya registrasi, dan rute transportasi (*Cambridge IELTS 6 Test 4 Section 1*).
+- **Simulasi UTS Tambahan:** 5 butir skenario audio akademik beraksen British untuk kuliah algoritma, konsultasi KRS, pengumuman seminar AI, diskusi jurnal cloud security, dan briefing ujian.
 
 ### 2. ⚡ Structure & Grammar (Pertemuan 3 & 4)
 Bedah tuntas komponen tata bahasa akademik:

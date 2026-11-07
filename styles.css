@@ -926,6 +926,13 @@ textarea.outline-input {
   }
 }
 
+.drilling-questions-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 16px;
+}
+
 /* ================= Print Styles ================= */
 @media print {
   body {

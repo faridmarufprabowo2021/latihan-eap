@@ -18,7 +18,7 @@ const LISTENING_DRILLS = [
   {
     id: 'lis-nathan',
     title: "Exercise 1: Radio Interview — Nathan's School (Brooklyn Free School)",
-    source: 'Lecturer Document: Meeting 2 (Listening exercise.docx - Image 1)',
+    source: 'Latihan Dosen: Meeting 2 (Set 1)',
     transcript: `[RADIO INTERVIEW TRANSCRIPT]
 Host: "Welcome back to Education Today. Today we're visiting Brooklyn Free School in New York to speak with Nathan, a 16-year-old high school student. Nathan, tell us about how your school works."
 Nathan: "Hi! Well, Brooklyn Free School is really unique. There are no tests, no homework, and no mandatory grades. In my section of the school, students are aged 12 to 18, and there are about 60 students in total. We choose what we want to study every day."
@@ -81,7 +81,7 @@ Nathan: "I absolutely love it. It's an inspiring place to learn."`,
   {
     id: 'lis-miley',
     title: 'Exercise 2: Biography Profile — Miley Cyrus Short Biography',
-    source: 'Lecturer Document: Meeting 2 (Listening exercise.docx - Image 2)',
+    source: 'Latihan Dosen: Meeting 2 (Set 2)',
     transcript: `[BIOGRAPHY AUDIO TRANSCRIPT]
 Narrator: "Miley Cyrus was born to be a star. She was born on November 23rd, 1992, in Franklin, Tennessee. Cyrus became famous worldwide when she starred in the television show "Hannah Montana" on Disney Channel. Two years later, she expanded her fame into mainstream pop music. Her 3D concert movie obtained more than 55 million dollars at the box office on opening weekend. Remarkably, by age 16, Miley already had achieved two number-one albums on the Billboard charts. Her energetic single "Party in the USA" became her best-selling single across the United States. Many music critics and fans respect her because she fearlessly takes artistic risks. In 2011, she was officially ranked in Hollywood as the second richest person under 25. Later in 2012, Miley made a notable guest appearance in the sitcom "Two and a Half Men", participating a few times throughout the season."`,
     questions: [
@@ -160,7 +160,7 @@ Narrator: "Miley Cyrus was born to be a star. She was born on November 23rd, 199
   {
     id: 'lis-council',
     title: 'Exercise 3: IELTS Form Completion — Joining Youth Council (Roger Brown)',
-    source: 'Lecturer Document: Meeting 2 (Listening exercise.docx - Image 3 & 4)',
+    source: 'Latihan Dosen: Meeting 2 (Set 3)',
     transcript: `[IELTS SECTION 1 CONVERSATION]
 Officer: "Good morning, Youth Council office. How can I help you?"
 Roger: "Hello, my name is Roger Brown, and I'd like to ask about joining the Youth Council."
@@ -224,7 +224,7 @@ const GRAMMAR_DRILLS = [
   {
     id: 'g-pos',
     title: 'Drill 1: Parts of Speech Mastery (Meeting 3)',
-    source: 'Lecturer Document: Meeting 3 (Part of Speech Exercise.docx)',
+    source: 'Latihan Dosen: Meeting 3 (Parts of Speech)',
     questions: [
       {
         id: 'pos-1',
@@ -295,7 +295,7 @@ const GRAMMAR_DRILLS = [
   {
     id: 'g-sent-types',
     title: 'Drill 2: Simple, Compound, & Complex Sentences (Meeting 4)',
-    source: 'Lecturer Document: Meeting 4 PPTX & Exercise of S,CPD CPX.docx',
+    source: 'Latihan Dosen: Meeting 4 (Sentence Types)',
     questions: [
       {
         id: 'st-1',
@@ -345,7 +345,7 @@ const DRILLING_PASSAGES = [
   {
     id: 'p-laura',
     title: 'Questions 1–4 refer to the following email.',
-    source: 'Lecturer Document: READING Drilling ANS - Word (Q1–Q4)',
+    source: 'Dokumen Dosen: READING 1–Q4',
     text: `Dear Ms. Longueview,
 
 I'm so thrilled to receive the offer to intern at Bright Works Incorporated. I am truly looking forward to working with the team, and I'm particularly excited to work on the solar panel project this summer.
@@ -419,7 +419,7 @@ Laura Collins`,
   {
     id: 'p-chart',
     title: 'Questions 5–7 refer to the following chart.',
-    source: 'Lecturer Document: READING Drilling ANS - Word (Q5–Q7)',
+    source: 'Dokumen Dosen: READING 5–Q7',
     text: `Recommendations for adult Women 18-45
 (Men 18-45, see page 16. Children under 18, see page 17)
 
@@ -478,7 +478,7 @@ Grains (bread, Cereal, Rice)                              4`,
   {
     id: 'p-listings',
     title: 'Questions 8–11 refer to the following List.',
-    source: 'Lecturer Document: READING Drilling ANS - Word (Q8–Q11)',
+    source: 'Dokumen Dosen: READING 8–Q11',
     text: `Telephone Listings:
 Craig, Mary         1245 Grayson Ln.        541-0987
 Craig, Samuel       1346 Bear Ct            541-3211
@@ -540,7 +540,7 @@ Ryan, Patrick       5678 Taylor St.         541-9087`,
   {
     id: 'p-vacancy',
     title: 'Questions 12–15 refer to the following text.',
-    source: 'Lecturer Document: READING Drilling ANS - Word (Q12–Q15)',
+    source: 'Dokumen Dosen: READING 12–Q15',
     text: `URGENTLY REQUIRED: Secretary
 - Female, graduated from a reputable university
 - Min. 5 years of work experience
@@ -606,7 +606,7 @@ e-mail address: mitraenergy@cbn.net.id
   {
     id: 'p-gregor',
     title: 'Questions 16–18 refer to the following email.',
-    source: 'Lecturer Document: READING Drilling ANS - Word (Q16–Q18)',
+    source: 'Dokumen Dosen: READING 16–Q18',
     text: `Hi Samia,
 Just a quick email to say that sounds like a great idea. Saturday is better for me because I'm meeting my parents on Sunday. So, if that's still good for you, why don't you come here? Then you can see the new flat and all the work we've done on the kitchen since we moved in. We can eat at home and then go for a walk in the afternoon. It's going to be so good to catch up finally. I want to hear all about your new job!
 
@@ -659,7 +659,7 @@ Gregor`,
   {
     id: 'p-jarvis',
     title: 'Questions 19–22 refer to the following Advertisement.',
-    source: 'Lecturer Document: READING Drilling ANS - Word (Q19–Q22)',
+    source: 'Dokumen Dosen: READING 19–Q22',
     text: `Jarvis Miracle Cleaner is the one product engineers, mechanics and construction workers just cannot do without. Its unique patented formula allows you to quickly and easily remove dirt, grime, and oil from your hands without damaging your skin. For 40 years, Jarvis Miracle Cleaner has been the number 1 cleaning product in American industry, and it is now available for home use for the first time.
 
 Jarvis Deluxe Cleaner is a milder version of the industrial cleaver with a new yellow color and fresh lemon scent. Jarvis Deluxe Cleaner removes not just oil and grease but also paint, ink, and almost anything else you or your children get on your hands and skin. Jarvis Deluxe Cleaner has been tested and demonstrated to be gentle enough for even the most sensitive skin.
@@ -723,7 +723,7 @@ Bath products are now available at all good supermarkets and drugstores.`,
   {
     id: 'p-airport',
     title: 'Questions 23–25 refer to the following airport notice.',
-    source: 'Lecturer Document: READING Drilling ANS - Word (Q23–Q25)',
+    source: 'Dokumen Dosen: READING 23–Q25',
     text: `What can I take on the plane as hand luggage?
 Please note that passengers can only take ONE suitcase onto the plane. It must be no bigger than 55cm x 22cm x 35cm and weigh no more than 10kg.
 
@@ -778,7 +778,7 @@ We hope you enjoy your flight!`,
   {
     id: 'p-mit',
     title: 'Questions 26–30 refer to the following News.',
-    source: 'Lecturer Document: READING Drilling ANS - Word (Q26–Q30)',
+    source: 'Dokumen Dosen: READING 26–Q30',
     text: `Designing a complex electronic device like a delivery drone involves juggling many choices, such as selecting motors and batteries that minimize cost while maximizing the payload the drone can carry or the distance it can travel.
 
 Unraveling that conundrum is no easy task, but what happens if the designers don't know the exact specifications of each battery and motor? On top of that, the real-world performance of these components will likely be affected by unpredictable factors, like changing weather along the drone's route.
@@ -1179,6 +1179,7 @@ const AppState = {
 // Initialize App
 document.addEventListener('DOMContentLoaded', () => {
   initTabs();
+  initGrammarPuzzles();
   initAccordions();
   renderListeningDrills();
   renderGrammarDrills();
@@ -1188,6 +1189,146 @@ document.addEventListener('DOMContentLoaded', () => {
   initOutlineBuilder();
   renderWritingModels();
 });
+
+
+// ================= Interactive Word Puzzle Engine =================
+const GRAMMAR_PUZZLES_DATA = [
+  {
+    id: 'puz-simple',
+    tokens: ['Both software engineers', 'and data analysts', 'tested', 'the neural network.'],
+    targetOrder: [0, 1, 2, 3],
+    ruleInfo: 'Pola Simple Sentence: Subjek Majemuk ("Both software engineers and data analysts") + 1 Finite Verb ("tested") + Objek ("the neural network"). Kalimat ini tetap Simple Sentence karena hanya memiliki 1 klausa independen.'
+  },
+  {
+    id: 'puz-compound',
+    tokens: ['The autonomous drone returned to base,', 'for', 'its primary battery', 'depleted below ten percent.'],
+    targetOrder: [0, 1, 2, 3],
+    ruleInfo: 'Pola Compound Sentence: [Klausa Mandiri 1] , [FANBOYS "for"] [Klausa Mandiri 2]. Tanda koma wajib persis sebelum konjungsi for (makna: sebab/because).'
+  },
+  {
+    id: 'puz-complex',
+    tokens: ['Although he was nervous,', 'he delivered', 'an exceptional presentation.'],
+    targetOrder: [0, 1, 2],
+    ruleInfo: 'Pola Complex Sentence (Pola A): Dependent Clause di awal ("Although he was nervous") WAJIB diikuti tanda koma sebelum Independent Clause ("he delivered an exceptional presentation").'
+  },
+  {
+    id: 'puz-trap',
+    tokens: ['I like coding,', 'and', 'I also design', 'intuitive websites.'],
+    targetOrder: [0, 1, 2, 3],
+    ruleInfo: 'Perbaikan Comma Splice: Menambahkan tanda koma dan Coordinating Conjunction FANBOYS ("and") berhasil menyatukan dua klausa mandiri menjadi Compound Sentence yang sah secara akademis.'
+  }
+];
+
+const PuzzleState = {
+  'puz-simple': { current: [], used: [] },
+  'puz-compound': { current: [], used: [] },
+  'puz-complex': { current: [], used: [] },
+  'puz-trap': { current: [], used: [] }
+};
+
+function initGrammarPuzzles() {
+  GRAMMAR_PUZZLES_DATA.forEach(puz => {
+    renderPuzzleBank(puz.id);
+  });
+}
+
+function renderPuzzleBank(puzId) {
+  const puz = GRAMMAR_PUZZLES_DATA.find(p => p.id === puzId);
+  if (!puz) return;
+
+  const bankEl = document.getElementById('bank-' + puzId);
+  const slotEl = document.getElementById('slot-' + puzId);
+  const placeholderEl = document.getElementById('placeholder-' + puzId);
+  if (!bankEl || !slotEl) return;
+
+  const state = PuzzleState[puzId];
+
+  // Render tokens in bank (shuffled view initially if needed, here we provide chips)
+  let bankHtml = '';
+  // Deterministic scramble indices: [2, 0, 3, 1]
+  const scrambleOrder = [2, 0, 3, 1].filter(idx => idx < puz.tokens.length);
+  // Any remaining indices
+  for (let i = 0; i < puz.tokens.length; i++) {
+    if (!scrambleOrder.includes(i)) scrambleOrder.push(i);
+  }
+
+  scrambleOrder.forEach(idx => {
+    const isUsed = state.used.includes(idx);
+    bankHtml += `<button type="button" class="puzzle-chip ${isUsed ? 'used' : ''}" onclick="clickPuzzleToken('${puzId}', ${idx})">${escapeHtml(puz.tokens[idx])}</button>`;
+  });
+  bankEl.innerHTML = bankHtml;
+
+  // Render tokens in drop slot
+  if (state.current.length === 0) {
+    if (placeholderEl) placeholderEl.style.display = 'inline';
+    slotEl.innerHTML = `<span class="puzzle-drop-placeholder" id="placeholder-${puzId}">Klik kata di bawah untuk memindahkannya ke sini...</span>`;
+  } else {
+    let slotHtml = '';
+    state.current.forEach((idx, slotIdx) => {
+      slotHtml += `<button type="button" class="puzzle-chip placed" onclick="removePuzzleToken('${puzId}', ${slotIdx})">${escapeHtml(puz.tokens[idx])} ✕</button>`;
+    });
+    slotEl.innerHTML = slotHtml;
+  }
+}
+
+window.clickPuzzleToken = function(puzId, tokenIdx) {
+  const state = PuzzleState[puzId];
+  if (!state || state.used.includes(tokenIdx)) return;
+
+  state.current.push(tokenIdx);
+  state.used.push(tokenIdx);
+  renderPuzzleBank(puzId);
+
+  // Hide feedback when editing
+  const fb = document.getElementById('feedback-' + puzId);
+  if (fb) fb.className = 'puzzle-feedback-badge';
+};
+
+window.removePuzzleToken = function(puzId, slotIdx) {
+  const state = PuzzleState[puzId];
+  if (!state || slotIdx >= state.current.length) return;
+
+  const tokenIdx = state.current[slotIdx];
+  state.current.splice(slotIdx, 1);
+  state.used = state.used.filter(idx => idx !== tokenIdx);
+  renderPuzzleBank(puzId);
+
+  const fb = document.getElementById('feedback-' + puzId);
+  if (fb) fb.className = 'puzzle-feedback-badge';
+};
+
+window.checkPuzzle = function(puzId) {
+  const puz = GRAMMAR_PUZZLES_DATA.find(p => p.id === puzId);
+  const state = PuzzleState[puzId];
+  const fb = document.getElementById('feedback-' + puzId);
+  if (!puz || !state || !fb) return;
+
+  if (state.current.length !== puz.targetOrder.length) {
+    fb.className = 'puzzle-feedback-badge show wrong';
+    fb.innerHTML = '⚠️ Kepingan kalimat belum lengkap. Masukkan semua kata ke dalam slot sebelum memeriksa.';
+    return;
+  }
+
+  const isCorrect = state.current.every((val, idx) => val === puz.targetOrder[idx]);
+
+  if (isCorrect) {
+    fb.className = 'puzzle-feedback-badge show correct';
+    fb.innerHTML = `🎉 <strong>Susunan Benar!</strong> ${puz.ruleInfo}`;
+  } else {
+    fb.className = 'puzzle-feedback-badge show wrong';
+    fb.innerHTML = '❌ <strong>Susunan belum tepat.</strong> Perhatikan kembali posisi subjek, predikat (finite verb), atau letak tanda koma dan konjungsi!';
+  }
+};
+
+window.resetPuzzle = function(puzId) {
+  const state = PuzzleState[puzId];
+  if (!state) return;
+  state.current = [];
+  state.used = [];
+  renderPuzzleBank(puzId);
+  const fb = document.getElementById('feedback-' + puzId);
+  if (fb) fb.className = 'puzzle-feedback-badge';
+};
 
 // ================= Tab Navigation =================
 function initTabs() {
@@ -1310,7 +1451,23 @@ window.handleListeningAnswer = function(drillId, questionId, selectedIdx) {
   });
 
   const expl = document.getElementById(`lis-expl-${questionId}`);
-  if (expl) expl.classList.add('show');
+  if (expl) {
+    const statusHtml = isCorrect
+      ? '<div class="expl-status-banner banner-success">🎉 <strong>Jawaban Anda Benar!</strong> Pilihan Anda tepat sesuai transkrip percakapan audio resmi dosen.</div>'
+      : '<div class="expl-status-banner banner-danger">❌ <strong>Jawaban Belum Tepat.</strong> Opsi yang Anda pilih kurang akurat. Pelajari rujukan materi dan bukti transkrip di bawah:</div>';
+
+    const rpsModuleHtml = '<div class="expl-meta-ref">📚 Materi Perkuliahan RPS: Pertemuan 1 & 2 (Listening Comprehension — Extracting Specific Details & Note Taking)</div>';
+
+    expl.innerHTML = `
+      ${statusHtml}
+      ${rpsModuleHtml}
+      <div class="expl-section-block">
+        <strong>💡 Pembahasan Mendalam & Bukti Transkrip:</strong>
+        <div style="margin-top: 6px; line-height: 1.6;">${question.expl}</div>
+      </div>
+    `;
+    expl.classList.add('show');
+  }
 
   AppState.listeningAnswers[questionId] = isCorrect;
   updateListeningBadge();
@@ -1405,7 +1562,31 @@ window.handleGrammarAnswer = function(drillId, questionId, selectedIdx) {
   });
 
   const expl = document.getElementById(`gram-expl-${questionId}`);
-  if (expl) expl.classList.add('show');
+  if (expl) {
+    const statusHtml = isCorrect
+      ? '<div class="expl-status-banner banner-success">🎉 <strong>Jawaban Anda Benar!</strong> Analisis tata bahasa Anda tepat.</div>'
+      : '<div class="expl-status-banner banner-danger">❌ <strong>Jawaban Belum Tepat.</strong> Analisis struktur kalimat Anda keliru. Pelajari tabel materi dan kaidah di bawah:</div>';
+
+    const isMeeting3 = drillId.includes('pos');
+    const rpsModuleHtml = isMeeting3
+      ? '<div class="expl-meta-ref">📚 Materi Perkuliahan RPS: Pertemuan 3 (The Basic Parts of Speech & Sentence Components S-V-O-C-A)</div>'
+      : '<div class="expl-meta-ref">📚 Materi Perkuliahan RPS: Pertemuan 4 (Simple, Compound Sentences [FANBOYS], and Complex Sentences)</div>';
+
+    const miniTableHtml = isMeeting3
+      ? '<div class="expl-section-block"><strong>📌 Rujukan Cepat Komponen Kalimat (Meeting 3):</strong><br>S (Pelaku) + V (Finite Verb) + O (Objek Langsung/Tak Langsung) + C (Pelengkap Subjek/Objek) + A (Keterangan waktu/tempat/cara).</div>'
+      : '<div class="expl-section-block"><strong>📌 Rujukan Cepat Aturan Koma & Konjungsi (Meeting 4):</strong><br>• Compound: <code>[Klausa Bebas 1] , [FANBOYS] [Klausa Bebas 2]</code><br>• Complex Pola A: <code>[Subordinator + Klausa] , [Klausa Utama]</code> (Wajib Koma!)<br>• Complex Pola B: <code>[Klausa Utama] [Subordinator + Klausa]</code> (Dilarang Koma!)</div>';
+
+    expl.innerHTML = `
+      ${statusHtml}
+      ${rpsModuleHtml}
+      ${miniTableHtml}
+      <div class="expl-section-block">
+        <strong>💡 Pembahasan Mendalam & Kaidah Gramatika:</strong>
+        <div style="margin-top: 6px; line-height: 1.6;">${question.expl}</div>
+      </div>
+    `;
+    expl.classList.add('show');
+  }
 
   AppState.grammarAnswers[questionId] = isCorrect;
   updateGrammarBadge();
@@ -1510,6 +1691,20 @@ window.handleDrillAnswer = function(passageId, questionId, selectedIdx) {
 
   const explCard = document.getElementById(`drill-expl-${questionId}`);
   if (explCard) {
+    const statusHtml = isCorrect
+      ? '<div class="expl-status-banner banner-success">🎉 <strong>Jawaban Anda Benar!</strong> Pilihan Anda tepat sesuai kunci hijau resmi naskah dosen.</div>'
+      : '<div class="expl-status-banner banner-danger">❌ <strong>Jawaban Belum Tepat.</strong> Anda memilih opsi yang keliru. Silakan pelajari rujukan materi dosen dan kalimat bukti di bawah:</div>';
+
+    const rpsModuleHtml = '<div class="expl-meta-ref">📚 Materi Perkuliahan: Pertemuan 5 & 6 (Reading Comprehension — Main Ideas, Detail Scanning & Text Evidence)</div>';
+
+    explCard.innerHTML = `
+      ${statusHtml}
+      ${rpsModuleHtml}
+      <div class="expl-section-block">
+        <strong>💡 Penjelasan & Kunci Resmi Dosen (Dengan Kalimat yang Digarisbawahi):</strong>
+        <div style="margin-top: 6px; line-height: 1.6;">${question.expl}</div>
+      </div>
+    `;
     explCard.classList.add('show');
   }
 

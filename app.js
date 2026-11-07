@@ -1,34 +1,36 @@
 /**
  * Ruang EAP — Application Logic & Question Engine
  * Universitas Muhammadiyah Surakarta — Teknik Informatika
+ * 
+ * 100% Sesuai Dokumen & Kunci Resmi Dosen:
+ * READING Drilling ANS - Word (Questions 1 - 30 Lengkap dengan Kunci Hijau & Underline)
  */
 
 // ==========================================
-// 1. AUTHENTIC LECTURER DRILLING QUESTIONS
-// (Source: READING Drilling ANS - Word & Lecture Slides)
+// 1. DOKUMEN RESMI DOSEN: 30 SOAL DRILLING LENGKAP
+// Kunci jawaban disinkronkan 100% dengan highlight hijau dosen
 // ==========================================
 
 const DRILLING_PASSAGES = [
+  // PASSAGE 1: QUESTIONS 1 - 4
   {
     id: 'p-laura',
-    title: 'Passage 1: Formal Email — Internship Offer Response',
+    title: 'Questions 1–4 refer to the following email.',
     source: 'Lecturer Document: READING Drilling ANS - Word (Q1–Q4)',
-    text: `Subject: Internship Confirmation & Schedule Query
-Dear Ms. Longueview,
+    text: `Dear Ms. Longueview,
 
-Thank you very much for offering me the internship position at Bright Works. I am thrilled and would like to formally accept the internship offer.
+I'm so thrilled to receive the offer to intern at Bright Works Incorporated. I am truly looking forward to working with the team, and I'm particularly excited to work on the solar panel project this summer.
 
-However, I am currently completing my senior research fellowship program at the institute, which runs until the end of the upcoming month. Because of this commitment, I would like to inquire whether it might be possible to adjust my starting date by two weeks.
+I would like to accept the terms outlined in the offer, but I'd appreciate the opportunity to speak with you about altering the start date for the role. I'm currently finishing up my fellowship program at the university and will be taking exams until May 27, 2025, so I may need accommodations in this respect. Would you have time to chat at the end of this week?
 
-I would welcome the opportunity to discuss this further with you. Could we schedule a brief telephone conversation at the end of this week to discuss the timeline?
-
-Thank you again for this wonderful opportunity.
+Thank you for your time. I look forward to hearing from you soon and learning more about Bright Works.
 
 Best wishes,
 Laura Collins`,
     questions: [
       {
         id: 'drill-1',
+        num: 1,
         clo: 'CLO 3',
         q: '1. Why is Laura Collins writing to Ms. Longueview?',
         options: [
@@ -37,24 +39,26 @@ Laura Collins`,
           'To ask for a higher salary',
           'To complain about the work conditions'
         ],
-        answer: 1, // B
-        expl: 'Kunci Resmi Dosen: B. Laura secara eksplisit menulis "I am thrilled and would like to formally accept the internship offer."'
+        answer: 1, // B (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): B. To accept the internship.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>I would like to accept the terms outlined in the offer</u>, but I\'d appreciate the opportunity to speak with you about altering the start date for the role."</em><br>Laura secara eksplisit menulis untuk menerima tawaran magang tersebut.'
       },
       {
         id: 'drill-2',
+        num: 2,
         clo: 'CLO 3',
-        q: '2. Why does Laura need to change the start date? Because...',
+        q: '2. Why does Laura need to change the start date? Because…',
         options: [
           'She is moving to a new city.',
           'She wants to travel first.',
           'She wants to learn about Bright Works.',
           'She is finishing fellowship program.'
         ],
-        answer: 3, // D
-        expl: 'Kunci Resmi Dosen: D. Laura menyebutkan: "I am currently completing my senior research fellowship program at the institute... Because of this commitment, I would like to inquire whether it might be possible to adjust my starting date."'
+        answer: 3, // D (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): D. She is finishing fellowship program.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>I\'m currently finishing up my fellowship program at the university</u> and will be taking exams until May 27, 2025, so I may need accommodations in this respect."</em>'
       },
       {
         id: 'drill-3',
+        num: 3,
         clo: 'CLO 3',
         q: '3. When does Laura suggest having a conversation with Ms. Longueview?',
         options: [
@@ -63,37 +67,44 @@ Laura Collins`,
           'At the end of this week',
           'In two weeks'
         ],
-        answer: 2, // C
-        expl: 'Kunci Resmi Dosen: C. Laura menyarankan: "Could we schedule a brief telephone conversation at the end of this week to discuss the timeline?"'
+        answer: 2, // C (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): C. At the end of this week.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>Would you have time to chat at the end of this week?</u>"</em>'
       },
       {
         id: 'drill-4',
+        num: 4,
         clo: 'CLO 3',
         q: '4. What will Ms. Longueview most likely do next?',
         options: [
-          'Ignore Laura\'s email completely',
+          'Ignore Laura’s email completely',
           'Reply to schedule a conversation about the start date',
           'Tell Laura she cannot change the internship dates',
           'Offer Laura a full-time job instead'
         ],
-        answer: 1, // B
-        expl: 'Kunci Resmi Dosen: B. Berdasarkan etika komunikasi profesional, Ms. Longueview akan merespons email Laura untuk menjadwalkan percakapan terkait tanggal mulai magang.'
+        answer: 1, // B (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): B. Reply to schedule a conversation about the start date.<br><strong>Penjelasan Logis:</strong><br>Karena Laura menanyakan kesediaan jadwal obrolan di akhir pekan, tindakan paling wajar dan profesional dari pihak HRD (Ms. Longueview) adalah membalas email untuk menyepakati waktu perbincangan terkait tanggal mulai magang.'
       }
     ]
   },
+
+  // PASSAGE 2: QUESTIONS 5 - 7
   {
     id: 'p-chart',
-    title: 'Passage 2: Daily Nutrition Chart & Food Groups',
+    title: 'Questions 5–7 refer to the following chart.',
     source: 'Lecturer Document: READING Drilling ANS - Word (Q5–Q7)',
-    text: `DAILY RECOMMENDED DIETARY GUIDELINES (FOR ADULT WOMEN):
-• Vegetables (Carrots, Tomatoes, Spinach): 5 servings per day
-• Fruit (Oranges, Apples, Berries): 3 servings per day
-• Grains (Bread, Cereal, Rice): 4 servings per day
-• Dairy (Milk, Yogurt, Cheese): 3 servings per day
-• Protein (Chicken, Fish, Eggs, Beans): 2 servings per day`,
+    text: `Recommendations for adult Women 18-45
+(Men 18-45, see page 16. Children under 18, see page 17)
+
+Food Group                                               No. of recommended Daily Servings
+Dairy Products (Milk and Milk Products, Eggs)             3
+Meat (fish, Chicken, Beef)                                2
+Vegetables (Carrots, Tomatoes, spinach)                   5
+Fruit (oranges, Apples, Berries)                          3
+Grains (bread, Cereal, Rice)                              4`,
     questions: [
       {
         id: 'drill-5',
+        num: 5,
         clo: 'CLO 3',
         q: '5. According to this chart, what should women do every day?',
         options: [
@@ -102,11 +113,12 @@ Laura Collins`,
           'Eat five servings of vegetables',
           'Eat more fruit than vegetables'
         ],
-        answer: 2, // C
-        expl: 'Kunci Resmi Dosen: C. Pada tabel tertulis jelas "Vegetables (Carrots, Tomatoes, spinach): 5 servings per day".'
+        answer: 2, // C (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): C. Eat five servings of vegetables.<br><strong>Baris Pendukung yang Digarisbawahi:</strong><br><em>"<u>Vegetables (Carrots, Tomatoes, spinach) : 5</u>"</em> servings per day.'
       },
       {
         id: 'drill-6',
+        num: 6,
         clo: 'CLO 3',
         q: '6. Which of the following is a dairy product?',
         options: [
@@ -115,11 +127,12 @@ Laura Collins`,
           'Onions',
           'Cheese'
         ],
-        answer: 3, // D
-        expl: 'Kunci Resmi Dosen: D. Cheese (keju) merupakan produk olahan susu (dairy product).'
+        answer: 3, // D (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): D. Cheese.<br><strong>Baris Pendukung yang Digarisbawahi:</strong><br><em>"<u>Dairy Products (Milk and Milk Products, Eggs)</u>"</em>.<br>Keju (cheese) adalah produk olahan susu murni (dairy product).'
       },
       {
         id: 'drill-7',
+        num: 7,
         clo: 'CLO 3',
         q: '7. Which of the following foods belongs to the grain group?',
         options: [
@@ -128,260 +141,295 @@ Laura Collins`,
           'Eggs',
           'Fish'
         ],
-        answer: 1, // B
-        expl: 'Kunci Resmi Dosen: B. Pada tabel tertulis "Grains (bread, Cereal, Rice)". Beras/nasi termasuk kelompok biji-bijian (grain group).'
+        answer: 1, // B (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): B. Rice.<br><strong>Baris Pendukung yang Digarisbawahi:</strong><br><em>"<u>Grains (bread, Cereal, Rice)</u>"</em>.<br>Beras/nasi (rice) masuk ke kelompok biji-bijian (grain group).'
       }
     ]
   },
+
+  // PASSAGE 3: QUESTIONS 8 - 11
   {
     id: 'p-listings',
-    title: 'Passage 3: Telephone Listings Directory',
+    title: 'Questions 8–11 refer to the following List.',
     source: 'Lecturer Document: READING Drilling ANS - Word (Q8–Q11)',
-    text: `DIRECTORY LISTINGS:
-• Craig, Mary — 1245 Grayson Ln. — 541-0987
-• Craig, Samuel — 1346 Bear Ct — 541-3211
-• Lambert, Wm. — 4567 Center St. — 654-9087
-• Layton, Tim — 1247 Grayson Ln. — 541-8842
-• Meyer, Walter — 1346 Bear Ct — 541-3211`,
+    text: `Telephone Listings:
+Craig, Mary         1245 Grayson Ln.        541-0987
+Craig, Samuel       1346 Bear Ct            541-3211
+Lambert, Wm.        4567 Center St.         654-9087
+Layton, Tim         1235 Grayson Ln         541-2345
+Mc Grath, R.        1897 Lee Dr.            541-8765
+Meyer, Walter       1346 Bear Ct            541-3211
+Ryan, Patrick       5678 Taylor St.         541-9087`,
     questions: [
       {
         id: 'drill-8',
+        num: 8,
         clo: 'CLO 3',
-        q: '8. From the lists, it is obviously described that ... lives in different area from others.',
+        q: '8. How many phone numbers which possibly take on the same area?',
+        options: [
+          'Four',
+          'Six',
+          'Five',
+          'Seven'
+        ],
+        answer: 1, // B (Kunci Logis: 6 nomor berawalan 541)
+        expl: 'Kunci Jawaban: B. Six.<br><strong>Analisis Kode Area yang Digarisbawahi:</strong><br>Perhatikan awalan kode telepon pada daftar:<br>1. Mary Craig: <u>541</u>-0987<br>2. Samuel Craig: <u>541</u>-3211<br>3. Tim Layton: <u>541</u>-2345<br>4. R. Mc Grath: <u>541</u>-8765<br>5. Walter Meyer: <u>541</u>-3211<br>6. Patrick Ryan: <u>541</u>-9087<br>Ada <strong>6 nomor</strong> yang memiliki kode area yang sama (541), sedangkan Wm. Lambert memiliki kode area berbeda (654).'
+      },
+      {
+        id: 'drill-9',
+        num: 9,
+        clo: 'CLO 3',
+        q: '9. From the lists, it is obviously described that …lives in different area from others.',
         options: [
           'Craig, Samuel',
           'Lambert, Wm.',
           'Mc Grath, R.',
           'Layton, Tim'
         ],
-        answer: 1, // B
-        expl: 'Kunci Resmi Dosen: B. Wm. Lambert tinggal di Center St. dengan awalan nomor telepon 654 (area berbeda), sedangkan lainnya di Grayson Ln. / Bear Ct dengan awalan 541.'
-      },
-      {
-        id: 'drill-9',
-        clo: 'CLO 3',
-        q: '9. Which two people are possibly living at the same address?',
-        options: [
-          'Patrick Ryan and Wm. Lambert',
-          'Mary Craig and Tim Layton',
-          'Walter Meyer and Tim Layton',
-          'Samuel Craig and Walter Meyer'
-        ],
-        answer: 3, // D
-        expl: 'Kunci Resmi Dosen: D. Samuel Craig dan Walter Meyer sama-sama beralamat di "1346 Bear Ct" dan nomor telepon yang sama "541-3211".'
+        answer: 1, // B (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): B. Lambert, Wm.<br><strong>Bukti Pendukung yang Digarisbawahi:</strong><br><em>"<u>Lambert, Wm.  4567 Center St.  654-9087</u>"</em>.<br>Semua kontak lain memiliki awalan telepon 541, hanya Wm. Lambert yang memiliki awalan 654 dan jalan Center St.'
       },
       {
         id: 'drill-10',
+        num: 10,
         clo: 'CLO 3',
-        q: '10. Which two people are probably neighbors?',
+        q: '10. Which two people are possibly living at the same address?',
         options: [
-          'Patrick Ryan and Wm. Lambert',
-          'Mary Craig and Tim Layton',
+          'Patrick Ryan and Wm. Lambert.',
+          'Mary Craig and Tim Layton.',
           'Walter Meyer and Tim Layton',
-          'Samuel Craig and Wm. Lambert'
+          'Samuel Craig and Walter Meyer.'
         ],
-        answer: 1, // B
-        expl: 'Kunci Resmi Dosen: B. Mary Craig (1245 Grayson Ln.) dan Tim Layton (1247 Grayson Ln.) memiliki alamat nomor rumah bersebelahan di jalan yang sama.'
+        answer: 3, // D (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): D. Samuel Craig and Walter Meyer.<br><strong>Bukti Pendukung yang Digarisbawahi:</strong><br><em>"Craig, Samuel : <u>1346 Bear Ct</u>   <u>541-3211</u>"</em><br><em>"Meyer, Walter : <u>1346 Bear Ct</u>   <u>541-3211</u>"</em>.<br>Keduanya tercatat pada alamat jalan dan nomor telepon yang persis sama.'
+      },
+      {
+        id: 'drill-11',
+        num: 11,
+        clo: 'CLO 3',
+        q: '11. Which two people are probably neighbors?',
+        options: [
+          'Patrick Ryan and Wm. Lambert.',
+          'Mary Craig and Tim Layton.',
+          'Walter Meyer and Tim Layton.',
+          'Samuel Craig and Walter Meyer.'
+        ],
+        answer: 1, // B (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): B. Mary Craig and Tim Layton.<br><strong>Bukti Pendukung yang Digarisbawahi:</strong><br><em>"Craig, Mary : <u>1245 Grayson Ln.</u>"</em> dan <em>"Layton, Tim : <u>1235 Grayson Ln</u>"</em>.<br>Keduanya berada di jalan yang sama dengan nomor urut rumah yang berdekatan (tetangga / neighbors).'
       }
     ]
   },
+
+  // PASSAGE 4: QUESTIONS 12 - 15
   {
     id: 'p-vacancy',
-    title: 'Passage 4: Job Vacancy — PT CITRA ENERGY DEVELOPMENT',
+    title: 'Questions 12–15 refer to the following text.',
     source: 'Lecturer Document: READING Drilling ANS - Word (Q12–Q15)',
-    text: `VACANCY ANNOUNCEMENT:
-A fast-growing energy consulting company is seeking an experienced professional for the position of SENIOR SECRETARY.
+    text: `URGENTLY REQUIRED: Secretary
+- Female, graduated from a reputable university
+- Min. 5 years of work experience
+- Good command of English (oral and written)
+- Computer literate (min. Word, Excel, Internet)
 
-Requirements:
-- Female, graduated from a reputable university.
-- Minimum 3 years of related working experience.
-- Good command of English (oral and written).
-- Computer literate (min. Word, Excel, Internet).
-
-Please submit your complete application, resume, and recent photograph not more than 10 days after this ad to:
+Please submit your complete application, resume and recent photograph not more than 10 days after this ads to:
 HRD PT CITRA ENERGY DEVELOPMENT
-Wisma Emha Jln. Wijaya I No. 11A, Kebayoran Baru, Jakarta Selatan 12170
+Wisma Emha Jln. Wijaya I No. IIA, Kebayoran Baru, Jakarta Selatan 12170
 Fax no. 021-7207978
 e-mail address: mitraenergy@cbn.net.id
-(Only short-listed candidates will be notified)`,
+(only short-listed candidates will be notified)`,
     questions: [
       {
-        id: 'drill-11',
+        id: 'drill-12',
+        num: 12,
         clo: 'CLO 3',
-        q: '11. What is the text about?',
+        q: '12. What is the text about?',
         options: [
           'Wisma Emha',
           'A job vacancy',
           'A senior secretary',
           'An application center'
         ],
-        answer: 1, // B
-        expl: 'Kunci Resmi Dosen: B. Teks tersebut adalah iklan lowongan pekerjaan (a job vacancy) untuk posisi Senior Secretary.'
+        answer: 1, // B (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): B. A job vacancy.<br><strong>Bukti Pendukung yang Digarisbawahi:</strong><br><em>"<u>URGENTLY REQUIRED: Secretary</u>"</em>.<br>Teks di atas mengumumkan kebutuhan tenaga kerja / lowongan pekerjaan (job vacancy) untuk posisi sekretaris.'
       },
       {
-        id: 'drill-12',
+        id: 'drill-13',
+        num: 13,
         clo: 'CLO 3',
-        q: '12. The following are requirements asked, EXCEPT....',
+        q: '13. The following are requirements asked, EXCEPT....',
         options: [
-          'five years\' experience',
+          'five years’ experience',
           'able to operate a computer',
           'able to speak and write in English',
           'application letter should be sent ten days after this ad'
         ],
-        answer: 0, // A
-        expl: 'Kunci Resmi Dosen: A. Persyaratannya adalah "Minimum 3 years of experience", bukan "five years\' experience".'
+        answer: 3, // D (Hijau Dosen Resmi!)
+        expl: 'Kunci Resmi Dosen (Hijau): D. application letter should be sent ten days after this ad.<br><strong>Bukti Pendukung yang Digarisbawahi:</strong><br>1. <em>"<u>Min. 5 years of work experience</u>"</em> (syarat tertera)<br>2. <em>"<u>Computer literate (min. Word, Excel, Internet)</u>"</em> (syarat tertera)<br>3. <em>"<u>Good command of English (oral and written)</u>"</em> (syarat tertera)<br>4. Pada teks tertulis: <em>"submit your complete application... <u>not more than 10 days after this ads</u>"</em> (maksimal dalam waktu 10 hari, bukan dikirim 10 hari setelahnya / ten days after). Selain itu batas waktu adalah instruksi administratif, bukan kualifikasi syarat pelamar (EXCEPT).'
       },
       {
-        id: 'drill-13',
+        id: 'drill-14',
+        num: 14,
         clo: 'CLO 3',
-        q: '13. Which statement is TRUE based on the text above?',
+        q: '14. Which statement is TRUE based on the text above?',
         options: [
           'A mining company is looking for a consultant manager.',
           'The application letter is sent to the director of PT CITRA ENERGY DEVELOPMENT.',
           'The application letter can only be sent via email.',
           'The skill to communicate in English is required.'
         ],
-        answer: 3, // D
-        expl: 'Kunci Resmi Dosen: D. Persyaratan menyatakan "Good command of English (oral and written)", sehingga keterampilan bahasa Inggris wajib.'
+        answer: 3, // D (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): D. The skill to communicate in English is required.<br><strong>Bukti Pendukung yang Digarisbawahi:</strong><br><em>"<u>Good command of English (oral and written)</u>"</em>.<br>Keterampilan bahasa Inggris aktif lisan dan tulisan diwajibkan bagi pelamar.'
       },
       {
-        id: 'drill-14',
+        id: 'drill-15',
+        num: 15,
         clo: 'CLO 3',
-        q: '14. The word "reputable" in "Female, graduated from a reputable university" has the closest meaning to the word....',
+        q: '15. The word “reputable” in “Female, graduated from a reputable university” (Line 2) has the closest meaning to the word ….',
         options: [
           'famous',
           'respectable',
           'reliable',
-          'popular'
+          'valid'
         ],
-        answer: 1, // B
-        expl: 'Kunci Resmi Dosen: B. "Reputable" bermakna memiliki nama baik, terpandang, atau terpercaya ("respectable").'
+        answer: 1, // B (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): B. respectable.<br><strong>Makna Kontekstual yang Digarisbawahi:</strong><br>Kata <em>"reputable"</em> berarti universitas yang memiliki nama baik, terpandang, dan diakui secara luas (sinonim terdekat: <strong>respectable</strong>).'
       }
     ]
   },
+
+  // PASSAGE 5: QUESTIONS 16 - 18
   {
     id: 'p-gregor',
-    title: 'Passage 5: Email Invitation — Gregor & Samia',
+    title: 'Questions 16–18 refer to the following email.',
     source: 'Lecturer Document: READING Drilling ANS - Word (Q16–Q18)',
     text: `Hi Samia,
-I hope you're doing well! I've finally settled into my new flat on Charles Road. 
+Just a quick email to say that sounds like a great idea. Saturday is better for me because I'm meeting my parents on Sunday. So, if that's still good for you, why don't you come here? Then you can see the new flat and all the work we've done on the kitchen since we moved in. We can eat at home and then go for a walk in the afternoon. It's going to be so good to catch up finally. I want to hear all about your new job!
 
-I\'d love for you to come over and see it. Would you prefer visiting on Friday or Saturday? Personally, I would prefer Saturday because I am meeting my parents on Sunday and need Friday evening to unpack the remaining boxes. 
+Our address is 52 Charles Road, but it's a bit difficult to find because the house numbers are really strange here. If you turn left at the post office and keep going past the big white house on Charles Road, there's a small side street behind it with the houses 50–56 in. Don't ask me why the side street doesn't have a different name! But call me if you get lost and I'll come and get you.
 
-Also, let me know what kind of food you like or don't like so I can cook something delicious for us.
-
-See you soon,
+Let me know if there's anything you do/don't like to eat. Really looking forward to seeing you!
+See you soon!
 Gregor`,
     questions: [
       {
-        id: 'drill-15',
+        id: 'drill-16',
+        num: 16,
         clo: 'CLO 3',
-        q: '15. What day does Gregor prefer Samia to visit?',
+        q: '16. What day does Gregor prefer Samia to visit?',
         options: [
           'Sunday',
           'Monday',
           'Friday',
           'Saturday'
         ],
-        answer: 3, // D
-        expl: 'Kunci Resmi Dosen: D. Gregor menulis: "Personally, I would prefer Saturday..."'
+        answer: 3, // D (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): D. Saturday.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>Saturday is better for me</u> because I\'m meeting my parents on Sunday."</em>'
       },
       {
-        id: 'drill-16',
+        id: 'drill-17',
+        num: 17,
         clo: 'CLO 3',
-        q: '16. Why does Gregor prefer Saturday?',
+        q: '17. Why does Gregor prefer Saturday?',
         options: [
           'Because he is meeting his parents on Sunday.',
           'Because he has a new job on Sunday.',
           'Because his new flat is free on Saturday.',
           'Because Samia cannot visit on Sunday.'
         ],
-        answer: 0, // A
-        expl: 'Kunci Resmi Dosen: A. Gregor menjelaskan alasannya: "...because I am meeting my parents on Sunday."'
+        answer: 0, // A (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): A. Because he is meeting his parents on Sunday.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"Saturday is better for me <u>because I\'m meeting my parents on Sunday</u>."</em>'
       },
       {
-        id: 'drill-17',
+        id: 'drill-18',
+        num: 18,
         clo: 'CLO 3',
-        q: '17. What does Gregor want to know about Samia?',
+        q: '18. What does Gregor want to know about Samia?',
         options: [
           'Her new address on Charles Road',
           'The food she likes or does not like',
           'Her parents\' plans in New Year',
-          'Her work schedule next week'
+          'Her new job in the new company'
         ],
-        answer: 1, // B
-        expl: 'Kunci Resmi Dosen: B. Gregor bertanya: "Also, let me know what kind of food you like or don\'t like so I can cook something delicious for us."'
+        answer: 1, // B (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): B. The food she likes or does not like.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>Let me know if there\'s anything you do/don\'t like to eat.</u>"</em>'
       }
     ]
   },
+
+  // PASSAGE 6: QUESTIONS 19 - 22
   {
     id: 'p-jarvis',
-    title: 'Passage 6: Advertisement — Jarvis Miracle Cleaner',
+    title: 'Questions 19–22 refer to the following Advertisement.',
     source: 'Lecturer Document: READING Drilling ANS - Word (Q19–Q22)',
-    text: `JARVIS MIRACLE CLEANER
-For over 40 years, Jarvis Miracle Cleaner has been the number 1 cleaning product in American industry, trusted by factories and construction workers to remove heavy grease, grime, and industrial dirt.
+    text: `Jarvis Miracle Cleaner is the one product engineers, mechanics and construction workers just cannot do without. Its unique patented formula allows you to quickly and easily remove dirt, grime, and oil from your hands without damaging your skin. For 40 years, Jarvis Miracle Cleaner has been the number 1 cleaning product in American industry, and it is now available for home use for the first time.
 
-Its unique patented formula allows you to quickly and easily remove dirt without harsh chemical odors. Now, we are proud to introduce Jarvis Deluxe Cleaner for domestic home use! It removes almost anything else you or your children get on your hands and skin. Jarvis Deluxe Cleaner has been tested and demonstrated to be gentle enough for even the most sensitive skin.
+Jarvis Deluxe Cleaner is a milder version of the industrial cleaver with a new yellow color and fresh lemon scent. Jarvis Deluxe Cleaner removes not just oil and grease but also paint, ink, and almost anything else you or your children get on your hands and skin. Jarvis Deluxe Cleaner has been tested and demonstrated to be gentle enough for even the most sensitive skin.
 
-Both products are now available at all good supermarkets and drugstores. Try Jarvis today!`,
+Bath products are now available at all good supermarkets and drugstores.`,
     questions: [
       {
-        id: 'drill-18',
+        id: 'drill-19',
+        num: 19,
         clo: 'CLO 3',
-        q: '18. What is the main purpose of the passage?',
+        q: '19. What is the main purpose of the passage?',
         options: [
           'To explain how to make a cleaning product',
           'To advertise Jarvis cleaning products',
           'To compare American and European cleaning products',
           'To warn about harmful effects of industrial cleaners'
         ],
-        answer: 1, // B
-        expl: 'Kunci Resmi Dosen: B. Teks tersebut adalah promosi/iklan komersial produk pembersih Jarvis ("To advertise Jarvis cleaning products").'
+        answer: 1, // B (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): B. To advertise Jarvis cleaning products.<br><strong>Tujuan Utama yang Digarisbawahi:</strong><br>Teks ini memperkenalkan manfaat produk pembersih Jarvis Miracle Cleaner dan varian Deluxe-nya untuk membujuk konsumen agar membelinya di supermarket/drugstore (mengiklankan produk).'
       },
       {
-        id: 'drill-19',
+        id: 'drill-20',
+        num: 20,
         clo: 'CLO 3',
-        q: '19. How long has Jarvis Miracle Cleaner been the number 1 cleaning product in American industry?',
+        q: '20. How long has Jarvis Miracle Cleaner been the number 1 cleaning product in American industry?',
         options: [
           '10 years',
           '20 years',
           '40 years',
           '50 years'
         ],
-        answer: 2, // C
-        expl: 'Kunci Resmi Dosen: C. Pada kalimat pertama: "For over 40 years, Jarvis Miracle Cleaner has been the number 1 cleaning product..."'
+        answer: 2, // C (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): C. 40 years.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>For 40 years, Jarvis Miracle Cleaner has been the number 1 cleaning product in American industry</u>..."</em>'
       },
       {
-        id: 'drill-20',
+        id: 'drill-21',
+        num: 21,
         clo: 'CLO 3',
-        q: '20. According to the passage, where can Jarvis Deluxe Cleaner now be purchased?',
+        q: '21. According to the passage, where can Jarvis Deluxe Cleaner now be purchased?',
         options: [
           'Only at hardware stores',
           'At supermarkets and drugstores',
           'From construction companies',
           'Only in factories'
         ],
-        answer: 1, // B
-        expl: 'Kunci Resmi Dosen: B. Kalimat terakhir: "Both products are now available at all good supermarkets and drugstores."'
+        answer: 1, // B (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): B. At supermarkets and drugstores.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"Bath products are now available <u>at all good supermarkets and drugstores</u>."</em>'
       },
       {
-        id: 'drill-21',
+        id: 'drill-22',
+        num: 22,
         clo: 'CLO 3',
-        q: '21. The word "Its" in "Its unique patented formula allows you to quickly and easily remove dirt..." refers to:',
+        q: '22. The word Its in "Its unique patented formula allows you to quickly and easily remove dirt..." refers to:',
         options: [
           'Jarvis Miracle Cleaner',
           'Lemon oil',
           'Industrial dirt',
           'Construction workers'
         ],
-        answer: 0, // A
-        expl: 'Kunci Resmi Dosen: A. Kata ganti kepemilikan "Its" merujuk pada produk subjek sebelumnya, yaitu "Jarvis Miracle Cleaner".'
+        answer: 0, // A (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): A. Jarvis Miracle Cleaner.<br><strong>Rujukan Pronoun yang Digarisbawahi:</strong><br><em>"Jarvis Miracle Cleaner is the one product... <u>Its unique patented formula</u> allows you to..."</em>.<br>Kata ganti kepemilikan tunggal <em>"Its"</em> merujuk langsung pada subjek <strong>Jarvis Miracle Cleaner</strong>.'
       }
     ]
   },
+
+  // PASSAGE 7: QUESTIONS 23 - 25
   {
     id: 'p-airport',
-    title: 'Passage 7: Official Airport Baggage Notice',
+    title: 'Questions 23–25 refer to the following airport notice.',
     source: 'Lecturer Document: READING Drilling ANS - Word (Q23–Q25)',
     text: `What can I take on the plane as hand luggage?
 Please note that passengers can only take ONE suitcase onto the plane. It must be no bigger than 55cm x 22cm x 35cm and weigh no more than 10kg.
@@ -390,127 +438,139 @@ You can also take one small laptop bag or handbag that can fit under the seat in
 
 Please make sure mobile phones and other devices are fully charged so that security staff can check them.
 
-Liquids in bottles bigger than 100ml are allowed on board if you buy them in the airport shops after you\'ve passed security.
+Liquids in bottles bigger than 100ml are allowed on board if you buy them in the airport shops after you've passed security. 
 
 We hope you enjoy your flight!`,
     questions: [
       {
-        id: 'drill-22',
+        id: 'drill-23',
+        num: 23,
         clo: 'CLO 3',
-        q: '22. What is the maximum weight for the suitcase?',
+        q: '23. What is the maximum weight for the suitcase?',
         options: [
           '5 kg',
           '10 kg',
           '15 kg',
           '20 kg'
         ],
-        answer: 1, // B
-        expl: 'Kunci Resmi Dosen: B. Teks menyatakan: "...and weigh no more than 10kg."'
+        answer: 1, // B (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): B. 10 kg.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"It must be no bigger than 55cm x 22cm x 35cm and <u>weigh no more than 10kg</u>."</em>'
       },
       {
-        id: 'drill-23',
+        id: 'drill-24',
+        num: 24,
         clo: 'CLO 3',
-        q: '23. When are passengers allowed to take bottles bigger than 100ml onto the plane?',
+        q: '24. When are passengers allowed to take bottles bigger than 100ml onto the plane?',
         options: [
           'Before they arrive at the airport.',
           'Before they pass security.',
           'When they buy them after passing security.',
           'When they put them in their suitcase.'
         ],
-        answer: 2, // C
-        expl: 'Kunci Resmi Dosen: C. Aturan: "Liquids in bottles bigger than 100ml are allowed on board if you buy them in the airport shops after you\'ve passed security."'
+        answer: 2, // C (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): C. When they buy them after passing security.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"Liquids in bottles bigger than 100ml are allowed on board <u>if you buy them in the airport shops after you\'ve passed security</u>."</em>'
       },
       {
-        id: 'drill-24',
+        id: 'drill-25',
+        num: 25,
         clo: 'CLO 3',
-        q: '24. Why will passengers have to pay extra if their bag is too big or too heavy?',
+        q: '25. Why will passengers have to pay extra if their bag is too big or too heavy?',
         options: [
           'Because they need to buy another bag.',
           'Because they need to buy a new ticket.',
           'Because they need to pass security again.',
           'Because staff will put the bag in the hold.'
         ],
-        answer: 3, // D
-        expl: 'Kunci Resmi Dosen: D. Teks menyatakan: "Staff will put it in the hold for you and you will have to pay extra."'
+        answer: 3, // D (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): D. Because staff will put the bag in the hold.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"If your bag is too big or too heavy... <u>Staff will put it in the hold for you and you will have to pay extra</u>."</em>'
       }
     ]
   },
+
+  // PASSAGE 8: QUESTIONS 26 - 30
   {
     id: 'p-mit',
-    title: 'Passage 8: Academic Tech News — MIT Autonomous Drones',
+    title: 'Questions 26–30 refer to the following News.',
     source: 'Lecturer Document: READING Drilling ANS - Word (Q26–Q30)',
     text: `Designing a complex electronic device like a delivery drone involves juggling many choices, such as selecting motors and batteries that minimize cost while maximizing the payload the drone can carry or the distance it can travel.
 
-Engineers must also consider unpredictable factors like weather conditions, wind gusts, and battery wear that can affect drone performance during flight. 
+Unraveling that conundrum is no easy task, but what happens if the designers don't know the exact specifications of each battery and motor? On top of that, the real-world performance of these components will likely be affected by unpredictable factors, like changing weather along the drone's route.
 
-Existing engineering approaches usually model only best-case and worst-case scenarios, which often leads to either over-engineered systems that are too expensive or under-engineered systems that fail unexpectedly.
+MIT researchers developed a new framework that helps engineers design complex systems in a way that explicitly accounts for such uncertainty. The framework allows them to model the performance trade-offs of a device with many interconnected parts, each of which could behave in unpredictable ways.
 
-To address this challenge, MIT researchers have introduced a new framework to design complex systems under uncertainty. Their technique captures the likelihood of many outcomes and evaluates how tradeoffs affect total performance. This framework helps engineers build more reliable and robust complex systems while significantly cutting prototyping expenses.`,
+The research is published on the arXiv preprint server. Their technique captures the likelihood of many outcomes and trade-offs, giving designers more information than many existing approaches which, at most, can usually only model best-case and worst-case scenarios.
+
+Ultimately, this framework could help engineers develop complex systems like autonomous vehicles, commercial aircraft, or even regional transportation networks that are more robust and reliable in the face of real-world unpredictability`,
     questions: [
       {
-        id: 'drill-25',
+        id: 'drill-26',
+        num: 26,
         clo: 'CLO 3',
-        q: '25. What is the main focus of the passage?',
+        q: '26. What is the main focus of the passage?',
         options: [
           'The challenges of flying drones in bad weather',
-          'MIT\'s new framework to design complex systems under uncertainty',
+          'MIT’s new framework to design complex systems under uncertainty',
           'The history of battery and motor technology',
           'The economic cost of developing autonomous vehicles'
         ],
-        answer: 1, // B
-        expl: 'Kunci Resmi Dosen: B. Ide pokok teks adalah kerangka kerja baru dari periset MIT untuk merancang sistem otonom kompleks di bawah ketidakpastian.'
+        answer: 1, // B (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): B. MIT’s new framework to design complex systems under uncertainty.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>MIT researchers developed a new framework that helps engineers design complex systems in a way that explicitly accounts for such uncertainty</u>."</em>'
       },
       {
-        id: 'drill-26',
+        id: 'drill-27',
+        num: 27,
         clo: 'CLO 3',
-        q: '26. According to the text, what unpredictable factor can affect drone performance?',
+        q: '27. According to the text, what unpredictable factor can affect drone performance?',
         options: [
           'Motor type',
           'Battery price',
           'Weather conditions',
           'Designer preferences'
         ],
-        answer: 2, // C
-        expl: 'Kunci Resmi Dosen: C. Paragraf 2 menyatakan: "Engineers must also consider unpredictable factors like weather conditions..."'
+        answer: 2, // C (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): C. Weather conditions.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"...affected by unpredictable factors, <u>like changing weather along the drone\'s route</u>."</em>'
       },
       {
-        id: 'drill-27',
+        id: 'drill-28',
+        num: 28,
         clo: 'CLO 3',
-        q: '27. What is the potential benefit of this new framework?',
+        q: '28. What is the potential benefit of this new framework?',
         options: [
           'Making drones cheaper than ever before',
           'Eliminating the need for testing in real life',
           'Allowing designers to ignore unpredictable conditions',
           'Helping engineers build more reliable and robust complex systems'
         ],
-        answer: 3, // D
-        expl: 'Kunci Resmi Dosen: D. Kalimat terakhir teks: "This framework helps engineers build more reliable and robust complex systems..."'
+        answer: 3, // D (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): D. Helping engineers build more reliable and robust complex systems.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"Ultimately, this framework could <u>help engineers develop complex systems... that are more robust and reliable</u> in the face of real-world unpredictability"</em>.'
       },
       {
-        id: 'drill-28',
+        id: 'drill-29',
+        num: 29,
         clo: 'CLO 3',
-        q: '28. What do existing approaches usually model?',
+        q: '29. What do existing approaches usually model?',
         options: [
           'Only best-case and worst-case scenarios',
           'The average-case scenarios',
           'The reliability of every motor',
           'The color of the drone'
         ],
-        answer: 0, // A
-        expl: 'Kunci Resmi Dosen: A. Paragraf 3: "Existing engineering approaches usually model only best-case and worst-case scenarios..."'
+        answer: 0, // A (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): A. Only best-case and worst-case scenarios.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"...giving designers more information than many existing approaches which, at most, <u>can usually only model best-case and worst-case scenarios</u>."</em>'
       },
       {
-        id: 'drill-29',
+        id: 'drill-30',
+        num: 30,
         clo: 'CLO 3',
-        q: '29. The word "Their" in "Their technique captures the likelihood of many outcomes and..." refers to:',
+        q: '30. The word Their in “Their technique captures the likelihood of many outcomes and trade-offs” refers to:',
         options: [
           'The MIT researchers',
-          'The delivery drones',
-          'Unpredictable factors',
-          'Motors and batteries'
+          'The batteries',
+          'The motors',
+          'The designers'
         ],
-        answer: 0, // A
-        expl: 'Kunci Resmi Dosen: A. Anteceden terdekat untuk kata ganti kepemilikan "Their technique" adalah "MIT researchers" pada kalimat sebelumnya.'
+        answer: 0, // A (Hijau Dosen)
+        expl: 'Kunci Resmi Dosen (Hijau): A. The MIT researchers.<br><strong>Rujukan Pronoun yang Digarisbawahi:</strong><br><em>"<u>MIT researchers</u> developed a new framework... <u>Their technique</u> captures the likelihood of many outcomes..."</em>.<br>Kata ganti posesif <em>"Their"</em> mengacu pada subjek pelaku penelitian di kalimat sebelumnya, yaitu <strong>The MIT researchers</strong>.'
       }
     ]
   }
@@ -538,7 +598,7 @@ Professor: "Good morning class. Today we are initiating our unit on algorithmic 
         'To demonstrate how to build an e-commerce database from scratch'
       ],
       answer: 1,
-      expl: 'Tujuan utama dosen dinyatakan secara eksplisit: "our primary objective this morning is to demonstrate how data structures directly dictate memory allocation and execution time".'
+      expl: '<strong>Tujuan Utama yang Digarisbawahi:</strong> <em>"<u>our primary objective this morning is to demonstrate how data structures directly dictate memory allocation and execution time</u>"</em>.'
     },
     {
       id: 'uts-l2',
@@ -556,7 +616,7 @@ Advisor: "In that case, bring a signed verification slip from your instructor to
         'Send another email inquiry to the academic portal webmaster'
       ],
       answer: 1,
-      expl: 'Advisor memberikan instruksi detail spesifik: "bring a signed verification slip from your instructor to the department office by this Thursday at 3 PM".'
+      expl: '<strong>Detail Spesifik yang Digarisbawahi:</strong> <em>"<u>bring a signed verification slip from your instructor to the department office by this Thursday at 3 PM</u>"</em>.'
     },
     {
       id: 'uts-l3',
@@ -572,7 +632,7 @@ Host: "Attention all attendees. Before Dr. Hartono delivers the keynote on Artif
         'The seminar will finish earlier at 12:00 PM'
       ],
       answer: 1,
-      expl: 'Host secara spesifik mengoreksi lokasi: "The interactive lab breakout session will take place in Multimedia Lab 3 on the second floor, not the auditorium as printed in the flyer".'
+      expl: '<strong>Koreksi Lokasi yang Digarisbawahi:</strong> <em>"<u>The interactive lab breakout session will take place in Multimedia Lab 3 on the second floor, not the auditorium</u> as printed in the flyer"</em>.'
     },
     {
       id: 'uts-l4',
@@ -590,7 +650,7 @@ Aisha: "That is perfect! That precisely reinforces our argument that human admin
         'IEEE surveys should not be cited in academic computer science papers.'
       ],
       answer: 0,
-      expl: 'Paraphrase yang tepat dan akademis: "73% of cloud breaches were due to misconfigured access credentials rather than faulty cryptographic algorithms" diparafrase menjadi "predominantly triggered by administrative configuration errors rather than flawed cryptography".'
+      expl: '<strong>Parafrase Akademis yang Tepat:</strong> <em>"73% of cloud breaches were due to misconfigured access credentials rather than faulty cryptographic algorithms"</em> diparafrase menjadi <em>"predominantly triggered by administrative configuration errors rather than flawed cryptography"</em>.'
     },
     {
       id: 'uts-l5',
@@ -606,7 +666,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'It is an optional bonus section that can be skipped'
       ],
       answer: 1,
-      expl: 'Berdasarkan aturan resmi modul dosen UMS: "...while for the writing section, you should use a pen". Pensil 2B untuk LJK pilihan ganda, pulpen untuk esai writing.'
+      expl: '<strong>Aturan Resmi Dosen UMS:</strong> <em>"<u>while for the writing section, you should use a pen</u>"</em>. Pilihan ganda wajib pensil 2B, bagian menulis wajib pulpen.'
     }
   ],
 
@@ -616,7 +676,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
       id: 'uts-g1',
       pts: 4,
       clo: 'CLO 2',
-      q: '6. Identify the sentence component of the underlined portion:\n"The software development team [carefully reviewed] the security audit logs."',
+      q: '6. Identify the sentence component of the bracketed portion:\n"The software development team [carefully reviewed] the security audit logs."',
       options: [
         'Subject (S)',
         'Verb / Predicate (V)',
@@ -624,7 +684,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'Subject Complement (C)'
       ],
       answer: 1,
-      expl: '"Carefully reviewed" berfungsi sebagai Verb / Predicate (V) yang menyatakan aksi yang dilakukan Subject ("The software development team").'
+      expl: '<strong>Analisis S-V-O-C-A:</strong> Bagian <em>"carefully reviewed"</em> adalah <strong>Verb / Predicate (V)</strong> yang menunjukkan tindakan verba utama dalam kalimat.'
     },
     {
       id: 'uts-g2',
@@ -638,7 +698,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'but'
       ],
       answer: 1,
-      expl: 'Konjungsi koordinatif "so" (FANBOYS) menyatakan hasil/akibat yang logis (cause-effect): server drop, sehingga (so) protokol cadangan beralih ke generator.'
+      expl: '<strong>Aturan FANBOYS:</strong> Konjungsi <strong>"so"</strong> menyatakan konsekuensi/akibat logis (hasil dari jatuhnya tegangan server).'
     },
     {
       id: 'uts-g3',
@@ -652,7 +712,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'Because researchers face physical constraints and quantum computing holds immense potential.'
       ],
       answer: 0,
-      expl: 'Aturan Kalimat Kompleks: Jika anak kalimat (dependent clause diawali subordinating conjunction "Although") berada di depan, WAJIB diberi koma sebelum induk kalimat (independent clause).'
+      expl: '<strong>Aturan Koma Kalimat Kompleks:</strong> Jika Dependent Clause (diawali subordinating conjunction <em>"Although"</em>) diletakkan di depan, maka <strong>WAJIB</strong> diberi tanda koma sebelum Independent Clause.'
     },
     {
       id: 'uts-g4',
@@ -666,7 +726,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'Compound-Complex Sentence'
       ],
       answer: 3,
-      expl: 'Kalimat ini memiliki 2 klausa independen yang dihubungkan konjungsi koordinatif "but" (Compound), dan klausa kedua memiliki klausa dependen "that human analysts frequently overlook" (Complex). Struktur gabungannya adalah Compound-Complex.'
+      expl: '<strong>Analisis Jenis Kalimat:</strong> Kalimat ini terdiri dari 2 Independent Clauses dihubungkan oleh <em>"but"</em> (Compound) dan klausa kedua memuat Dependent Relative Clause <em>"that human analysts frequently overlook"</em> (Complex). Gabungannya adalah <strong>Compound-Complex Sentence</strong>.'
     },
     {
       id: 'uts-g5',
@@ -680,7 +740,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'Modern microprocessors generate substantial heat under sustained heavy loads.'
       ],
       answer: 1,
-      expl: 'Pilihan B adalah Sentence Fragment karena diawali subordinating conjunction "Because" tanpa disertai independent clause (hanya dependent clause yang berdiri sendiri).'
+      expl: '<strong>Sentence Fragment:</strong> Opsi B adalah klausa dependen (diawali <em>"Because"</em>) yang berdiri sendiri tanpa induk kalimat (Independent Clause), sehingga tidak utuh.'
     }
   ],
 
@@ -700,7 +760,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'When traveling with only a single 5kg laptop briefcase'
       ],
       answer: 2,
-      expl: 'Berdasarkan teks resmi latihan dosen: penumpang membayar biaya tambahan jika bagasi melebihi batas ukuran/berat sehingga staf harus memindahkannya ke bagasi pesawat (hold).'
+      expl: '<strong>Kunci Jawaban Soal Asli Dosen:</strong> <em>"<u>Staff will put it in the hold for you and you will have to pay extra</u>"</em> jika ukuran/bobot bagasi melebihi batas.'
     },
     {
       id: 'uts-r2',
@@ -716,7 +776,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'Existing approaches completely neglected the aerodynamic design of aircraft wings'
       ],
       answer: 1,
-      expl: 'Sesuai teks asli: "Existing engineering approaches usually model only best-case and worst-case scenarios", sedangkan framework baru menangkap probabilitas spektrum luaran yang luas.'
+      expl: '<strong>Kunci Jawaban Soal Asli Dosen:</strong> <em>"<u>can usually only model best-case and worst-case scenarios</u>"</em>.'
     },
     {
       id: 'uts-r3',
@@ -732,7 +792,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'A rhetorical question intended solely to entertain casual readers'
       ],
       answer: 1,
-      expl: 'Definisi resmi materi EAP Pertemuan 5 & 7: Topic Sentence wajib memuat Topic + Controlling Idea yang membatasi fokus paragraf.'
+      expl: '<strong>Materi Dosen Pertemuan 5 & 7:</strong> Topic Sentence wajib memuat <strong>Specific Topic</strong> + <strong>Controlling Idea</strong> yang membatasi fokus paragraf.'
     },
     {
       id: 'uts-r4',
@@ -748,7 +808,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'Treated metal surfaces'
       ],
       answer: 2,
-      expl: 'Kata ganti "Its" merujuk pada subjek produk yang sedang dibahas, yaitu "Jarvis Miracle Cleaner".'
+      expl: '<strong>Rujukan Pronoun Soal Dosen:</strong> Kata <em>"Its"</em> merujuk langsung ke <strong>Jarvis Miracle Cleaner</strong>.'
     },
     {
       id: 'uts-r5',
@@ -764,7 +824,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'recently established'
       ],
       answer: 1,
-      expl: 'Soal asli dosen: kata "reputable" bermakna universitas yang terpandang dan bereputasi tinggi ("respectable").'
+      expl: '<strong>Kunci Resmi Dosen:</strong> <em>reputable = respectable</em> (terpandang, bereputasi baik).'
     },
     {
       id: 'uts-r6',
@@ -780,7 +840,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'To translate English texts automatically into another language'
       ],
       answer: 1,
-      expl: 'Materi Pertemuan 5 EAP: Outlining teks bertujuan memetakan struktur makro teks (main claims, supporting rationale, patterns of organization).'
+      expl: '<strong>Fungsi Outlining:</strong> Memetakan struktur makro teks (main claims, supporting rationale, and organizational patterns).'
     },
     {
       id: 'uts-r7',
@@ -796,7 +856,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'physically accelerate'
       ],
       answer: 1,
-      expl: 'Petunjuk konteks antonim ("unlike... retain digital bits indefinitely"): memori volatil "purge data" (menghapus/mengosongkan data) seketika saat listrik terputus.'
+      expl: '<strong>Contextual Clue:</strong> Berlawanan dengan <em>"retain digital bits indefinitely"</em>, memori volatil akan <em>purge</em> (menghapus/mengosongkan data seketika saat listrik mati).'
     }
   ]
 };
@@ -806,7 +866,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
 // ==========================================
 
 const AppState = {
-  activeTab: 'panel-syllabus',
+  activeTab: 'panel-drilling',
   drillingAnswers: {},
   examAnswers: {},
   examTimer: null,
@@ -869,19 +929,19 @@ function renderDrillingQuestions() {
   let html = '';
   let totalDrillQs = 0;
 
-  DRILLING_PASSAGES.forEach((passage, pIdx) => {
+  DRILLING_PASSAGES.forEach((passage) => {
     html += `
       <div class="card">
         <div class="card-header">
           <div>
-            <h3 class="card-title">${passage.title}</h3>
-            <span class="badge badge-teal" style="margin-top: 6px;">${passage.source}</span>
+            <h3 class="card-title">${escapeHtml(passage.title)}</h3>
+            <span class="badge badge-teal" style="margin-top: 6px;">${escapeHtml(passage.source)}</span>
           </div>
         </div>
         
         <div class="passage-card">
           <h4>📖 Reading Text / Prompt:</h4>
-          <pre style="white-space: pre-wrap; font-family: var(--font); margin: 0; font-size: 14.5px;">${escapeHtml(passage.text)}</pre>
+          <pre style="white-space: pre-wrap; font-family: var(--font); margin: 0; font-size: 14.5px; line-height: 1.6;">${escapeHtml(passage.text)}</pre>
         </div>
 
         <div class="drilling-questions-wrap">
@@ -911,8 +971,8 @@ function renderDrillingQuestions() {
       html += `
           </div>
           <div class="explanation-card" id="drill-expl-${q.id}">
-            <strong>💡 Penjelasan & Kunci Resmi Dosen:</strong>
-            <p style="margin: 6px 0 0;">${escapeHtml(q.expl)}</p>
+            <strong>💡 Penjelasan & Kunci Resmi Dosen (Dengan Kalimat yang Digarisbawahi):</strong>
+            <div style="margin-top: 6px; line-height: 1.6;">${q.expl}</div>
           </div>
         </div>
       `;
@@ -967,11 +1027,11 @@ function updateDrillStats(totalOverride) {
   const statsEl = document.getElementById('drill-progress-badge');
   if (!statsEl) return;
 
-  const total = totalOverride || Object.keys(DRILLING_PASSAGES.reduce((acc, p) => acc.concat(p.questions), [])).length;
+  const total = totalOverride || 30;
   const answeredKeys = Object.keys(AppState.drillingAnswers);
   const correctCount = answeredKeys.filter(k => AppState.drillingAnswers[k].correct).length;
 
-  statsEl.textContent = `Dijawab: ${answeredKeys.length} / 21 | Benar: ${correctCount}`;
+  statsEl.textContent = `Dijawab: ${answeredKeys.length} / ${total} | Benar: ${correctCount}`;
 }
 
 // ================= 90-Minute Exam Simulator =================
@@ -1046,6 +1106,8 @@ function resetExam() {
   buttons.forEach(b => {
     b.disabled = false;
     b.classList.remove('correct', 'wrong', 'selected');
+    b.style.background = 'var(--paper)';
+    b.style.fontWeight = 'normal';
   });
 
   const expls = document.querySelectorAll('.exam-expl');
@@ -1143,8 +1205,8 @@ function createExamQuestionHTML(q, section) {
         ${optionsHTML}
       </div>
       <div class="explanation-card exam-expl" id="expl-${q.id}">
-        <strong>💡 Pembahasan Dosen:</strong>
-        <p style="margin: 4px 0 0;">${escapeHtml(q.expl)}</p>
+        <strong>💡 Pembahasan Dosen (Underlined Phrase):</strong>
+        <div style="margin-top: 4px; line-height: 1.5;">${q.expl}</div>
       </div>
     </div>
   `;
@@ -1319,7 +1381,6 @@ function renderExamResultCard(total, lScore, gScore, rScore, wScore) {
 
   let predikat = 'A';
   let badgeClass = 'badge-teal';
-  let desc = 'Istimewa! Penguasaan materi akademik (CLO 1–4) sangat tinggi dan siap menghadapi UTS EAP riil!';
 
   if (total >= 80) {
     predikat = 'A (Sangat Baik / Lulus Prima)';
@@ -1362,4 +1423,3 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
-

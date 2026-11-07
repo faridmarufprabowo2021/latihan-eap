@@ -165,15 +165,20 @@ img, svg { max-width: 100%; height: auto; }
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 12px;
+  padding: 4px 10px;
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 700;
   border: 2px solid var(--ink);
   border-radius: 999px;
   background: var(--card);
   box-shadow: var(--shadow-sm);
-  white-space: nowrap;
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  text-align: left;
+  line-height: 1.35;
 }
 
 .badge-mustard { background: var(--mustard); }
@@ -363,9 +368,10 @@ img, svg { max-width: 100%; height: auto; }
 
 table {
   width: 100%;
-  min-width: 540px;
+  min-width: 460px;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 11.5px; /* Compact & easy to read across all tables */
+  line-height: 1.4;
   text-align: left;
 }
 
@@ -373,8 +379,11 @@ th {
   background: var(--mustard);
   color: var(--ink);
   font-family: var(--display);
+  font-size: 11px;
   font-weight: 800;
-  padding: 12px 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 6px 9px;
   border-bottom: 2px solid var(--ink);
   border-right: 1px solid rgba(36,34,31,.2);
 }
@@ -384,7 +393,9 @@ th:last-child {
 }
 
 td {
-  padding: 12px 14px;
+  padding: 6px 9px;
+  font-size: 11.5px;
+  line-height: 1.4;
   border-bottom: 1px solid rgba(36,34,31,.15);
   border-right: 1px solid rgba(36,34,31,.15);
   vertical-align: top;
@@ -1051,6 +1062,29 @@ textarea.outline-input {
   .timer-display {
     font-size: 20px;
   }
+  .shell {
+    padding: 12px 10px 40px;
+  }
+  .card {
+    padding: 14px 12px;
+    border-radius: 12px;
+  }
+  .passage-card {
+    padding: 12px 12px;
+  }
+  .passage-card pre {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    font-size: 13.5px !important;
+  }
+  table {
+    min-width: 400px;
+    font-size: 10.5px;
+  }
+  th, td {
+    padding: 5px 7px;
+    font-size: 10.5px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1078,6 +1112,271 @@ textarea.outline-input {
   gap: 20px;
   margin-top: 16px;
 }
+
+/* ================= Grammar Concept Cards & Clause Highlighter ================= */
+.grammar-concept-card {
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+  margin-bottom: 22px;
+  transition: transform 0.15s ease;
+}
+
+.grammar-concept-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.grammar-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--paper-deep);
+}
+
+.grammar-card-title {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.clause-example-box {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 14.5px;
+  line-height: 1.8;
+  position: relative;
+}
+
+.clause-pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 6px;
+  border: 1px solid var(--ink);
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.clause-pill.indep {
+  background: var(--teal-soft);
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+.clause-pill.dep {
+  background: var(--plum-soft);
+  color: var(--plum);
+  border-color: var(--plum);
+}
+
+.clause-indep-text {
+  background: rgba(43, 138, 121, 0.12);
+  border-bottom: 2px solid var(--teal);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.clause-dep-text {
+  background: rgba(142, 68, 173, 0.12);
+  border-bottom: 2px solid var(--plum);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.hl-fanboys {
+  background: var(--mustard);
+  color: var(--ink);
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1.5px solid var(--ink);
+  box-shadow: 1px 1px 0 var(--ink);
+  display: inline-block;
+  margin: 0 2px;
+}
+
+.hl-subord {
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1.5px solid var(--blue);
+  box-shadow: 1px 1px 0 var(--blue);
+  display: inline-block;
+  margin: 0 2px;
+}
+
+.hl-comma-strong {
+  color: var(--tomato);
+  font-weight: 900;
+  font-size: 18px;
+  padding: 0 2px;
+}
+
+.hl-subject-token {
+  background: rgba(224, 86, 36, 0.12);
+  border-bottom: 2px dashed var(--tomato);
+  padding: 1px 4px;
+  font-weight: 700;
+}
+
+.hl-verb-token {
+  background: rgba(43, 138, 121, 0.15);
+  border-bottom: 2px dashed var(--teal);
+  padding: 1px 4px;
+  font-weight: 700;
+}
+
+/* ================= Word Puzzle Game Box ================= */
+.puzzle-game-box {
+  background: var(--paper-deep);
+  border: 2px dashed var(--ink);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 14px;
+}
+
+.puzzle-game-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.puzzle-title {
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+
+.puzzle-prompt {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+
+.puzzle-drop-slot {
+  min-height: 48px;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  box-shadow: inset 0 2px 4px rgba(36,34,31,.08);
+  padding: 8px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.puzzle-drop-placeholder {
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-style: italic;
+  user-select: none;
+}
+
+.puzzle-tokens-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.puzzle-chip {
+  padding: 6px 14px;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 2px 2px 0 var(--ink);
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.1s ease, opacity 0.1s ease;
+  user-select: none;
+}
+
+.puzzle-chip:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+  background: var(--paper-deep);
+}
+
+.puzzle-chip:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.puzzle-chip.used {
+  opacity: 0.35;
+  pointer-events: none;
+  background: var(--paper-deep);
+  box-shadow: none;
+}
+
+.puzzle-chip.placed {
+  background: var(--mustard);
+}
+
+.puzzle-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.puzzle-feedback-badge {
+  display: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.puzzle-feedback-badge.show {
+  display: block;
+}
+
+.puzzle-feedback-badge.correct {
+  background: var(--teal-soft);
+  border: 1.5px solid var(--teal);
+  color: var(--teal);
+}
+
+.puzzle-feedback-badge.wrong {
+  background: var(--tomato-soft);
+  border: 1.5px solid var(--tomato);
+  color: var(--tomato);
+}
+
 
 /* ================= Print Styles ================= */
 @media print {

@@ -25,6 +25,7 @@
         </div>
       </div>
       <div class="head-meta">
+        <button type="button" class="badge badge-mustard" id="btn-open-vocab" onclick="openVocabVault()" style="cursor: pointer; padding: 6px 12px; font-weight: 800; border: 2px solid var(--ink); box-shadow: 2px 2px 0 var(--ink);">📖 Vocabulary Vault</button>
         <span class="badge badge-mustard">Prodi Informatika UMS</span>
         <span class="badge badge-teal">Pertemuan 1 – 7</span>
         <span class="badge badge-blue">Total 100 Poin</span>
@@ -797,6 +798,55 @@
               </div>
               <textarea id="full-paragraph-area" class="outline-input" style="min-height: 160px; font-size: 15px; line-height: 1.65;" placeholder="Ketik atau tempelkan draf paragraf akademik Anda di sini. Monitor jumlah kata di atas agar memenuhi rentang 100–150 kata..."></textarea>
             </div>
+
+            <!-- Academic Paragraph Anatomy & Diagnostics -->
+            <div class="writing-diagnostics-card" id="paragraph-diagnostics-card">
+              <div class="diagnostics-header">
+                <h4>🔍 Bedah Anatomi Paragraf &amp; Struktur Kalimat (Standar Rubrik Dosen)</h4>
+                <span class="badge badge-teal" id="diag-overall-score">Status: Siap Menganalisis</span>
+              </div>
+              <div class="diag-grid">
+                <!-- 1. Topic Sentence -->
+                <div class="diag-item" id="diag-box-ts">
+                  <div class="diag-item-top">
+                    <span class="diag-title">1. Topic Sentence &amp; Controlling Idea</span>
+                    <span class="diag-badge fail" id="diag-badge-ts">Belum Ada</span>
+                  </div>
+                  <div class="diag-desc" id="diag-desc-ts">Kalimat pertama harus jelas menyatakan topik utama dan fokus pembatasan.</div>
+                  <div class="diag-snippets" id="diag-snip-ts" style="display:none;"></div>
+                </div>
+
+                <!-- 2. Compound Sentence (FANBOYS) -->
+                <div class="diag-item" id="diag-box-compound">
+                  <div class="diag-item-top">
+                    <span class="diag-title">2. Compound Sentence (FANBOYS + Koma)</span>
+                    <span class="diag-badge fail" id="diag-badge-compound">Belum Ada</span>
+                  </div>
+                  <div class="diag-desc" id="diag-desc-compound">Minimal 1 kalimat majemuk setara dengan tanda koma sebelum FANBOYS (, and / , but / , so).</div>
+                  <div class="diag-snippets" id="diag-snip-compound" style="display:none;"></div>
+                </div>
+
+                <!-- 3. Complex Sentence (Subordinator) -->
+                <div class="diag-item" id="diag-box-complex">
+                  <div class="diag-item-top">
+                    <span class="diag-title">3. Complex Sentence (Subordinator)</span>
+                    <span class="diag-badge fail" id="diag-badge-complex">Belum Ada</span>
+                  </div>
+                  <div class="diag-desc" id="diag-desc-complex">Minimal 1 kalimat bertingkat dengan kata hubung subordinat (because, although, if, since, while).</div>
+                  <div class="diag-snippets" id="diag-snip-complex" style="display:none;"></div>
+                </div>
+
+                <!-- 4. Transitional Devices / Cohesion -->
+                <div class="diag-item" id="diag-box-transitions">
+                  <div class="diag-item-top">
+                    <span class="diag-title">4. Kohesi &amp; Transisi Akademik</span>
+                    <span class="diag-badge fail" id="diag-badge-transitions">Belum Ada</span>
+                  </div>
+                  <div class="diag-desc" id="diag-desc-transitions">Gunakan kata transisi resmi seperti Furthermore, Therefore, For example, In conclusion.</div>
+                  <div class="diag-snippets" id="diag-snip-transitions" style="display:none;"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -817,6 +867,24 @@
             <button type="button" class="badge badge-tomato" id="btn-timer-reset" style="cursor: pointer; padding: 8px 14px; font-size: 13px;">🔄 Reset</button>
             <span class="badge badge-blue" id="exam-ljk-counter">LJK Terisi: 0 / 17 Soal MC</span>
             <button type="button" class="btn-primary btn-submit-exam" onclick="submitUTSExam()">Kumpulkan Ujian 📝</button>
+          </div>
+        </div>
+
+        <!-- Interactive LJK Quick-Jump Grid -->
+        <div class="exam-ljk-card" id="exam-ljk-card">
+          <div class="exam-ljk-header">
+            <div>
+              <strong style="font-family: var(--display); font-size: 15px;">📋 LEMBAR JAWABAN KOMPUTER (LJK) — 17 SOAL PILIHAN GANDA</strong>
+              <div style="font-size: 12px; color: var(--ink-soft); margin-top: 2px;">Klik nomor soal untuk lompat langsung ke pertanyaan. Tekan 🚩 untuk menandai soal ragu-ragu.</div>
+            </div>
+            <div class="ljk-legend">
+              <span class="ljk-legend-item"><span class="ljk-dot unanswered"></span> Belum (<span id="ljk-stat-unanswered">17</span>)</span>
+              <span class="ljk-legend-item"><span class="ljk-dot answered"></span> Terisi (<span id="ljk-stat-answered">0</span>)</span>
+              <span class="ljk-legend-item"><span class="ljk-dot flagged"></span> Ragu (<span id="ljk-stat-flagged">0</span>)</span>
+            </div>
+          </div>
+          <div class="ljk-bubbles-container" id="ljk-bubbles-grid">
+            <!-- Rendered by JS -->
           </div>
         </div>
 
@@ -1089,6 +1157,30 @@
       </section>
 
     </main>
+
+    <!-- ================= VOCABULARY VAULT MODAL ================= -->
+    <div class="vocab-modal-backdrop" id="vocabModal" onclick="if(event.target===this) closeVocabVault()">
+      <div class="vocab-modal" role="dialog" aria-labelledby="vocabModalTitle">
+        <div class="vocab-modal-header">
+          <h3 id="vocabModalTitle">📖 EAP Vocabulary Vault (Bank Istilah Akademik Informatika)</h3>
+          <button type="button" class="btn-sm btn-secondary" onclick="closeVocabVault()" style="font-size: 15px; padding: 4px 10px; cursor: pointer;">✕ Tutup</button>
+        </div>
+        <div class="vocab-modal-body">
+          <div class="vocab-search-bar">
+            <input type="search" id="vocabSearchInput" class="vocab-search-input" placeholder="Cari kata atau arti (misal: feasible, corroborate, deplete, breach)..." oninput="handleVocabSearch(this.value)">
+          </div>
+          <div class="vocab-filter-pills">
+            <button type="button" class="vocab-filter-pill active" data-cat="all" onclick="setVocabCategory('all', this)">Semua Istilah (30)</button>
+            <button type="button" class="vocab-filter-pill" data-cat="reading" onclick="setVocabCategory('reading', this)">Reading Passages</button>
+            <button type="button" class="vocab-filter-pill" data-cat="grammar" onclick="setVocabCategory('grammar', this)">Grammar &amp; Clauses</button>
+            <button type="button" class="vocab-filter-pill" data-cat="it" onclick="setVocabCategory('it', this)">Informatics &amp; Tech</button>
+          </div>
+          <div class="vocab-list" id="vocabListContainer">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- ================= SITE FOOTER ================= -->
     <footer class="site-foot">

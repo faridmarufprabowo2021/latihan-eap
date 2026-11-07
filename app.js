@@ -1170,6 +1170,7 @@ const AppState = {
   listeningAnswers: {},
   grammarAnswers: {},
   examAnswers: {},
+  examFlags: {},
   examTimer: null,
   examSecondsLeft: 90 * 60,
   examStarted: false,
@@ -1186,8 +1187,10 @@ document.addEventListener('DOMContentLoaded', () => {
   renderDrillingQuestions();
   initExamTimerControls();
   renderExamQuestions();
+  renderExamLJKGrid();
   initOutlineBuilder();
   renderWritingModels();
+  renderVocabList();
 });
 
 
@@ -1337,6 +1340,7 @@ function initTabs() {
 
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+      if (window.stopPassageAudio) window.stopPassageAudio();
       const targetPanelId = btn.getAttribute('data-target');
       
       tabBtns.forEach(b => b.classList.remove('active'));
@@ -1366,6 +1370,153 @@ function initAccordions() {
   });
 }
 
+// ================= Web Speech Listening Audio Engine =================
+let activeSpeechUtterance = null;
+let currentPlayingId = null;
+
+function prepareSpeechText(raw) {
+  if (!raw) return '';
+  return raw
+    .replace(/\[.*?\]/g, '') // remove bracket headers
+    .replace(/(Host|Nathan|Miley|Presenter|Speaker 1|Speaker 2|Professor|Advisor|Dimas|Aisha|Budi|Proctor):/gi, '$1 says, ')
+    .replace(/"/g, '')
+    .trim();
+}
+
+window.toggleListeningAudio = function(drillId, rawTranscript) {
+  const btn = document.getElementById(`btn-audio-${drillId}`);
+  const statusEl = document.getElementById(`status-${drillId}`);
+  const speedSelect = document.getElementById(`speed-${drillId}`);
+
+  if (!('speechSynthesis' in window)) {
+    alert('Browser Anda tidak mendukung Web Speech API. Silakan gunakan Chrome, Edge, atau Safari.');
+    return;
+  }
+
+  // If already playing this drill, stop it
+  if (currentPlayingId === drillId && window.speechSynthesis.speaking) {
+    window.stopPassageAudio();
+    return;
+  }
+
+  window.stopPassageAudio();
+
+  const textToSpeak = prepareSpeechText(rawTranscript);
+  const rate = speedSelect ? parseFloat(speedSelect.value) || 1.0 : 1.0;
+
+  const utterance = new SpeechSynthesisUtterance(textToSpeak);
+  utterance.lang = 'en-US';
+  utterance.rate = rate;
+
+  const voices = window.speechSynthesis.getVoices();
+  const enVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Microsoft') || v.name.includes('English')));
+  if (enVoice) utterance.voice = enVoice;
+
+  utterance.onstart = function() {
+    currentPlayingId = drillId;
+    if (btn) {
+      btn.innerHTML = '⏹ Berhenti';
+      btn.className = 'audio-btn audio-btn-play playing';
+    }
+    if (statusEl) {
+      statusEl.textContent = '▶ Sedang Membaca...';
+      statusEl.className = 'audio-status-pill playing';
+    }
+  };
+
+  utterance.onend = utterance.onerror = function() {
+    resetAudioUI(drillId);
+  };
+
+  activeSpeechUtterance = utterance;
+  window.speechSynthesis.speak(utterance);
+};
+
+window.playPassageAudio = function(qId, rawText) {
+  if (!('speechSynthesis' in window)) {
+    alert('Browser Anda tidak mendukung Web Speech API.');
+    return;
+  }
+
+  window.stopPassageAudio();
+  const text = prepareSpeechText(rawText);
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'en-US';
+  utterance.rate = 1.0;
+
+  const btn = document.getElementById(`btn-audio-${qId}`);
+  if (btn) {
+    btn.innerHTML = '⏹ Stop Audio';
+    btn.classList.add('is-flagged');
+  }
+
+  utterance.onend = utterance.onerror = function() {
+    if (btn) {
+      btn.innerHTML = '▶ Putar Audio';
+      btn.classList.remove('is-flagged');
+    }
+    currentPlayingId = null;
+  };
+
+  currentPlayingId = qId;
+  activeSpeechUtterance = utterance;
+  window.speechSynthesis.speak(utterance);
+};
+
+window.stopPassageAudio = function() {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+  }
+  if (currentPlayingId) {
+    resetAudioUI(currentPlayingId);
+    const qBtn = document.getElementById(`btn-audio-${currentPlayingId}`);
+    if (qBtn) {
+      qBtn.innerHTML = '▶ Putar Audio';
+      qBtn.classList.remove('is-flagged');
+    }
+  }
+  currentPlayingId = null;
+  activeSpeechUtterance = null;
+};
+
+function resetAudioUI(drillId) {
+  const btn = document.getElementById(`btn-audio-${drillId}`);
+  const statusEl = document.getElementById(`status-${drillId}`);
+  if (btn) {
+    btn.innerHTML = '▶ Putar Audio';
+    btn.className = 'audio-btn audio-btn-play';
+  }
+  if (statusEl) {
+    statusEl.textContent = '● Siap Diputar';
+    statusEl.className = 'audio-status-pill';
+  }
+}
+
+window.changeAudioSpeed = function(drillId) {
+  if (currentPlayingId === drillId && window.speechSynthesis.speaking) {
+    const drill = LISTENING_DRILLS.find(d => d.id === drillId);
+    if (drill) {
+      window.toggleListeningAudio(drillId, drill.transcript);
+    }
+  }
+};
+
+window.toggleBlindTranscript = function(drillId) {
+  const pre = document.getElementById(`transcript-${drillId}`);
+  const hint = document.getElementById(`blind-hint-${drillId}`);
+  const btn = document.getElementById(`btn-blind-${drillId}`);
+  if (!pre) return;
+
+  const isBlind = pre.classList.toggle('is-blind');
+  if (isBlind) {
+    if (hint) hint.classList.add('show');
+    if (btn) btn.innerHTML = '👁️ Buka Transkrip';
+  } else {
+    if (hint) hint.classList.remove('show');
+    if (btn) btn.innerHTML = '🙈 Uji Telinga (Sembunyikan)';
+  }
+};
+
 // ================= Render Dedicated Listening Arena =================
 function renderListeningDrills() {
   const container = document.getElementById('listening-content-container');
@@ -1383,8 +1534,39 @@ function renderListeningDrills() {
         </div>
 
         <div class="passage-card" style="background: var(--blue-soft); border-color: var(--blue);">
-          <h4>🎧 Audio Transcript & Dialogue Scenario:</h4>
-          <pre style="white-space: pre-wrap; font-family: var(--font); margin: 0; font-size: 14px; line-height: 1.6;">${escapeHtml(drill.transcript)}</pre>
+          <h4>🎧 Audio Transcript &amp; Dialogue Scenario:</h4>
+
+          <!-- Audio Player Bar -->
+          <div class="audio-player-bar">
+            <div class="audio-controls-left">
+              <button type="button" class="audio-btn audio-btn-play" id="btn-audio-${drill.id}" onclick="toggleListeningAudio('${drill.id}', decodeURIComponent('${encodeURIComponent(drill.transcript)}'))">
+                ▶ Putar Audio
+              </button>
+              <button type="button" class="audio-btn audio-btn-stop" onclick="stopPassageAudio()">
+                ⏹ Stop
+              </button>
+              <div class="audio-speed-wrap">
+                <span>Kecepatan:</span>
+                <select class="audio-speed-select" id="speed-${drill.id}" onchange="changeAudioSpeed('${drill.id}')">
+                  <option value="0.85">0.85x (Pelan)</option>
+                  <option value="1.0" selected>1.0x (Normal)</option>
+                  <option value="1.15">1.15x (Cepat)</option>
+                </select>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+              <span class="audio-status-pill" id="status-${drill.id}">● Siap Diputar</span>
+              <button type="button" class="blind-mode-toggle" id="btn-blind-${drill.id}" onclick="toggleBlindTranscript('${drill.id}')">
+                🙈 Uji Telinga (Sembunyikan)
+              </button>
+            </div>
+          </div>
+
+          <div class="blind-banner-hint" id="blind-hint-${drill.id}">
+            <span>🎧 <strong>Mode Uji Telinga Aktif:</strong> Transkrip diburamkan agar Anda melatih kepekaan mendengar. Tekan tombol Putar Audio di atas, lalu jawab pertanyaan di bawah!</span>
+          </div>
+
+          <pre id="transcript-${drill.id}" class="transcript-content" style="white-space: pre-wrap; font-family: var(--font); margin: 0; font-size: 14px; line-height: 1.6;">${escapeHtml(drill.transcript)}</pre>
         </div>
 
         <div class="drilling-questions-wrap">
@@ -1906,7 +2088,17 @@ function createExamQuestionHTML(q, section) {
   if (q.audioSim) {
     extraBox = `
       <div class="passage-card" style="background: var(--blue-soft); border-color: var(--blue); margin-bottom: 12px;">
-        <strong style="display:block; margin-bottom: 4px; font-family: var(--mono); font-size: 12px; color: #1e556e;">🎧 AUDIO TRANSCRIPT SIMULATION:</strong>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px; flex-wrap:wrap; gap:6px;">
+          <strong style="font-family: var(--mono); font-size: 12px; color: #1e556e;">🎧 AUDIO TRANSCRIPT SIMULATION:</strong>
+          <div style="display:flex; gap:6px; align-items:center;">
+            <button type="button" class="btn-flag-q" id="btn-audio-${q.id}" onclick="playPassageAudio('${q.id}', decodeURIComponent('${encodeURIComponent(q.audioSim)}'))">
+              ▶ Putar Audio
+            </button>
+            <button type="button" class="btn-flag-q" onclick="stopPassageAudio()">
+              ⏹ Stop
+            </button>
+          </div>
+        </div>
         <pre style="white-space: pre-wrap; font-family: var(--font); margin: 0; font-size: 13.5px; line-height: 1.5;">${escapeHtml(q.audioSim)}</pre>
       </div>
     `;
@@ -1930,12 +2122,17 @@ function createExamQuestionHTML(q, section) {
     `;
   });
 
+  const isFlagged = Boolean(AppState.examFlags[q.id]);
+
   return `
     <div class="question-block" id="exam-q-${q.id}">
       ${extraBox}
       <div class="q-header">
         <span class="q-text">${escapeHtml(q.q)}</span>
-        <div style="display:flex; gap:6px; align-items:center;">
+        <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap;">
+          <button type="button" class="btn-flag-q ${isFlagged ? 'is-flagged' : ''}" id="flag-btn-${q.id}" onclick="toggleExamFlag('${q.id}')" title="Tandai jika masih ragu-ragu">
+            ${isFlagged ? '🚩 Ditandai Ragu' : '🚩 Ragu-ragu'}
+          </button>
           <span class="q-clo-badge">${q.clo}</span>
           <span class="badge badge-mustard" style="font-size:11px; padding:2px 8px;">${q.pts} pts</span>
         </div>
@@ -1976,6 +2173,96 @@ window.selectExamAnswer = function(questionId, selectedIdx, section) {
   }
 
   updateLJKSummary();
+  renderExamLJKGrid();
+};
+
+const ALL_EXAM_MC_IDS = [
+  'uts-l1', 'uts-l2', 'uts-l3', 'uts-l4', 'uts-l5',
+  'uts-g1', 'uts-g2', 'uts-g3', 'uts-g4', 'uts-g5',
+  'uts-r1', 'uts-r2', 'uts-r3', 'uts-r4', 'uts-r5', 'uts-r6', 'uts-r7'
+];
+window.ALL_EXAM_MC_IDS = ALL_EXAM_MC_IDS;
+
+window.renderExamLJKGrid = function() {
+  const container = document.getElementById('ljk-bubbles-grid');
+  if (!container) return;
+
+  let answeredCount = 0;
+  let flaggedCount = 0;
+  let html = '';
+
+  ALL_EXAM_MC_IDS.forEach((id, idx) => {
+    const num = idx + 1;
+    const ans = AppState.examAnswers[id];
+    const isAnswered = ans !== undefined;
+    const isFlagged = Boolean(AppState.examFlags[id]);
+
+    if (isAnswered) answeredCount++;
+    if (isFlagged) flaggedCount++;
+
+    const letter = isAnswered ? String.fromCharCode(65 + ans.selected) : '';
+
+    let bubbleClass = 'ljk-bubble';
+    if (isAnswered) bubbleClass += ' answered';
+    if (isFlagged) bubbleClass += ' flagged';
+
+    const subText = isFlagged ? '🚩' : (isAnswered ? letter : '-');
+
+    html += `
+      <button type="button" class="${bubbleClass}" onclick="jumpToExamQuestion('${id}')" title="Soal No. ${num}: ${isAnswered ? 'Jawaban ' + letter : 'Belum Terisi'}${isFlagged ? ' (Ragu-ragu)' : ''}">
+        <span>${num}</span>
+        <span class="ljk-bubble-sub">${subText}</span>
+      </button>
+    `;
+  });
+
+  container.innerHTML = html;
+
+  const unansweredCount = ALL_EXAM_MC_IDS.length - answeredCount;
+  const statUnans = document.getElementById('ljk-stat-unanswered');
+  if (statUnans) statUnans.textContent = unansweredCount;
+
+  const statAns = document.getElementById('ljk-stat-answered');
+  if (statAns) statAns.textContent = answeredCount;
+
+  const statFlag = document.getElementById('ljk-stat-flagged');
+  if (statFlag) statFlag.textContent = flaggedCount;
+
+  const badge = document.getElementById('exam-ljk-counter');
+  if (badge) {
+    badge.textContent = `LJK Terisi: ${answeredCount} / 17 Soal MC`;
+  }
+};
+
+window.toggleExamFlag = function(qId) {
+  if (AppState.examSubmitted) return;
+  AppState.examFlags[qId] = !AppState.examFlags[qId];
+
+  const flagBtn = document.getElementById(`flag-btn-${qId}`);
+  if (flagBtn) {
+    if (AppState.examFlags[qId]) {
+      flagBtn.classList.add('is-flagged');
+      flagBtn.innerHTML = '🚩 Ditandai Ragu';
+    } else {
+      flagBtn.classList.remove('is-flagged');
+      flagBtn.innerHTML = '🚩 Ragu-ragu';
+    }
+  }
+
+  renderExamLJKGrid();
+};
+
+window.jumpToExamQuestion = function(qId) {
+  const el = document.getElementById(`exam-q-${qId}`);
+  if (!el) return;
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  el.style.transition = 'box-shadow 0.25s ease, border-color 0.25s ease';
+  el.style.borderColor = 'var(--mustard)';
+  el.style.boxShadow = '0 0 0 4px var(--mustard-soft)';
+  setTimeout(() => {
+    el.style.borderColor = 'var(--ink)';
+    el.style.boxShadow = 'var(--shadow-sm)';
+  }, 1200);
 };
 
 function updateLJKSummary() {
@@ -2151,6 +2438,9 @@ function updateParagraphWordCounter() {
       feedbackEl.innerHTML = `⛔ <strong>Melebihi batas ${over} kata!</strong> Ringkas kalimat Anda agar tidak melampaui batas 150 kata.`;
     }
   }
+
+  // Live Heuristic Evaluation of Paragraph Anatomy (CLO 2 & 4)
+  analyzeAcademicParagraphAnatomy(text);
 }
 
 // Topic Selection & Studio Helpers
@@ -2340,6 +2630,231 @@ function renderExamResultCard(total, lScore, gScore, rScore, wScore) {
   resultCard.classList.add('show');
   resultCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
+// ================= Academic Paragraph Diagnostics Engine =================
+function analyzeAcademicParagraphAnatomy(text) {
+  const overallBadge = document.getElementById('diag-overall-score');
+  if (!overallBadge) return;
+
+  if (!text || !text.trim()) {
+    overallBadge.textContent = 'Status: Belum Menganalisis';
+    overallBadge.className = 'badge badge-mustard';
+    resetDiagItem('ts', 'Belum Ada', 'fail', 'Kalimat pertama harus jelas menyatakan topik utama dan fokus pembatasan.', null);
+    resetDiagItem('compound', 'Belum Ada', 'fail', 'Minimal 1 kalimat majemuk setara dengan tanda koma sebelum FANBOYS (, and / , but / , so).', null);
+    resetDiagItem('complex', 'Belum Ada', 'fail', 'Minimal 1 kalimat bertingkat dengan kata hubung subordinat (because, although, if, since, while).', null);
+    resetDiagItem('transitions', 'Belum Ada', 'fail', 'Gunakan kata transisi resmi seperti Furthermore, Therefore, For example, In conclusion.', null);
+    return;
+  }
+
+  let passCount = 0;
+
+  // 1. Topic Sentence: First sentence of text
+  const cleanSentences = text
+    .split(/[.!?]+/)
+    .map(s => s.trim())
+    .filter(s => countAcademicWords(s) > 0);
+
+  const firstSentence = cleanSentences[0] || '';
+  const firstWordCount = countAcademicWords(firstSentence);
+  if (firstWordCount >= 7) {
+    passCount++;
+    const preview = firstSentence.length > 70 ? firstSentence.slice(0, 70) + '...' : firstSentence;
+    resetDiagItem('ts', 'Terpenuhi (Pass)', 'pass', 'Topic sentence terdeteksi di awal paragraf dengan struktur yang cukup mendalam.', `Snippet: "${preview}"`);
+  } else if (firstWordCount > 0) {
+    resetDiagItem('ts', 'Kurang Panjang', 'warn', 'Kalimat pembuka terlalu pendek (< 7 kata). Tambahkan controlling idea yang spesifik.', `Snippet: "${firstSentence}"`);
+  } else {
+    resetDiagItem('ts', 'Belum Ada', 'fail', 'Tuliskan satu kalimat pembuka yang memperkenalkan topik utama dan controlling idea.', null);
+  }
+
+  // 2. Compound Sentence: FANBOYS with comma
+  const fanboysRegex = /,\s*(?:for|and|nor|but|or|yet|so)\b\s+[^.!?]+/i;
+  const fanboysMatch = text.match(fanboysRegex);
+  if (fanboysMatch) {
+    passCount++;
+    const snippet = fanboysMatch[0].trim();
+    const preview = snippet.length > 60 ? snippet.slice(0, 60) + '...' : snippet;
+    resetDiagItem('compound', 'Terdeteksi (Pass)', 'pass', 'Ditemukan struktur kalimat majemuk setara: [Independent Clause] , [FANBOYS] [Independent Clause].', `Pola: "...${preview}"`);
+  } else {
+    const fanboysNoComma = /\b(?:for|and|nor|but|or|yet|so)\b/i.test(text);
+    if (fanboysNoComma) {
+      resetDiagItem('compound', 'Koma Kurang', 'warn', 'Ditemukan konjungsi koordinat, namun belum didahului tanda koma sebelum FANBOYS (, and / , but / , so).', null);
+    } else {
+      resetDiagItem('compound', 'Belum Ada', 'fail', 'Gunakan minimal 1 kalimat majemuk setara yang dihubungkan tanda koma dan konjungsi FANBOYS.', null);
+    }
+  }
+
+  // 3. Complex Sentence: Subordinator (because, although, even though, since, while, whereas, if, unless, after, before, when, until)
+  const subordinatorRegex = /\b(?:because|although|even though|since|while|whereas|if|unless|after|before|when|until)\b\s+[^.!?]+/i;
+  const subMatch = text.match(subordinatorRegex);
+  if (subMatch) {
+    passCount++;
+    const snippet = subMatch[0].trim();
+    const preview = snippet.length > 60 ? snippet.slice(0, 60) + '...' : snippet;
+    resetDiagItem('complex', 'Terdeteksi (Pass)', 'pass', 'Ditemukan klausa subordinat / kalimat majemuk bertingkat (Complex Sentence).', `Subordinator: "${preview}"`);
+  } else {
+    resetDiagItem('complex', 'Belum Ada', 'fail', 'Sisipkan klausa dependen menggunakan subordinating conjunction (because, although, if, since, while).', null);
+  }
+
+  // 4. Transitions / Cohesion
+  const transRegex = /\b(?:furthermore|moreover|in addition|additionally|however|on the other hand|therefore|thus|consequently|in conclusion|for example|for instance)\b/gi;
+  const transMatches = text.match(transRegex) || [];
+  if (transMatches.length >= 2) {
+    passCount++;
+    const unique = [...new Set(transMatches.map(m => m.toLowerCase()))];
+    resetDiagItem('transitions', `${unique.length} Transisi (Pass)`, 'pass', 'Alur kohesi paragraf sangat baik berkat penggunaan penanda transisi akademik resmi.', `Kata transisi: ${unique.join(', ')}`);
+  } else if (transMatches.length === 1) {
+    resetDiagItem('transitions', '1 Transisi (Cukup)', 'warn', 'Sudah ada 1 penanda transisi. Tambahkan 1 lagi (misal: Therefore, Furthermore) untuk kohesi optimal.', `Ditemukan: "${transMatches[0]}"`);
+  } else {
+    resetDiagItem('transitions', 'Belum Ada', 'fail', 'Gunakan penanda transisi akademik seperti Furthermore, However, For example, In conclusion.', null);
+  }
+
+  if (passCount === 4) {
+    overallBadge.textContent = '🌟 Rubrik Lengkap: A+ (4/4 Kriteria)';
+    overallBadge.className = 'badge badge-teal';
+  } else if (passCount >= 2) {
+    overallBadge.textContent = `⚡ Bagus: ${passCount}/4 Kriteria Terpenuhi`;
+    overallBadge.className = 'badge badge-mustard';
+  } else {
+    overallBadge.textContent = `⚠️ Perlu Variasi Kalimat (${passCount}/4)`;
+    overallBadge.className = 'badge badge-tomato';
+  }
+}
+window.analyzeAcademicParagraphAnatomy = analyzeAcademicParagraphAnatomy;
+
+function resetDiagItem(key, badgeText, badgeClass, descText, snippetText) {
+  const badgeEl = document.getElementById(`diag-badge-${key}`);
+  const descEl = document.getElementById(`diag-desc-${key}`);
+  const snipEl = document.getElementById(`diag-snip-${key}`);
+
+  if (badgeEl) {
+    badgeEl.textContent = badgeText;
+    badgeEl.className = `diag-badge ${badgeClass}`;
+  }
+  if (descEl) descEl.textContent = descText;
+  if (snipEl) {
+    if (snippetText) {
+      snipEl.style.display = 'block';
+      snipEl.textContent = snippetText;
+    } else {
+      snipEl.style.display = 'none';
+      snipEl.textContent = '';
+    }
+  }
+}
+
+// ================= Vocabulary Vault Dataset & Engine =================
+const EAP_VOCABULARY_DATA = [
+  { word: 'Autonomous', pos: 'adjective', meaning: 'Mandiri / dapat beroperasi sendiri tanpa kendali langsung manusia', ex: 'The autonomous drone returned to base before its battery depleted.', src: 'Meeting 4 (FANBOYS Drilling)', cat: 'it' },
+  { word: 'Feasible', pos: 'adjective', meaning: 'Layak / dapat dikerjakan secara teknis dan praktis', ex: 'Deploying a localized cache server is economically feasible for our lab.', src: 'Reading Drilling ANS (Q12)', cat: 'reading' },
+  { word: 'Corroborate', pos: 'verb', meaning: 'Memperkuat / mengonfirmasi kebenaran bukti dengan data lain', ex: 'The log records corroborated that the system crashed due to memory leak.', src: 'Reading Drilling ANS (Q19)', cat: 'reading' },
+  { word: 'Deplete', pos: 'verb', meaning: 'Menguras / menghabiskan persediaan daya atau sumber daya', ex: 'High-frequency network polling will rapidly deplete server memory.', src: 'Meeting 4 (FANBOYS Drilling)', cat: 'it' },
+  { word: 'Consensus', pos: 'noun', meaning: 'Kesepakatan bersama / mufakat seluruh anggota tim', ex: 'The engineering team reached a consensus regarding the database migration.', src: 'Reading Drilling ANS (Q6)', cat: 'reading' },
+  { word: 'Prerequisite', pos: 'noun', meaning: 'Syarat wajib yang harus dipenuhi sebelum melanjutkan ke tahap berikutnya', ex: 'OOP is a mandatory prerequisite for Advanced Software Engineering.', src: 'Simulasi UTS (Q2 Listening)', cat: 'reading' },
+  { word: 'Mitigate', pos: 'verb', meaning: 'Meredakan / mengurangi dampak risiko atau kerentanan', ex: 'Multi-factor authentication helps mitigate unauthorized database intrusions.', src: 'Simulasi UTS (Q4 Listening)', cat: 'it' },
+  { word: 'Vulnerability', pos: 'noun', meaning: 'Celah kerentanan keamanan yang dapat dieksploitasi', ex: 'Human administrative protocol remains the critical vulnerability in cloud systems.', src: 'Simulasi UTS (Q4 Listening)', cat: 'it' },
+  { word: 'Benchmark', pos: 'noun / verb', meaning: 'Tolok ukur uji performa standar suatu algoritma atau hardware', ex: 'The sorting algorithm achieved the fastest benchmark in execution time.', src: 'Simulasi UTS (Q1 Listening)', cat: 'it' },
+  { word: 'Subordinate', pos: 'adjective / verb', meaning: 'Terikat / berada di bawah kendali klausa utama (induk kalimat)', ex: 'A subordinate clause cannot stand alone as a complete sentence.', src: 'Meeting 4 (Complex Sentence)', cat: 'grammar' },
+  { word: 'Splice', pos: 'noun', meaning: 'Kesalahan penggabungan dua klausa mandiri hanya dengan tanda koma (Comma Splice)', ex: 'Avoid comma splices by placing a coordinating conjunction after the comma.', src: 'Meeting 4 (Sentence Traps)', cat: 'grammar' },
+  { word: 'Fragment', pos: 'noun', meaning: 'Penggalan kalimat tidak lengkap yang kehilangan subjek atau predikat utama', ex: 'Starting a sentence with "Because" without an independent clause creates a fragment.', src: 'Meeting 4 (Sentence Traps)', cat: 'grammar' },
+  { word: 'Cohesion', pos: 'noun', meaning: 'Keterpaduan antar-kalimat dalam paragraf menggunakan kata transisi', ex: 'Academic transitions like "Furthermore" and "Therefore" strengthen paragraph cohesion.', src: 'Meeting 5 & 7 (Writing Rubric)', cat: 'grammar' },
+  { word: 'Redundancy', pos: 'noun', meaning: 'Pencadangan ganda untuk mencegah kehilangan data jika server utama gagal', ex: 'Data redundancy ensures business continuity during hard drive failures.', src: 'Simulasi UTS (Q4 Listening)', cat: 'it' },
+  { word: 'Discrepancy', pos: 'noun', meaning: 'Ketidaksesuaian atau perbedaan antara dua data yang seharusnya sama', ex: 'The audit discovered a minor discrepancy in the hardware inventory logs.', src: 'Reading Drilling ANS (Q24)', cat: 'reading' },
+  { word: 'Proprietary', pos: 'adjective', meaning: 'Hak milik eksklusif / perangkat lunak berlisensi tertutup', ex: 'The company migrated from proprietary software to open-source Linux servers.', src: 'Reading Drilling ANS (Q9)', cat: 'it' },
+  { word: 'Empirical', pos: 'adjective', meaning: 'Berdasarkan bukti pengamatan atau eksperimen nyata di lapangan', ex: 'The researchers gathered empirical data from 500 active mobile app users.', src: 'Simulasi UTS (Q4 Listening)', cat: 'reading' },
+  { word: 'Breach', pos: 'noun / verb', meaning: 'Pembobolan atau pelanggaran batas keamanan data', ex: 'Misconfigured cloud credentials caused the confidential data breach.', src: 'Simulasi UTS (Q4 Listening)', cat: 'it' },
+  { word: 'Optimization', pos: 'noun', meaning: 'Proses penyempurnaan kode agar berjalan lebih hemat memori dan cepat', ex: 'Algorithmic optimization dictates memory allocation in large database engines.', src: 'Simulasi UTS (Q1 Listening)', cat: 'it' },
+  { word: 'Encryption', pos: 'noun', meaning: 'Penyandian data acak untuk melindungi informasi dari akses tanpa izin', ex: 'End-to-end encryption protects sensitive packets across public Wi-Fi networks.', src: 'Simulasi UTS (Q4 Listening)', cat: 'it' },
+  { word: 'Throughput', pos: 'noun', meaning: 'Jumlah data yang berhasil diproses per satuan waktu', ex: 'The new fiber optic cable tripled our departmental network throughput.', src: 'Simulasi UTS (Q1 Listening)', cat: 'it' },
+  { word: 'Coordinate', pos: 'adjective / verb', meaning: 'Setara secara gramatikal dalam menggabungkan dua klausa bebas (FANBOYS)', ex: 'Coordinating conjunctions connect two grammatically equal independent clauses.', src: 'Meeting 4 (FANBOYS)', cat: 'grammar' },
+  { word: 'Predicate', pos: 'noun', meaning: 'Bagian kalimat yang memuat verba dan menyatakan perbuatan dari subjek', ex: 'Every complete academic sentence must contain a subject and a finite predicate.', src: 'Meeting 3 (Parts of Speech)', cat: 'grammar' },
+  { word: 'Countermeasure', pos: 'noun', meaning: 'Tindakan pencegahan atau penanggulangan terhadap ancaman siber', ex: 'Installing automated firewall rules is an effective countermeasure against DDoS.', src: 'Reading Drilling ANS (Q28)', cat: 'it' },
+  { word: 'Intuitive', pos: 'adjective', meaning: 'Mudah dipahami dan digunakan pengguna tanpa perlu instruksi rumit', ex: 'The frontend engineer developed an intuitive user interface for mobile clients.', src: 'Meeting 4 (Compound Sentence)', cat: 'it' },
+  { word: 'Execute', pos: 'verb', meaning: 'Menjalankan instruksi program komputer hingga tuntas', ex: 'The binary search algorithm executed in less than two milliseconds.', src: 'Meeting 4 (Compound Sentence)', cat: 'it' },
+  { word: 'Termination', pos: 'noun', meaning: 'Penghentian proses atau koneksi secara paksa', ex: 'Unauthorized login attempts will result in immediate session termination.', src: 'Meeting 4 (Compound Sentence)', cat: 'it' },
+  { word: 'Corrupt', pos: 'verb / adjective', meaning: 'Merusak integritas file data sehingga tidak dapat dibaca kembali', ex: 'The power surge did not corrupt any critical operating system files.', src: 'Meeting 4 (Compound Sentence)', cat: 'it' },
+  { word: 'Controlling Idea', pos: 'noun', meaning: 'Gagasan pengontrol yang membatasi topik bahasan dalam Topic Sentence', ex: 'A topic sentence combines a clear subject with a specific controlling idea.', src: 'Meeting 5 & 7 (Writing Workshop)', cat: 'grammar' },
+  { word: 'Transitional Signal', pos: 'noun', meaning: 'Kata penghubung antar-ide yang membimbing alur berpikir pembaca', ex: 'Transitions like "However" and "In conclusion" signal logical shifts in argumentation.', src: 'Meeting 7 (Paragraph Writing)', cat: 'grammar' }
+];
+window.EAP_VOCABULARY_DATA = EAP_VOCABULARY_DATA;
+
+let activeVocabCategory = 'all';
+let vocabSearchQuery = '';
+
+window.openVocabVault = function() {
+  const modal = document.getElementById('vocabModal');
+  if (modal) {
+    modal.classList.add('open');
+    renderVocabList();
+    const input = document.getElementById('vocabSearchInput');
+    if (input) setTimeout(() => input.focus(), 100);
+  }
+};
+
+window.closeVocabVault = function() {
+  const modal = document.getElementById('vocabModal');
+  if (modal) modal.classList.remove('open');
+};
+
+window.handleVocabSearch = function(query) {
+  vocabSearchQuery = query || '';
+  renderVocabList();
+};
+
+window.setVocabCategory = function(cat, btnEl) {
+  activeVocabCategory = cat;
+  const pills = document.querySelectorAll('.vocab-filter-pill');
+  pills.forEach(p => p.classList.remove('active'));
+  if (btnEl) btnEl.classList.add('active');
+  renderVocabList();
+};
+
+window.pronounceWord = function(word) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = 'en-US';
+  utterance.rate = 0.9;
+  window.speechSynthesis.speak(utterance);
+};
+
+window.renderVocabList = function() {
+  const container = document.getElementById('vocabListContainer');
+  if (!container) return;
+
+  const q = vocabSearchQuery.toLowerCase().trim();
+  const filtered = EAP_VOCABULARY_DATA.filter(item => {
+    const matchesCat = activeVocabCategory === 'all' || item.cat === activeVocabCategory;
+    const matchesQuery = !q || item.word.toLowerCase().includes(q) || item.meaning.toLowerCase().includes(q) || item.ex.toLowerCase().includes(q);
+    return matchesCat && matchesQuery;
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 30px; font-style: italic; color: var(--ink-soft);">Tidak ada kosakata yang cocok dengan pencarian Anda.</div>';
+    return;
+  }
+
+  let html = '';
+  filtered.forEach(item => {
+    html += `
+      <div class="vocab-item-card">
+        <div class="vocab-term-row">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="vocab-word">${escapeHtml(item.word)}</span>
+            <button type="button" class="vocab-pronounce-btn" onclick="pronounceWord('${escapeHtml(item.word)}')" title="Dengarkan pengucapan audio">
+              🔊 Pronounce
+            </button>
+          </div>
+          <span class="vocab-pos">${escapeHtml(item.pos)}</span>
+        </div>
+        <div class="vocab-meaning">🇮🇩 ${escapeHtml(item.meaning)}</div>
+        <div class="vocab-example">"${escapeHtml(item.ex)}"</div>
+        <div class="vocab-badge-source">📌 Sumber: ${escapeHtml(item.src)}</div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+};
 
 // Utility: HTML Escape
 function escapeHtml(str) {

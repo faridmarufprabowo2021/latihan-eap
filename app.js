@@ -1,557 +1,347 @@
 /**
  * Ruang EAP — Application Logic & Question Engine
  * Universitas Muhammadiyah Surakarta — Teknik Informatika
+ * 
+ * Terintegrasi penuh dengan seluruh materi resmi:
+ * 1. Listening Arena (Meeting 1 & 2: Nathan's School, Miley Cyrus, Youth Council, Festival, Computing Conference)
+ * 2. Structure & Grammar (Meeting 3: Parts of Speech, Meeting 4: Simple, Compound, Complex Sentences)
+ * 3. Reading Comprehension (Meeting 5 & 6: 30 Soal Dokumen Dosen READING Drilling ANS)
+ * 4. Writing Workshop (Meeting 5 & 7: Paragraph Construction 100-150 words with sentence type rubrics)
+ * 5. Simulasi UTS 90 Menit (Full 100 Pts)
  */
 
-// 1. LISTENING DRILLS
+// ==========================================
+// 1. LISTENING DRILLS (MEETING 2 DOSEN)
+// ==========================================
+
 const LISTENING_DRILLS = [
   {
-    "id": "lis-nathan",
-    "title": "Exercise 1: Radio Interview — Nathan's School (Brooklyn Free School)",
-    "source": "Lecturer Document: Meeting 2 (Listening exercise.docx)",
-    "transcript": "[RADIO INTERVIEW TRANSCRIPT]\nHost: \"Welcome back to Education Today. Today we're visiting Brooklyn Free School in New York to speak with Nathan, a 16-year-old high school student. Nathan, tell us about how your school works.\"\nNathan: \"Hi! Well, Brooklyn Free School is really unique. There are no tests, no homework, and no mandatory grades. In my section of the school, students are aged 12 to 18, and there are about 60 students in total. We choose what we want to study every day.\"\nHost: \"Do you have regular classes with kids your own age?\"\nNathan: \"Actually, I rarely sit next to students who are only my age. We mix together. For instance, the boy who helps me with advanced mathematics is only 13 years old, but he's a genius at calculus! Our daily lessons run from 9:00 a.m. to 3:00 p.m. And while some think it's completely free, standard tuition actually costs about $12,000 a year, though they offer financial aid.\"\nHost: \"Do you enjoy coming to school?\"\nNathan: \"I absolutely love it. It's an inspiring place to learn.\"",
-    "questions": [
+    id: 'lis-nathan',
+    title: "Exercise 1: Radio Interview — Nathan's School (Brooklyn Free School)",
+    source: 'Lecturer Document: Meeting 2 (Listening exercise.docx - Image 1)',
+    transcript: `[RADIO INTERVIEW TRANSCRIPT]
+Host: "Welcome back to Education Today. Today we're visiting Brooklyn Free School in New York to speak with Nathan, a 16-year-old high school student. Nathan, tell us about how your school works."
+Nathan: "Hi! Well, Brooklyn Free School is really unique. There are no tests, no homework, and no mandatory grades. In my section of the school, students are aged 12 to 18, and there are about 60 students in total. We choose what we want to study every day."
+Host: "Do you have regular classes with kids your own age?"
+Nathan: "Actually, I rarely sit next to students who are only my age. We mix together. For instance, the boy who helps me with advanced mathematics is only 13 years old, but he's a genius at calculus! Our daily lessons run from 9:00 a.m. to 3:00 p.m. And while some think it's completely free, standard tuition actually costs about $12,000 a year, though they offer financial aid."
+Host: "Do you enjoy coming to school?"
+Nathan: "I absolutely love it. It's an inspiring place to learn."`,
+    questions: [
       {
-        "id": "ln-1",
-        "q": "1. Nathan is ___ years old.",
-        "options": [
-          "15",
-          "16",
-          "17"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (16). Transkrip: <u>\"...to speak with Nathan, a 16-year-old high school student.\"</u>"
+        id: 'ln-1',
+        q: '1. Nathan is ___ years old.',
+        options: ['15', '16', '17'],
+        answer: 1, // 16
+        expl: 'Kunci: B (16). Transkrip: <u>"...to speak with Nathan, a 16-year-old high school student."</u>'
       },
       {
-        "id": "ln-2",
-        "q": "2. In Nathan's part of the school the students are aged ___.",
-        "options": [
-          "4-11",
-          "4-18",
-          "12-18"
-        ],
-        "answer": 2,
-        "expl": "Kunci: C (12-18). Transkrip: <u>\"In my section of the school, students are aged 12 to 18...\"</u>"
+        id: 'ln-2',
+        q: "2. In Nathan's part of the school the students are aged ___.",
+        options: ['4-11', '4-18', '12-18'],
+        answer: 2, // 12-18
+        expl: 'Kunci: C (12-18). Transkrip: <u>"In my section of the school, students are aged 12 to 18..."</u>'
       },
       {
-        "id": "ln-3",
-        "q": "3. Nathan's part of the school has about ___ students.",
-        "options": [
-          "16",
-          "60",
-          "66"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (60). Transkrip: <u>\"...and there are about 60 students in total.\"</u>"
+        id: 'ln-3',
+        q: "3. Nathan's part of the school has about ___ students.",
+        options: ['16', '60', '66'],
+        answer: 1, // 60
+        expl: 'Kunci: B (60). Transkrip: <u>"...and there are about 60 students in total."</u>'
       },
       {
-        "id": "ln-4",
-        "q": "4. Nathan ___ sits next to students of his own age.",
-        "options": [
-          "sometimes",
-          "never",
-          "always"
-        ],
-        "answer": 0,
-        "expl": "Kunci: A (sometimes). Transkrip: Nathan belajar bercampur usia, sehingga hanya kadang-kadang duduk dengan yang seumuran."
+        id: 'ln-4',
+        q: '4. Nathan ___ sits next to students of his own age.',
+        options: ['sometimes', 'never', 'always'],
+        answer: 0, // sometimes
+        expl: 'Kunci: A (sometimes). Transkrip: Nathan menyatakan ia belajar bercampur usia, sehingga hanya kadang-kadang (sometimes) duduk dengan yang seumuran.'
       },
       {
-        "id": "ln-5",
-        "q": "5. The boy who helps Nathan with maths is ___ years old.",
-        "options": [
-          "11",
-          "13",
-          "18"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (13). Transkrip: <u>\"the boy who helps me with advanced mathematics is only 13 years old...\"</u>"
+        id: 'ln-5',
+        q: '5. The boy who helps Nathan with maths is ___ years old.',
+        options: ['11', '13', '18'],
+        answer: 1, // 13
+        expl: 'Kunci: B (13). Transkrip: <u>"the boy who helps me with advanced mathematics is only 13 years old..."</u>'
       },
       {
-        "id": "ln-6",
-        "q": "6. Lessons are from ___.",
-        "options": [
-          "8 a.m. to 3 p.m.",
-          "9 a.m. to 3 p.m.",
-          "9 a.m. to 4 p.m."
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (9 a.m. to 3 p.m.). Transkrip: <u>\"Our daily lessons run from 9:00 a.m. to 3:00 p.m.\"</u>"
+        id: 'ln-6',
+        q: '6. Lessons are from ___.',
+        options: ['8 a.m. to 3 p.m.', '9 a.m. to 3 p.m.', '9 a.m. to 4 p.m.'],
+        answer: 1, // 9 a.m. to 3 p.m.
+        expl: 'Kunci: B (9 a.m. to 3 p.m.). Transkrip: <u>"Our daily lessons run from 9:00 a.m. to 3:00 p.m."</u>'
       },
       {
-        "id": "ln-7",
-        "q": "7. It costs ___ a year to study at the school.",
-        "options": [
-          "$2,000",
-          "$12,000",
-          "$20,000"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B ($12,000). Transkrip: <u>\"...standard tuition actually costs about $12,000 a year...\"</u>"
+        id: 'ln-7',
+        q: '7. It costs ___ a year to study at the school.',
+        options: ['$2,000', '$12,000', '$20,000'],
+        answer: 1, // $12,000
+        expl: 'Kunci: B ($12,000). Transkrip: <u>"...standard tuition actually costs about $12,000 a year..."</u>'
       }
     ]
   },
   {
-    "id": "lis-miley",
-    "title": "Exercise 2: Biography Profile — Miley Cyrus Short Biography",
-    "source": "Lecturer Document: Meeting 2 (Listening exercise.docx)",
-    "transcript": "[BIOGRAPHY AUDIO TRANSCRIPT]\nNarrator: \"Miley Cyrus was born to be a star. She was born on November 23rd, 1992, in Franklin, Tennessee. Cyrus became famous worldwide when she starred in the television show 'Hannah Montana' on Disney Channel. Two years later, she expanded her fame into mainstream pop music. Her 3D concert movie obtained more than 55 million dollars at the box office on opening weekend. Remarkably, by age 16, Miley already had achieved two number-one albums on the Billboard charts. Her energetic single 'Party in the USA' became her best-selling single across the United States. Many music critics and fans respect her because she fearlessly takes artistic risks. In 2011, she was officially ranked in Hollywood as the second richest person under 25. Later in 2012, Miley made a notable guest appearance in the sitcom 'Two and a Half Men', participating a few times throughout the season.\"",
-    "questions": [
+    id: 'lis-miley',
+    title: 'Exercise 2: Biography Profile — Miley Cyrus Short Biography',
+    source: 'Lecturer Document: Meeting 2 (Listening exercise.docx - Image 2)',
+    transcript: `[BIOGRAPHY AUDIO TRANSCRIPT]
+Narrator: "Miley Cyrus was born to be a star. She was born on November 23rd, 1992, in Franklin, Tennessee. Cyrus became famous worldwide when she starred in the television show "Hannah Montana" on Disney Channel. Two years later, she expanded her fame into mainstream pop music. Her 3D concert movie obtained more than 55 million dollars at the box office on opening weekend. Remarkably, by age 16, Miley already had achieved two number-one albums on the Billboard charts. Her energetic single "Party in the USA" became her best-selling single across the United States. Many music critics and fans respect her because she fearlessly takes artistic risks. In 2011, she was officially ranked in Hollywood as the second richest person under 25. Later in 2012, Miley made a notable guest appearance in the sitcom "Two and a Half Men", participating a few times throughout the season."`,
+    questions: [
       {
-        "id": "mc-1",
-        "q": "1. Miley Cyrus was born to be:",
-        "options": [
-          "a fan",
-          "a star",
-          "a sensation"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (a star). Transkrip: <u>\"Miley Cyrus was born to be a star.\"</u>"
+        id: 'mc-1',
+        q: '1. Miley Cyrus was born to be:',
+        options: ['a fan', 'a star', 'a sensation'],
+        answer: 1, // a star
+        expl: 'Kunci: B (a star). Transkrip: <u>"Miley Cyrus was born to be a star."</u>'
       },
       {
-        "id": "mc-2",
-        "q": "2. When was she born?",
-        "options": [
-          "On November 21st, 1992",
-          "On November 23rd, 1992",
-          "On November 23rd, 1994"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (On November 23rd, 1992). Transkrip: <u>\"She was born on November 23rd, 1992...\"</u>"
+        id: 'mc-2',
+        q: '2. When was she born?',
+        options: ['On November 21st, 1992', 'On November 23rd, 1992', 'On November 23rd, 1994'],
+        answer: 1, // Nov 23, 1992
+        expl: 'Kunci: B (On November 23rd, 1992). Transkrip: <u>"She was born on November 23rd, 1992..."</u>'
       },
       {
-        "id": "mc-3",
-        "q": "3. Miley Cyrus became famous:",
-        "options": [
-          "in a TV show",
-          "in a concert",
-          "in a commercial"
-        ],
-        "answer": 0,
-        "expl": "Kunci: A (in a TV show). Transkrip: <u>\"...when she starred in the television show 'Hannah Montana'...\"</u>"
+        id: 'mc-3',
+        q: '3. Miley Cyrus became famous:',
+        options: ['in a TV show', 'in a concert', 'in a commercial'],
+        answer: 0, // TV show
+        expl: 'Kunci: A (in a TV show). Transkrip: <u>"...when she starred in the television show \\\'Hannah Montana\\\'..."</u>'
       },
       {
-        "id": "mc-4",
-        "q": "4. Cyrus became more famous with her music:",
-        "options": [
-          "2 years later",
-          "3 years later",
-          "5 years later"
-        ],
-        "answer": 0,
-        "expl": "Kunci: A (2 years later). Transkrip: <u>\"Two years later, she expanded her fame into mainstream pop music.\"</u>"
+        id: 'mc-4',
+        q: '4. Cyrus became more famous with her music:',
+        options: ['2 years later', '3 years later', '5 years later'],
+        answer: 0, // 2 years later
+        expl: 'Kunci: A (2 years later). Transkrip: <u>"Two years later, she expanded her fame into mainstream pop music."</u>'
       },
       {
-        "id": "mc-5",
-        "q": "5. The 3D movie obtained more than:",
-        "options": [
-          "55 million dollars",
-          "155 million dollars",
-          "115 million dollars"
-        ],
-        "answer": 0,
-        "expl": "Kunci: A (55 million dollars). Transkrip: <u>\"Her 3D concert movie obtained more than 55 million dollars...\"</u>"
+        id: 'mc-5',
+        q: '5. The 3D movie obtained more than:',
+        options: ['55 million dollars', '155 million dollars', '115 million dollars'],
+        answer: 0, // 55 million
+        expl: 'Kunci: A (55 million dollars). Transkrip: <u>"Her 3D concert movie obtained more than 55 million dollars..."</u>'
       },
       {
-        "id": "mc-6",
-        "q": "6. At 16 Miley Cyrus had:",
-        "options": [
-          "4 #1 albums",
-          "2 #1 albums",
-          "3 #1 albums"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (2 #1 albums). Transkrip: <u>\"by age 16, Miley already had achieved two number-one albums...\"</u>"
+        id: 'mc-6',
+        q: '6. At 16 Miley Cyrus had:',
+        options: ['4 #1 albums', '2 #1 albums', '3 #1 albums'],
+        answer: 1, // 2 #1 albums
+        expl: 'Kunci: B (2 #1 albums). Transkrip: <u>"by age 16, Miley already had achieved two number-one albums..."</u>'
       },
       {
-        "id": "mc-7",
-        "q": "7. What single became best-selling single in the USA?",
-        "options": [
-          "The climb",
-          "Party in the USA",
-          "Hannah Montana"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (Party in the USA). Transkrip: <u>\"Her energetic single 'Party in the USA' became her best-selling single...\"</u>"
+        id: 'mc-7',
+        q: '7. What album/single became best-selling single in the USA?',
+        options: ['The climb', 'Party in the USA', 'Hannah Montana'],
+        answer: 1, // Party in the USA
+        expl: 'Kunci: B (Party in the USA). Transkrip: <u>"Her energetic single \\\'Party in the USA\\\' became her best-selling single..."</u>'
       },
       {
-        "id": "mc-8",
-        "q": "8. The speaker likes Miley Cyrus because she:",
-        "options": [
-          "takes risks",
-          "sings very well",
-          "is a good actress"
-        ],
-        "answer": 0,
-        "expl": "Kunci: A (takes risks). Transkrip: <u>\"respect her because she fearlessly takes artistic risks.\"</u>"
+        id: 'mc-8',
+        q: '8. The speaker likes Miley Cyrus because she:',
+        options: ['takes risks', 'sings very well', 'is a good actress'],
+        answer: 0, // takes risks
+        expl: 'Kunci: A (takes risks). Transkrip: <u>"respect her because she fearlessly takes artistic risks."</u>'
       },
       {
-        "id": "mc-9",
-        "q": "9. In 2011, Cyrus was named ___ in Hollywood.",
-        "options": [
-          "the first young actress",
-          "the best singer",
-          "the second richest person"
-        ],
-        "answer": 2,
-        "expl": "Kunci: C (the second richest person). Transkrip: <u>\"...ranked in Hollywood as the second richest person under 25.\"</u>"
+        id: 'mc-9',
+        q: '9. In 2011, Cyrus was named ___ in Hollywood.',
+        options: ['the first young actress', 'the best singer', 'the second richest person'],
+        answer: 2, // second richest
+        expl: 'Kunci: C (the second richest person). Transkrip: <u>"...ranked in Hollywood as the second richest person under 25."</u>'
       },
       {
-        "id": "mc-10",
-        "q": "10. In 2012, Miley participated ___ in the sitcom \"Two and a Half Men\":",
-        "options": [
-          "many times",
-          "sometimes",
-          "few times"
-        ],
-        "answer": 2,
-        "expl": "Kunci: C (few times). Transkrip: <u>\"...participating a few times throughout the season.\"</u>"
+        id: 'mc-10',
+        q: '10. In 2012, Miley participated ___ in the sitcom "Two and a Half Men":',
+        options: ['many times', 'sometimes', 'few times'],
+        answer: 2, // few times
+        expl: 'Kunci: C (few times). Transkrip: <u>"...participating a few times throughout the season."</u>'
       }
     ]
   },
   {
-    "id": "lis-council",
-    "title": "Exercise 3: IELTS Form Completion — Joining Youth Council (Roger Brown)",
-    "source": "Lecturer Document: Meeting 2 (Listening exercise.docx)",
-    "transcript": "[IELTS SECTION 1 CONVERSATION]\nOfficer: \"Good morning, Youth Council office. How can I help you?\"\nRoger: \"Hello, my name is Roger Brown, and I'd like to ask about joining the Youth Council.\"\nOfficer: \"Great! Let me take down a few details. You're 18, correct? And where are you currently living?\"\nRoger: \"During weekdays, I'm staying in a hostel near the college. My permanent home postal address is 17 Buckworth Street, Stamford, Lincs.\"\nOfficer: \"And what is your postcode?\"\nRoger: \"It's PE9 7JR.\"\nOfficer: \"Thanks. Are you working at the moment?\"\nRoger: \"I'm a full-time university student, but I work a part-time job as a waiter on weekends. My major subject of study is politics, with history as my minor subject.\"\nOfficer: \"What about personal hobbies and interests?\"\nRoger: \"I do a lot of cycling, and I'm very interested in the cinema.\"\nOfficer: \"Splendid. Which community focus area would you prefer on the Council?\"\nRoger: \"I really want to work with young people who are disabled. I want to help improve accessibility.\"\nOfficer: \"That's wonderful. Could you come in to speak with the Elections Officer next Monday at 4:30 pm? And please leave your mobile number.\"\nRoger: \"Yes, 4:30 pm is perfect. My mobile number is 07788 136711.\"",
-    "questions": [
+    id: 'lis-council',
+    title: 'Exercise 3: IELTS Form Completion — Joining Youth Council (Roger Brown)',
+    source: 'Lecturer Document: Meeting 2 (Listening exercise.docx - Image 3 & 4)',
+    transcript: `[IELTS SECTION 1 CONVERSATION]
+Officer: "Good morning, Youth Council office. How can I help you?"
+Roger: "Hello, my name is Roger Brown, and I'd like to ask about joining the Youth Council."
+Officer: "Great! Let me take down a few details. You're 18, correct? And where are you currently living?"
+Roger: "During weekdays, I'm staying in a hostel near the college. My permanent home postal address is 17 Buckworth Street, Stamford, Lincs."
+Officer: "And what is your postcode?"
+Roger: "It's PE9 7JR."
+Officer: "Thanks. Are you working at the moment?"
+Roger: "I'm a full-time university student, but I work a part-time job as a waiter on weekends. My major subject of study is politics, with history as my minor subject."
+Officer: "What about personal hobbies and interests?"
+Roger: "I do a lot of cycling, and I'm very interested in the cinema."
+Officer: "Splendid. Which community focus area would you prefer on the Council?"
+Roger: "I really want to work with young people who are disabled. I want to help improve accessibility."
+Officer: "That's wonderful. Could you come in to speak with the Elections Officer next Monday at 4:30 pm? And please leave your mobile number."
+Roger: "Yes, 4:30 pm is perfect. My mobile number is 07788 136711."`,
+    questions: [
       {
-        "id": "yc-1",
-        "q": "1. Currently staying in a [_____] during the week",
-        "options": [
-          "apartment",
-          "hostel",
-          "dormitory"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (hostel). Transkrip: <u>\"I'm staying in a hostel near the college.\"</u>"
+        id: 'yc-1',
+        q: '1. Currently staying in a [_____] during the week',
+        options: ['apartment', 'hostel', 'dormitory'],
+        answer: 1,
+        expl: 'Kunci: B (hostel). Transkrip: <u>"I\'m staying in a hostel near the college."</u>'
       },
       {
-        "id": "yc-2",
-        "q": "2. Postal street address: 17, [_____] Street",
-        "options": [
-          "Buckworth",
-          "Blackwell",
-          "Barker"
-        ],
-        "answer": 0,
-        "expl": "Kunci: A (Buckworth). Transkrip: <u>\"17 Buckworth Street, Stamford\"</u>"
+        id: 'yc-2',
+        q: '2. Postal street address: 17, [_____] Street',
+        options: ['Buckworth', 'Blackwell', 'Barker'],
+        answer: 0,
+        expl: 'Kunci: A (Buckworth). Transkrip: <u>"17 Buckworth Street, Stamford"</u>'
       },
       {
-        "id": "yc-3",
-        "q": "3. Part-time job as a [_____]",
-        "options": [
-          "librarian",
-          "waiter",
-          "cashier"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (waiter). Transkrip: <u>\"work a part-time job as a waiter on weekends.\"</u>"
+        id: 'yc-3',
+        q: '3. Part-time job as a [_____]',
+        options: ['librarian', 'waiter', 'cashier'],
+        answer: 1,
+        expl: 'Kunci: B (waiter). Transkrip: <u>"work a part-time job as a waiter on weekends."</u>'
       },
       {
-        "id": "yc-4",
-        "q": "4. Major subject of study: [_____]",
-        "options": [
-          "history",
-          "politics",
-          "literature"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (politics). Transkrip: <u>\"My major subject of study is politics...\"</u>"
+        id: 'yc-4',
+        q: '4. Major subject of study: [_____]',
+        options: ['history', 'politics', 'literature'],
+        answer: 1,
+        expl: 'Kunci: B (politics). Transkrip: <u>"My major subject of study is politics..."</u>'
       },
       {
-        "id": "yc-5",
-        "q": "5. On Youth Council, wants to work with young people who are [_____]",
-        "options": [
-          "unemployed",
-          "homeless",
-          "disabled"
-        ],
-        "answer": 2,
-        "expl": "Kunci: C (disabled). Transkrip: <u>\"work with young people who are disabled.\"</u>"
+        id: 'yc-5',
+        q: '5. On Youth Council, wants to work with young people who are [_____]',
+        options: ['unemployed', 'homeless', 'disabled'],
+        answer: 2,
+        expl: 'Kunci: C (disabled). Transkrip: <u>"work with young people who are disabled."</u>'
       }
     ]
   }
 ];
 
-// 2. GRAMMAR DRILLS
+// ==========================================
+// 2. GRAMMAR & STRUCTURE DRILLS (MEETING 3 & 4)
+// ==========================================
+
 const GRAMMAR_DRILLS = [
   {
-    "id": "g-pos",
-    "title": "Drill 1: Parts of Speech Mastery (Meeting 3)",
-    "source": "Lecturer Document: Meeting 3 (Part of Speech Exercise.docx)",
-    "questions": [
+    id: 'g-pos',
+    title: 'Drill 1: Parts of Speech Mastery (Meeting 3)',
+    source: 'Lecturer Document: Meeting 3 (Part of Speech Exercise.docx)',
+    questions: [
       {
-        "id": "pos-1",
-        "cat": "NOUN",
-        "q": "1. The engineer checked the _____ before starting the test.",
-        "options": [
-          "equipment",
-          "carefully",
-          "because",
-          "strong"
-        ],
-        "answer": 0,
-        "expl": "Kunci: A (equipment). Noun dibutuhkan sebagai objek setelah kata sandang 'the'."
+        id: 'pos-1',
+        cat: 'NOUN',
+        q: '1. The engineer checked the _____ before starting the test.',
+        options: ['equipment', 'carefully', 'because', 'strong'],
+        answer: 0,
+        expl: 'Kunci: A (equipment). Kata benda (Noun) dibutuhkan sebagai objek setelah kata sandang "the".'
       },
       {
-        "id": "pos-2",
-        "cat": "NOUN",
-        "q": "2. Regular _____ can prevent machine failure.",
-        "options": [
-          "maintains",
-          "maintenance",
-          "maintained",
-          "efficient"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (maintenance). 'Maintenance' adalah Noun yang berfungsi sebagai Subject."
+        id: 'pos-2',
+        cat: 'NOUN',
+        q: '2. Regular _____ can prevent machine failure.',
+        options: ['maintains', 'maintenance', 'maintained', 'efficient'],
+        answer: 1,
+        expl: 'Kunci: B (maintenance). "Maintenance" adalah kata benda (Noun) yang berfungsi sebagai Subject kalimat.'
       },
       {
-        "id": "pos-3",
-        "cat": "PRONOUN",
-        "q": "3. The engineers finished the test, and _____ wrote a report.",
-        "options": [
-          "they",
-          "them",
-          "their",
-          "theirs"
-        ],
-        "answer": 0,
-        "expl": "Kunci: A (they). Subject Pronoun jamak menggantikan 'The engineers'."
+        id: 'pos-3',
+        cat: 'PRONOUN',
+        q: '3. The engineers finished the test, and _____ wrote a report.',
+        options: ['they', 'them', 'their', 'theirs'],
+        answer: 0,
+        expl: 'Kunci: A (they). Kata ganti subjek jamak (Subject Pronoun) yang menggantikan "The engineers".'
       },
       {
-        "id": "pos-4",
-        "cat": "VERB",
-        "q": "4. The machine _____ automatically when the temperature is too high.",
-        "options": [
-          "stops",
-          "stopping",
-          "stop",
-          "stopped"
-        ],
-        "answer": 0,
-        "expl": "Kunci: A (stops). Subjek tunggal membutuhkan Present Verb berakhiran -s."
+        id: 'pos-4',
+        cat: 'VERB',
+        q: '4. The machine _____ automatically when the temperature is too high.',
+        options: ['stops', 'stopping', 'stop', 'stopped'],
+        answer: 0,
+        expl: 'Kunci: A (stops). Subjek tunggal pihak ketiga (The machine) membutuhkan Simple Present Verb dengan akhiran -s.'
       },
       {
-        "id": "pos-5",
-        "cat": "ADJECTIVE",
-        "q": "5. The technician used an _____ instrument.",
-        "options": [
-          "accuracy",
-          "accurately",
-          "accurate",
-          "accurateness"
-        ],
-        "answer": 2,
-        "expl": "Kunci: C (accurate). Adjective menerangkan kata benda 'instrument'."
+        id: 'pos-5',
+        cat: 'ADJECTIVE',
+        q: '5. The technician used an _____ instrument.',
+        options: ['accuracy', 'accurately', 'accurate', 'accurateness'],
+        answer: 2,
+        expl: 'Kunci: C (accurate). Kata sifat (Adjective) dibutuhkan untuk menerangkan kata benda "instrument".'
       },
       {
-        "id": "pos-6",
-        "cat": "ADVERB",
-        "q": "6. The technician measured the temperature _____.",
-        "options": [
-          "accurate",
-          "accuracy",
-          "accurately",
-          "accurateness"
-        ],
-        "answer": 2,
-        "expl": "Kunci: C (accurately). Adverb of manner menerangkan kata kerja 'measured'."
+        id: 'pos-6',
+        cat: 'ADVERB',
+        q: '6. The technician measured the temperature _____.',
+        options: ['accurate', 'accuracy', 'accurately', 'accurateness'],
+        answer: 2,
+        expl: 'Kunci: C (accurately). Kata keterangan cara (Adverb of manner berakhiran -ly) menerangkan kata kerja "measured".'
       },
       {
-        "id": "pos-7",
-        "cat": "PREPOSITION",
-        "q": "7. The sensor is _____ the two components.",
-        "options": [
-          "between",
-          "during",
-          "because",
-          "with"
-        ],
-        "answer": 0,
-        "expl": "Kunci: A (between). Preposisi 'between' menunjukkan letak di antara dua benda."
+        id: 'pos-7',
+        cat: 'PREPOSITION',
+        q: '7. The sensor is _____ the two components.',
+        options: ['between', 'during', 'because', 'with'],
+        answer: 0,
+        expl: 'Kunci: A (between). Preposisi "between" digunakan untuk menunjukkan posisi di antara dua objek.'
       },
       {
-        "id": "pos-8",
-        "cat": "CONJUNCTION",
-        "q": "8. The motor is small, _____ it is powerful.",
-        "options": [
-          "although",
-          "but",
-          "because",
-          "when"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (but). Konjungsi koordinatif FANBOYS 'but' menyatakan pertentangan."
+        id: 'pos-8',
+        cat: 'CONJUNCTION',
+        q: '8. The motor is small, _____ it is powerful.',
+        options: ['although', 'but', 'because', 'when'],
+        answer: 1,
+        expl: 'Kunci: B (but). Konjungsi koordinatif FANBOYS "but" digunakan untuk menghubungkan dua klausa yang berlawanan/kontras.'
       }
     ]
   },
   {
-    "id": "g-sent-types",
-    "title": "Drill 2: Identify Sentence Types (Simple, Compound, Complex - Meeting 4)",
-    "source": "Lecturer Slide: Meeting 4 (Slide 6 - Sentence Types)",
-    "questions": [
+    id: 'g-sent-types',
+    title: 'Drill 2: Simple, Compound, & Complex Sentences (Meeting 4)',
+    source: 'Lecturer Document: Meeting 4 PPTX & Exercise of S,CPD CPX.docx',
+    questions: [
       {
-        "id": "st-1",
-        "q": "1. \"The internet helps students to find information quickly.\"",
-        "options": [
-          "Simple Sentence",
-          "Compound Sentence",
-          "Complex Sentence"
-        ],
-        "answer": 0,
-        "expl": "Kunci: A (Simple Sentence). Memiliki 1 klausa independen (Subject: The internet, Verb: helps)."
+        id: 'st-1',
+        q: '1. Identify the sentence type:\n"The internet helps students to find information quickly."',
+        options: ['Simple Sentence', 'Compound Sentence', 'Complex Sentence', 'Compound-Complex Sentence'],
+        answer: 0,
+        expl: 'Kunci: A (Simple Sentence). Kalimat ini hanya memiliki 1 klausa independen (Subject: The internet, Verb: helps).'
       },
       {
-        "id": "st-2",
-        "q": "2. \"I like programming, and I also enjoy designing websites.\"",
-        "options": [
-          "Simple Sentence",
-          "Compound Sentence",
-          "Complex Sentence"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (Compound Sentence). 2 klausa independen dihubungkan oleh FANBOYS 'and' + koma."
+        id: 'st-2',
+        q: '2. Identify the sentence type:\n"I like programming, and I also enjoy designing websites."',
+        options: ['Simple Sentence', 'Compound Sentence', 'Complex Sentence', 'Compound-Complex Sentence'],
+        answer: 1,
+        expl: 'Kunci: B (Compound Sentence). Terdiri dari 2 klausa independen yang dihubungkan konjungsi koordinatif FANBOYS "and" dengan tanda koma.'
       },
       {
-        "id": "st-3",
-        "q": "3. \"She stayed at home because it was raining heavily.\"",
-        "options": [
-          "Simple Sentence",
-          "Compound Sentence",
-          "Complex Sentence"
-        ],
-        "answer": 2,
-        "expl": "Kunci: C (Complex Sentence). 1 klausa independen + 1 klausa dependen diawali subordinator 'because'."
+        id: 'st-3',
+        q: '3. Identify the sentence type:\n"She stayed at home because it was raining heavily."',
+        options: ['Simple Sentence', 'Compound Sentence', 'Complex Sentence', 'Compound-Complex Sentence'],
+        answer: 2,
+        expl: 'Kunci: C (Complex Sentence). Terdiri dari 1 klausa independen ("She stayed at home") dan 1 klausa dependen diawali subordinator "because".'
       },
       {
-        "id": "st-4",
-        "q": "4. \"The server crashed, so the technician fixed it immediately.\"",
-        "options": [
-          "Simple Sentence",
-          "Compound Sentence",
-          "Complex Sentence"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (Compound Sentence). Dihubungkan oleh FANBOYS 'so' (akibat logis)."
+        id: 'st-4',
+        q: '4. Identify the sentence type:\n"The server crashed, so the technician fixed it immediately."',
+        options: ['Simple Sentence', 'Compound Sentence', 'Complex Sentence', 'Compound-Complex Sentence'],
+        answer: 1,
+        expl: 'Kunci: B (Compound Sentence). Dua klausa independen dihubungkan oleh FANBOYS "so" untuk menyatakan akibat logis.'
       },
       {
-        "id": "st-5",
-        "q": "5. \"If students practice every day, they will become better at programming.\"",
-        "options": [
-          "Simple Sentence",
-          "Compound Sentence",
-          "Complex Sentence"
-        ],
-        "answer": 2,
-        "expl": "Kunci: C (Complex Sentence). Diawali klausa dependen bersyarat 'If...' + koma."
-      },
-      {
-        "id": "st-6",
-        "q": "6. \"Computers are very useful in education.\"",
-        "options": [
-          "Simple Sentence",
-          "Compound Sentence",
-          "Complex Sentence"
-        ],
-        "answer": 0,
-        "expl": "Kunci: A (Simple Sentence). Satu klausa independen tunggal."
-      },
-      {
-        "id": "st-7",
-        "q": "7. \"I wanted to buy a new laptop, but it was too expensive.\"",
-        "options": [
-          "Simple Sentence",
-          "Compound Sentence",
-          "Complex Sentence"
-        ],
-        "answer": 1,
-        "expl": "Kunci: B (Compound Sentence). Dihubungkan FANBOYS 'but' untuk kontras."
-      },
-      {
-        "id": "st-8",
-        "q": "8. \"Although he was nervous, he gave a good presentation.\"",
-        "options": [
-          "Simple Sentence",
-          "Compound Sentence",
-          "Complex Sentence"
-        ],
-        "answer": 2,
-        "expl": "Kunci: C (Complex Sentence). Diawali subordinating conjunction 'Although' + koma."
+        id: 'st-5',
+        q: '5. Identify the sentence type:\n"If students practice every day, they will become better at programming."',
+        options: ['Simple Sentence', 'Compound Sentence', 'Complex Sentence', 'Compound-Complex Sentence'],
+        answer: 2,
+        expl: 'Kunci: C (Complex Sentence). Klausa dependen bersyarat ("If students practice every day,") diletakkan di depan dengan koma sebelum induk kalimat.'
       }
     ]
   }
 ];
 
-// 3. WRITING MODELS (MEETING 5: 100-150 WORDS)
-const WRITING_TOPIC_MODELS = [
-  {
-    "topic": "The Importance of Technology in Daily Life",
-    "modelParagraph": "Technology plays a vital role in our daily lives because it modernizes routine tasks and connects society globally. It helps individuals communicate much faster, and it makes sharing critical academic information substantially easier across diverse platforms. For example, many university students utilize digital portals when they need to submit assignments because online submission saves valuable time and conserves environmental paper resources. Technology also provides widespread digital entertainment, which people can readily access anywhere. Furthermore, it supports modern business enterprises, and it continuously generates novel employment opportunities in computing sectors. Therefore, modern technology serves an indispensable function in rendering human life significantly more efficient and productive.",
-    "wordCount": 105,
-    "analysis": [
-      {
-        "type": "Topic Sentence (TS)",
-        "text": "Technology plays a vital role in our daily lives because it modernizes routine tasks and connects society globally."
-      },
-      {
-        "type": "Supporting 1 (Compound)",
-        "text": "It helps individuals communicate much faster, and it makes sharing critical academic information substantially easier across diverse platforms."
-      },
-      {
-        "type": "Supporting 2 (Complex)",
-        "text": "For example, many university students utilize digital portals when they need to submit assignments because online submission saves valuable time and conserves environmental paper resources."
-      },
-      {
-        "type": "Supporting 3 (Simple)",
-        "text": "Technology also provides widespread digital entertainment, which people can readily access anywhere."
-      },
-      {
-        "type": "Supporting 4 (Compound)",
-        "text": "Furthermore, it supports modern business enterprises, and it continuously generates novel employment opportunities in computing sectors."
-      },
-      {
-        "type": "Concluding Sentence (CS)",
-        "text": "Therefore, modern technology serves an indispensable function in rendering human life significantly more efficient and productive."
-      }
-    ]
-  },
-  {
-    "topic": "Why I Chose Informatics Engineering as My Major",
-    "modelParagraph": "I chose Informatics Engineering as my undergraduate major because I have been deeply fascinated by computer software and digital innovation since my childhood. Writing program code stimulates logical thinking, and constructing algorithmic systems allows me to solve complex real-world challenges systematically. When I first learned fundamental programming languages, I developed an interactive educational website because I wanted to assist my peers in learning mathematics effectively. Information technology continuously transforms modern healthcare, finance, and industrial infrastructure. In addition, software engineering provides abundant career pathways, and it allows professionals to collaborate with international research teams seamlessly. In summary, pursuing an Informatics Engineering degree represents the most fulfilling pathway toward developing impactful technological solutions for the broader community.",
-    "wordCount": 115,
-    "analysis": [
-      {
-        "type": "Topic Sentence (TS)",
-        "text": "I chose Informatics Engineering as my undergraduate major because I have been deeply fascinated by computer software and digital innovation since my childhood."
-      },
-      {
-        "type": "Supporting 1 (Compound)",
-        "text": "Writing program code stimulates logical thinking, and constructing algorithmic systems allows me to solve complex real-world challenges systematically."
-      },
-      {
-        "type": "Supporting 2 (Complex)",
-        "text": "When I first learned fundamental programming languages, I developed an interactive educational website because I wanted to assist my peers in learning mathematics effectively."
-      },
-      {
-        "type": "Supporting 3 (Simple)",
-        "text": "Information technology continuously transforms modern healthcare, finance, and industrial infrastructure."
-      },
-      {
-        "type": "Supporting 4 (Compound)",
-        "text": "In addition, software engineering provides abundant career pathways, and it allows professionals to collaborate with international research teams seamlessly."
-      },
-      {
-        "type": "Concluding Sentence (CS)",
-        "text": "In summary, pursuing an Informatics Engineering degree represents the most fulfilling pathway toward developing impactful technological solutions for the broader community."
-      }
-    ]
-  }
-];
-
-// 4. AUTHENTIC READING DRILLING (QUESTIONS 1 - 30)
+// ==========================================
+// 3. AUTHENTIC READING DRILLING (QUESTIONS 1 - 30)
+// ==========================================
+// DRILLING_PASSAGES (Tetap dipertahankan 30 soal lengkap dengan kunci hijau)
 const DRILLING_PASSAGES = [
-  // PASSAGE 1: QUESTIONS 1 - 4
+  // 1. Laura Collins (1-4)
   {
     id: 'p-laura',
     title: 'Questions 1–4 refer to the following email.',
@@ -578,8 +368,8 @@ Laura Collins`,
           'To ask for a higher salary',
           'To complain about the work conditions'
         ],
-        answer: 1, // B (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): B. To accept the internship.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>I would like to accept the terms outlined in the offer</u>, but I\'d appreciate the opportunity to speak with you about altering the start date for the role."</em><br>Laura secara eksplisit menulis untuk menerima tawaran magang tersebut.'
+        answer: 1,
+        expl: 'Kunci Resmi Dosen (Hijau): B. To accept the internship.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>I would like to accept the terms outlined in the offer</u>, but I\'d appreciate the opportunity to speak with you about altering the start date for the role."</em>'
       },
       {
         id: 'drill-2',
@@ -592,8 +382,8 @@ Laura Collins`,
           'She wants to learn about Bright Works.',
           'She is finishing fellowship program.'
         ],
-        answer: 3, // D (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): D. She is finishing fellowship program.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>I\'m currently finishing up my fellowship program at the university</u> and will be taking exams until May 27, 2025, so I may need accommodations in this respect."</em>'
+        answer: 3,
+        expl: 'Kunci Resmi Dosen (Hijau): D. She is finishing fellowship program.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>I\'m currently finishing up my fellowship program at the university</u> and will be taking exams until May 27, 2025..."</em>'
       },
       {
         id: 'drill-3',
@@ -606,7 +396,7 @@ Laura Collins`,
           'At the end of this week',
           'In two weeks'
         ],
-        answer: 2, // C (Hijau Dosen)
+        answer: 2,
         expl: 'Kunci Resmi Dosen (Hijau): C. At the end of this week.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>Would you have time to chat at the end of this week?</u>"</em>'
       },
       {
@@ -620,13 +410,12 @@ Laura Collins`,
           'Tell Laura she cannot change the internship dates',
           'Offer Laura a full-time job instead'
         ],
-        answer: 1, // B (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): B. Reply to schedule a conversation about the start date.<br><strong>Penjelasan Logis:</strong><br>Karena Laura menanyakan kesediaan jadwal obrolan di akhir pekan, tindakan paling wajar dan profesional dari pihak HRD (Ms. Longueview) adalah membalas email untuk menyepakati waktu perbincangan terkait tanggal mulai magang.'
+        answer: 1,
+        expl: 'Kunci Resmi Dosen (Hijau): B. Reply to schedule a conversation about the start date.<br><strong>Penjelasan Logis:</strong><br>Sebagai tindak lanjut profesional, pihak HRD akan membalas email Laura untuk mengatur jadwal perbincangan.'
       }
     ]
   },
-
-  // PASSAGE 2: QUESTIONS 5 - 7
+  // 2. Nutrition Chart (5-7)
   {
     id: 'p-chart',
     title: 'Questions 5–7 refer to the following chart.',
@@ -652,8 +441,8 @@ Grains (bread, Cereal, Rice)                              4`,
           'Eat five servings of vegetables',
           'Eat more fruit than vegetables'
         ],
-        answer: 2, // C (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): C. Eat five servings of vegetables.<br><strong>Baris Pendukung yang Digarisbawahi:</strong><br><em>"<u>Vegetables (Carrots, Tomatoes, spinach) : 5</u>"</em> servings per day.'
+        answer: 2,
+        expl: 'Kunci Resmi Dosen (Hijau): C. Eat five servings of vegetables.<br><strong>Baris Pendukung yang Digarisbawahi:</strong><br><em>"<u>Vegetables (Carrots, Tomatoes, spinach) : 5</u>"</em>'
       },
       {
         id: 'drill-6',
@@ -666,8 +455,8 @@ Grains (bread, Cereal, Rice)                              4`,
           'Onions',
           'Cheese'
         ],
-        answer: 3, // D (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): D. Cheese.<br><strong>Baris Pendukung yang Digarisbawahi:</strong><br><em>"<u>Dairy Products (Milk and Milk Products, Eggs)</u>"</em>.<br>Keju (cheese) adalah produk olahan susu murni (dairy product).'
+        answer: 3,
+        expl: 'Kunci Resmi Dosen (Hijau): D. Cheese.<br><strong>Baris Pendukung yang Digarisbawahi:</strong><br><em>"<u>Dairy Products (Milk and Milk Products, Eggs)</u>"</em>.<br>Keju (cheese) adalah olahan susu.'
       },
       {
         id: 'drill-7',
@@ -680,13 +469,12 @@ Grains (bread, Cereal, Rice)                              4`,
           'Eggs',
           'Fish'
         ],
-        answer: 1, // B (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): B. Rice.<br><strong>Baris Pendukung yang Digarisbawahi:</strong><br><em>"<u>Grains (bread, Cereal, Rice)</u>"</em>.<br>Beras/nasi (rice) masuk ke kelompok biji-bijian (grain group).'
+        answer: 1,
+        expl: 'Kunci Resmi Dosen (Hijau): B. Rice.<br><strong>Baris Pendukung yang Digarisbawahi:</strong><br><em>"<u>Grains (bread, Cereal, Rice)</u>"</em>.'
       }
     ]
   },
-
-  // PASSAGE 3: QUESTIONS 8 - 11
+  // 3. Telephone Listings (8-11)
   {
     id: 'p-listings',
     title: 'Questions 8–11 refer to the following List.',
@@ -705,28 +493,18 @@ Ryan, Patrick       5678 Taylor St.         541-9087`,
         num: 8,
         clo: 'CLO 3',
         q: '8. How many phone numbers which possibly take on the same area?',
-        options: [
-          'Four',
-          'Six',
-          'Five',
-          'Seven'
-        ],
-        answer: 1, // B (Kunci Logis: 6 nomor berawalan 541)
-        expl: 'Kunci Jawaban: B. Six.<br><strong>Analisis Kode Area yang Digarisbawahi:</strong><br>Perhatikan awalan kode telepon pada daftar:<br>1. Mary Craig: <u>541</u>-0987<br>2. Samuel Craig: <u>541</u>-3211<br>3. Tim Layton: <u>541</u>-2345<br>4. R. Mc Grath: <u>541</u>-8765<br>5. Walter Meyer: <u>541</u>-3211<br>6. Patrick Ryan: <u>541</u>-9087<br>Ada <strong>6 nomor</strong> yang memiliki kode area yang sama (541), sedangkan Wm. Lambert memiliki kode area berbeda (654).'
+        options: ['Four', 'Six', 'Five', 'Seven'],
+        answer: 1,
+        expl: 'Kunci Jawaban: B. Six.<br><strong>Analisis:</strong> Ada 6 nomor berawalan <u>541</u> (Mary, Samuel, Tim, R. Mc Grath, Walter, Patrick).'
       },
       {
         id: 'drill-9',
         num: 9,
         clo: 'CLO 3',
         q: '9. From the lists, it is obviously described that …lives in different area from others.',
-        options: [
-          'Craig, Samuel',
-          'Lambert, Wm.',
-          'Mc Grath, R.',
-          'Layton, Tim'
-        ],
-        answer: 1, // B (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): B. Lambert, Wm.<br><strong>Bukti Pendukung yang Digarisbawahi:</strong><br><em>"<u>Lambert, Wm.  4567 Center St.  654-9087</u>"</em>.<br>Semua kontak lain memiliki awalan telepon 541, hanya Wm. Lambert yang memiliki awalan 654 dan jalan Center St.'
+        options: ['Craig, Samuel', 'Lambert, Wm.', 'Mc Grath, R.', 'Layton, Tim'],
+        answer: 1,
+        expl: 'Kunci Resmi Dosen (Hijau): B. Lambert, Wm.<br><strong>Baris Pendukung yang Digarisbawahi:</strong><br><em>"<u>Lambert, Wm.  4567 Center St.  654-9087</u>"</em>.'
       },
       {
         id: 'drill-10',
@@ -739,8 +517,8 @@ Ryan, Patrick       5678 Taylor St.         541-9087`,
           'Walter Meyer and Tim Layton',
           'Samuel Craig and Walter Meyer.'
         ],
-        answer: 3, // D (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): D. Samuel Craig and Walter Meyer.<br><strong>Bukti Pendukung yang Digarisbawahi:</strong><br><em>"Craig, Samuel : <u>1346 Bear Ct</u>   <u>541-3211</u>"</em><br><em>"Meyer, Walter : <u>1346 Bear Ct</u>   <u>541-3211</u>"</em>.<br>Keduanya tercatat pada alamat jalan dan nomor telepon yang persis sama.'
+        answer: 3,
+        expl: 'Kunci Resmi Dosen (Hijau): D. Samuel Craig and Walter Meyer.<br><strong>Bukti Pendukung:</strong> Keduanya beralamat di <u>1346 Bear Ct</u> dengan telepon <u>541-3211</u>.'
       },
       {
         id: 'drill-11',
@@ -753,13 +531,12 @@ Ryan, Patrick       5678 Taylor St.         541-9087`,
           'Walter Meyer and Tim Layton.',
           'Samuel Craig and Walter Meyer.'
         ],
-        answer: 1, // B (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): B. Mary Craig and Tim Layton.<br><strong>Bukti Pendukung yang Digarisbawahi:</strong><br><em>"Craig, Mary : <u>1245 Grayson Ln.</u>"</em> dan <em>"Layton, Tim : <u>1235 Grayson Ln</u>"</em>.<br>Keduanya berada di jalan yang sama dengan nomor urut rumah yang berdekatan (tetangga / neighbors).'
+        answer: 1,
+        expl: 'Kunci Resmi Dosen (Hijau): B. Mary Craig and Tim Layton.<br><strong>Bukti Pendukung:</strong> Keduanya bertetangga di <u>Grayson Ln.</u> (1245 dan 1235).'
       }
     ]
   },
-
-  // PASSAGE 4: QUESTIONS 12 - 15
+  // 4. Job Vacancy (12-15)
   {
     id: 'p-vacancy',
     title: 'Questions 12–15 refer to the following text.',
@@ -782,14 +559,9 @@ e-mail address: mitraenergy@cbn.net.id
         num: 12,
         clo: 'CLO 3',
         q: '12. What is the text about?',
-        options: [
-          'Wisma Emha',
-          'A job vacancy',
-          'A senior secretary',
-          'An application center'
-        ],
-        answer: 1, // B (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): B. A job vacancy.<br><strong>Bukti Pendukung yang Digarisbawahi:</strong><br><em>"<u>URGENTLY REQUIRED: Secretary</u>"</em>.<br>Teks di atas mengumumkan kebutuhan tenaga kerja / lowongan pekerjaan (job vacancy) untuk posisi sekretaris.'
+        options: ['Wisma Emha', 'A job vacancy', 'A senior secretary', 'An application center'],
+        answer: 1,
+        expl: 'Kunci Resmi Dosen (Hijau): B. A job vacancy.<br><strong>Bukti Pendukung:</strong> <u>"URGENTLY REQUIRED: Secretary"</u>.'
       },
       {
         id: 'drill-13',
@@ -802,8 +574,8 @@ e-mail address: mitraenergy@cbn.net.id
           'able to speak and write in English',
           'application letter should be sent ten days after this ad'
         ],
-        answer: 3, // D (Hijau Dosen Resmi!)
-        expl: 'Kunci Resmi Dosen (Hijau): D. application letter should be sent ten days after this ad.<br><strong>Bukti Pendukung yang Digarisbawahi:</strong><br>1. <em>"<u>Min. 5 years of work experience</u>"</em> (syarat tertera)<br>2. <em>"<u>Computer literate (min. Word, Excel, Internet)</u>"</em> (syarat tertera)<br>3. <em>"<u>Good command of English (oral and written)</u>"</em> (syarat tertera)<br>4. Pada teks tertulis: <em>"submit your complete application... <u>not more than 10 days after this ads</u>"</em> (maksimal dalam waktu 10 hari, bukan dikirim 10 hari setelahnya / ten days after). Selain itu batas waktu adalah instruksi administratif, bukan kualifikasi syarat pelamar (EXCEPT).'
+        answer: 3,
+        expl: 'Kunci Resmi Dosen (Hijau): D. application letter should be sent ten days after this ad.<br><strong>Penjelasan:</strong> Teks menyatakan: <em>"<u>not more than 10 days after this ads</u>"</em> (maksimal dalam waktu 10 hari, bukan 10 hari setelahnya).'
       },
       {
         id: 'drill-14',
@@ -816,27 +588,21 @@ e-mail address: mitraenergy@cbn.net.id
           'The application letter can only be sent via email.',
           'The skill to communicate in English is required.'
         ],
-        answer: 3, // D (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): D. The skill to communicate in English is required.<br><strong>Bukti Pendukung yang Digarisbawahi:</strong><br><em>"<u>Good command of English (oral and written)</u>"</em>.<br>Keterampilan bahasa Inggris aktif lisan dan tulisan diwajibkan bagi pelamar.'
+        answer: 3,
+        expl: 'Kunci Resmi Dosen (Hijau): D. The skill to communicate in English is required.<br><strong>Bukti Pendukung:</strong> <u>"Good command of English (oral and written)"</u>.'
       },
       {
         id: 'drill-15',
         num: 15,
         clo: 'CLO 3',
-        q: '15. The word “reputable” in “Female, graduated from a reputable university” (Line 2) has the closest meaning to the word ….',
-        options: [
-          'famous',
-          'respectable',
-          'reliable',
-          'valid'
-        ],
-        answer: 1, // B (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): B. respectable.<br><strong>Makna Kontekstual yang Digarisbawahi:</strong><br>Kata <em>"reputable"</em> berarti universitas yang memiliki nama baik, terpandang, dan diakui secara luas (sinonim terdekat: <strong>respectable</strong>).'
+        q: '15. The word “reputable” in “Female, graduated from a reputable university” has the closest meaning to the word ….',
+        options: ['famous', 'respectable', 'reliable', 'valid'],
+        answer: 1,
+        expl: 'Kunci Resmi Dosen (Hijau): B. respectable.'
       }
     ]
   },
-
-  // PASSAGE 5: QUESTIONS 16 - 18
+  // 5. Gregor & Samia (16-18)
   {
     id: 'p-gregor',
     title: 'Questions 16–18 refer to the following email.',
@@ -855,14 +621,9 @@ Gregor`,
         num: 16,
         clo: 'CLO 3',
         q: '16. What day does Gregor prefer Samia to visit?',
-        options: [
-          'Sunday',
-          'Monday',
-          'Friday',
-          'Saturday'
-        ],
-        answer: 3, // D (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): D. Saturday.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>Saturday is better for me</u> because I\'m meeting my parents on Sunday."</em>'
+        options: ['Sunday', 'Monday', 'Friday', 'Saturday'],
+        answer: 3,
+        expl: 'Kunci Resmi Dosen (Hijau): D. Saturday.<br><strong>Kalimat Pendukung:</strong> <u>"Saturday is better for me because I\'m meeting my parents on Sunday."</u>'
       },
       {
         id: 'drill-17',
@@ -875,8 +636,8 @@ Gregor`,
           'Because his new flat is free on Saturday.',
           'Because Samia cannot visit on Sunday.'
         ],
-        answer: 0, // A (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): A. Because he is meeting his parents on Sunday.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"Saturday is better for me <u>because I\'m meeting my parents on Sunday</u>."</em>'
+        answer: 0,
+        expl: 'Kunci Resmi Dosen (Hijau): A. Because he is meeting his parents on Sunday.'
       },
       {
         id: 'drill-18',
@@ -889,13 +650,12 @@ Gregor`,
           'Her parents\' plans in New Year',
           'Her new job in the new company'
         ],
-        answer: 1, // B (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): B. The food she likes or does not like.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>Let me know if there\'s anything you do/don\'t like to eat.</u>"</em>'
+        answer: 1,
+        expl: 'Kunci Resmi Dosen (Hijau): B. The food she likes or does not like.<br><strong>Kalimat Pendukung:</strong> <u>"Let me know if there\'s anything you do/don\'t like to eat."</u>'
       }
     ]
   },
-
-  // PASSAGE 6: QUESTIONS 19 - 22
+  // 6. Jarvis Cleaner (19-22)
   {
     id: 'p-jarvis',
     title: 'Questions 19–22 refer to the following Advertisement.',
@@ -917,22 +677,17 @@ Bath products are now available at all good supermarkets and drugstores.`,
           'To compare American and European cleaning products',
           'To warn about harmful effects of industrial cleaners'
         ],
-        answer: 1, // B (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): B. To advertise Jarvis cleaning products.<br><strong>Tujuan Utama yang Digarisbawahi:</strong><br>Teks ini memperkenalkan manfaat produk pembersih Jarvis Miracle Cleaner dan varian Deluxe-nya untuk membujuk konsumen agar membelinya di supermarket/drugstore (mengiklankan produk).'
+        answer: 1,
+        expl: 'Kunci Resmi Dosen (Hijau): B. To advertise Jarvis cleaning products.'
       },
       {
         id: 'drill-20',
         num: 20,
         clo: 'CLO 3',
         q: '20. How long has Jarvis Miracle Cleaner been the number 1 cleaning product in American industry?',
-        options: [
-          '10 years',
-          '20 years',
-          '40 years',
-          '50 years'
-        ],
-        answer: 2, // C (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): C. 40 years.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>For 40 years, Jarvis Miracle Cleaner has been the number 1 cleaning product in American industry</u>..."</em>'
+        options: ['10 years', '20 years', '40 years', '50 years'],
+        answer: 2,
+        expl: 'Kunci Resmi Dosen (Hijau): C. 40 years.<br><strong>Kalimat Pendukung:</strong> <u>"For 40 years, Jarvis Miracle Cleaner has been the number 1 cleaning product in American industry..."</u>'
       },
       {
         id: 'drill-21',
@@ -945,8 +700,8 @@ Bath products are now available at all good supermarkets and drugstores.`,
           'From construction companies',
           'Only in factories'
         ],
-        answer: 1, // B (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): B. At supermarkets and drugstores.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"Bath products are now available <u>at all good supermarkets and drugstores</u>."</em>'
+        answer: 1,
+        expl: 'Kunci Resmi Dosen (Hijau): B. At supermarkets and drugstores.<br><strong>Kalimat Pendukung:</strong> <u>"Bath products are now available at all good supermarkets and drugstores."</u>'
       },
       {
         id: 'drill-22',
@@ -959,13 +714,12 @@ Bath products are now available at all good supermarkets and drugstores.`,
           'Industrial dirt',
           'Construction workers'
         ],
-        answer: 0, // A (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): A. Jarvis Miracle Cleaner.<br><strong>Rujukan Pronoun yang Digarisbawahi:</strong><br><em>"Jarvis Miracle Cleaner is the one product... <u>Its unique patented formula</u> allows you to..."</em>.<br>Kata ganti kepemilikan tunggal <em>"Its"</em> merujuk langsung pada subjek <strong>Jarvis Miracle Cleaner</strong>.'
+        answer: 0,
+        expl: 'Kunci Resmi Dosen (Hijau): A. Jarvis Miracle Cleaner.'
       }
     ]
   },
-
-  // PASSAGE 7: QUESTIONS 23 - 25
+  // 7. Airport Baggage (23-25)
   {
     id: 'p-airport',
     title: 'Questions 23–25 refer to the following airport notice.',
@@ -986,14 +740,9 @@ We hope you enjoy your flight!`,
         num: 23,
         clo: 'CLO 3',
         q: '23. What is the maximum weight for the suitcase?',
-        options: [
-          '5 kg',
-          '10 kg',
-          '15 kg',
-          '20 kg'
-        ],
-        answer: 1, // B (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): B. 10 kg.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"It must be no bigger than 55cm x 22cm x 35cm and <u>weigh no more than 10kg</u>."</em>'
+        options: ['5 kg', '10 kg', '15 kg', '20 kg'],
+        answer: 1,
+        expl: 'Kunci Resmi Dosen (Hijau): B. 10 kg.<br><strong>Kalimat Pendukung:</strong> <u>"...and weigh no more than 10kg."</u>'
       },
       {
         id: 'drill-24',
@@ -1006,8 +755,8 @@ We hope you enjoy your flight!`,
           'When they buy them after passing security.',
           'When they put them in their suitcase.'
         ],
-        answer: 2, // C (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): C. When they buy them after passing security.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"Liquids in bottles bigger than 100ml are allowed on board <u>if you buy them in the airport shops after you\'ve passed security</u>."</em>'
+        answer: 2,
+        expl: 'Kunci Resmi Dosen (Hijau): C. When they buy them after passing security.<br><strong>Kalimat Pendukung:</strong> <u>"Liquids in bottles bigger than 100ml are allowed on board if you buy them in the airport shops after you\'ve passed security."</u>'
       },
       {
         id: 'drill-25',
@@ -1020,13 +769,12 @@ We hope you enjoy your flight!`,
           'Because they need to pass security again.',
           'Because staff will put the bag in the hold.'
         ],
-        answer: 3, // D (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): D. Because staff will put the bag in the hold.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"If your bag is too big or too heavy... <u>Staff will put it in the hold for you and you will have to pay extra</u>."</em>'
+        answer: 3,
+        expl: 'Kunci Resmi Dosen (Hijau): D. Because staff will put the bag in the hold.<br><strong>Kalimat Pendukung:</strong> <u>"Staff will put it in the hold for you and you will have to pay extra."</u>'
       }
     ]
   },
-
-  // PASSAGE 8: QUESTIONS 26 - 30
+  // 8. MIT Drones (26-30)
   {
     id: 'p-mit',
     title: 'Questions 26–30 refer to the following News.',
@@ -1052,22 +800,17 @@ Ultimately, this framework could help engineers develop complex systems like aut
           'The history of battery and motor technology',
           'The economic cost of developing autonomous vehicles'
         ],
-        answer: 1, // B (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): B. MIT’s new framework to design complex systems under uncertainty.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"<u>MIT researchers developed a new framework that helps engineers design complex systems in a way that explicitly accounts for such uncertainty</u>."</em>'
+        answer: 1,
+        expl: 'Kunci Resmi Dosen (Hijau): B. MIT’s new framework to design complex systems under uncertainty.<br><strong>Kalimat Pendukung:</strong> <u>"MIT researchers developed a new framework that helps engineers design complex systems in a way that explicitly accounts for such uncertainty."</u>'
       },
       {
         id: 'drill-27',
         num: 27,
         clo: 'CLO 3',
         q: '27. According to the text, what unpredictable factor can affect drone performance?',
-        options: [
-          'Motor type',
-          'Battery price',
-          'Weather conditions',
-          'Designer preferences'
-        ],
-        answer: 2, // C (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): C. Weather conditions.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"...affected by unpredictable factors, <u>like changing weather along the drone\'s route</u>."</em>'
+        options: ['Motor type', 'Battery price', 'Weather conditions', 'Designer preferences'],
+        answer: 2,
+        expl: 'Kunci Resmi Dosen (Hijau): C. Weather conditions.<br><strong>Kalimat Pendukung:</strong> <u>"...affected by unpredictable factors, like changing weather along the drone\'s route."</u>'
       },
       {
         id: 'drill-28',
@@ -1080,8 +823,8 @@ Ultimately, this framework could help engineers develop complex systems like aut
           'Allowing designers to ignore unpredictable conditions',
           'Helping engineers build more reliable and robust complex systems'
         ],
-        answer: 3, // D (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): D. Helping engineers build more reliable and robust complex systems.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"Ultimately, this framework could <u>help engineers develop complex systems... that are more robust and reliable</u> in the face of real-world unpredictability"</em>.'
+        answer: 3,
+        expl: 'Kunci Resmi Dosen (Hijau): D. Helping engineers build more reliable and robust complex systems.<br><strong>Kalimat Pendukung:</strong> <u>"Ultimately, this framework could help engineers develop complex systems... that are more robust and reliable"</u>.'
       },
       {
         id: 'drill-29',
@@ -1094,35 +837,58 @@ Ultimately, this framework could help engineers develop complex systems like aut
           'The reliability of every motor',
           'The color of the drone'
         ],
-        answer: 0, // A (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): A. Only best-case and worst-case scenarios.<br><strong>Kalimat Pendukung yang Digarisbawahi:</strong><br><em>"...giving designers more information than many existing approaches which, at most, <u>can usually only model best-case and worst-case scenarios</u>."</em>'
+        answer: 0,
+        expl: 'Kunci Resmi Dosen (Hijau): A. Only best-case and worst-case scenarios.<br><strong>Kalimat Pendukung:</strong> <u>"...giving designers more information than many existing approaches which, at most, can usually only model best-case and worst-case scenarios."</u>'
       },
       {
         id: 'drill-30',
         num: 30,
         clo: 'CLO 3',
         q: '30. The word Their in “Their technique captures the likelihood of many outcomes and trade-offs” refers to:',
-        options: [
-          'The MIT researchers',
-          'The batteries',
-          'The motors',
-          'The designers'
-        ],
-        answer: 0, // A (Hijau Dosen)
-        expl: 'Kunci Resmi Dosen (Hijau): A. The MIT researchers.<br><strong>Rujukan Pronoun yang Digarisbawahi:</strong><br><em>"<u>MIT researchers</u> developed a new framework... <u>Their technique</u> captures the likelihood of many outcomes..."</em>.<br>Kata ganti posesif <em>"Their"</em> mengacu pada subjek pelaku penelitian di kalimat sebelumnya, yaitu <strong>The MIT researchers</strong>.'
+        options: ['The MIT researchers', 'The batteries', 'The motors', 'The designers'],
+        answer: 0,
+        expl: 'Kunci Resmi Dosen (Hijau): A. The MIT researchers.<br><strong>Kalimat Pendukung:</strong> <u>"MIT researchers developed a new framework... Their technique captures the likelihood"</u>.'
       }
     ]
   }
 ];
 
 // ==========================================
-// 2. UTS FULL SIMULATION QUESTION DATA (100 PTS)
-// (Listening 25 pts, Grammar 20 pts, Reading 35 pts, Writing 20 pts)
+// 4. WRITING MODELS (MEETING 5 DOSEN: 100-150 WORDS)
 // ==========================================
+const WRITING_TOPIC_MODELS = [
+  {
+    topic: 'The Importance of Technology in Daily Life',
+    modelParagraph: `Technology plays a vital role in our daily lives because it modernizes routine tasks and connects society globally. It helps individuals communicate much faster, and it makes sharing critical academic information substantially easier across diverse platforms. For example, many university students utilize digital portals when they need to submit assignments because online submission saves valuable time and conserves environmental paper resources. Technology also provides widespread digital entertainment, which people can readily access anywhere. Furthermore, it supports modern business enterprises, and it continuously generates novel employment opportunities in computing sectors. Therefore, modern technology serves an indispensable function in rendering human life significantly more efficient and productive.`,
+    wordCount: 105,
+    analysis: [
+      { type: 'Topic Sentence (TS)', text: 'Technology plays a vital role in our daily lives because it modernizes routine tasks and connects society globally.' },
+      { type: 'Supporting 1 (Compound)', text: 'It helps individuals communicate much faster, and it makes sharing critical academic information substantially easier across diverse platforms.' },
+      { type: 'Supporting 2 (Complex)', text: 'For example, many university students utilize digital portals when they need to submit assignments because online submission saves valuable time and conserves environmental paper resources.' },
+      { type: 'Supporting 3 (Simple)', text: 'Technology also provides widespread digital entertainment, which people can readily access anywhere.' },
+      { type: 'Supporting 4 (Compound)', text: 'Furthermore, it supports modern business enterprises, and it continuously generates novel employment opportunities in computing sectors.' },
+      { type: 'Concluding Sentence (CS)', text: 'Therefore, modern technology serves an indispensable function in rendering human life significantly more efficient and productive.' }
+    ]
+  },
+  {
+    topic: 'Why I Chose Informatics Engineering as My Major',
+    modelParagraph: `I chose Informatics Engineering as my undergraduate major because I have been deeply fascinated by computer software and digital innovation since my childhood. Writing program code stimulates logical thinking, and constructing algorithmic systems allows me to solve complex real-world challenges systematically. When I first learned fundamental programming languages, I developed an interactive educational website because I wanted to assist my peers in learning mathematics effectively. Information technology continuously transforms modern healthcare, finance, and industrial infrastructure. In addition, software engineering provides abundant career pathways, and it allows professionals to collaborate with international research teams seamlessly. In summary, pursuing an Informatics Engineering degree represents the most fulfilling pathway toward developing impactful technological solutions for the broader community.`,
+    wordCount: 115,
+    analysis: [
+      { type: 'Topic Sentence (TS)', text: 'I chose Informatics Engineering as my undergraduate major because I have been deeply fascinated by computer software and digital innovation since my childhood.' },
+      { type: 'Supporting 1 (Compound)', text: 'Writing program code stimulates logical thinking, and constructing algorithmic systems allows me to solve complex real-world challenges systematically.' },
+      { type: 'Supporting 2 (Complex)', text: 'When I first learned fundamental programming languages, I developed an interactive educational website because I wanted to assist my peers in learning mathematics effectively.' },
+      { type: 'Supporting 3 (Simple)', text: 'Information technology continuously transforms modern healthcare, finance, and industrial infrastructure.' },
+      { type: 'Supporting 4 (Compound)', text: 'In addition, software engineering provides abundant career pathways, and it allows professionals to collaborate with international research teams seamlessly.' },
+      { type: 'Concluding Sentence (CS)', text: 'In summary, pursuing an Informatics Engineering degree represents the most fulfilling pathway toward developing impactful technological solutions for the broader community.' }
+    ]
+  }
+];
 
+// ==========================================
 // 5. UTS FULL SIMULATION QUESTION DATA (100 PTS)
+// ==========================================
 const UTS_EXAM_DATA = {
-  // SECTION 1: LISTENING (25 pts / 5 Qs @ 5 pts)
   listening: [
     {
       id: 'uts-l1',
@@ -1130,7 +896,7 @@ const UTS_EXAM_DATA = {
       clo: 'CLO 1',
       audioSim: `[ACADEMIC LECTURE EXCERPT — COMPUTER SCIENCE]
 Professor: "Good morning class. Today we are initiating our unit on algorithmic optimization. Now, many novice programmers assume optimization simply means shortening lines of code. However, our primary objective this morning is to demonstrate how data structures directly dictate memory allocation and execution time, especially in high-throughput database systems. Therefore, please observe this benchmark graph..."`,
-      q: '1. What is the primary purpose of the professor\'s lecture?',
+      q: "1. What is the primary purpose of the professor's lecture?",
       options: [
         'To instruct students on how to shorten lines of program code',
         'To explain how data structures influence memory allocation and execution speed',
@@ -1146,7 +912,7 @@ Professor: "Good morning class. Today we are initiating our unit on algorithmic 
       clo: 'CLO 1',
       audioSim: `[CAMPUS CONSULTATION — STUDENT & ACADEMIC ADVISOR]
 Advisor: "Come in, Dimas. I received your email regarding course prerequisites. You mentioned wanting to take Advanced Software Engineering next semester. However, the departmental catalog strictly requires that you must have completed Object-Oriented Programming with a minimum grade of B before enrolling."
-Dimas: "I see. I took OOP last semester and received an A-, but my grade sheet hasn\'t updated on the online portal yet."
+Dimas: "I see. I took OOP last semester and received an A-, but my grade sheet hasn't updated on the online portal yet."
 Advisor: "In that case, bring a signed verification slip from your instructor to the department office by this Thursday at 3 PM, and we will manually unlock the enrollment system for you."`,
       q: '2. What specific action must the student take to enroll in the course?',
       options: [
@@ -1179,7 +945,7 @@ Host: "Attention all attendees. Before Dr. Hartono delivers the keynote on Artif
       pts: 5,
       clo: 'CLO 1',
       audioSim: `[STUDY GROUP DISCUSSION — UNIVERSITY LIBRARY]
-Aisha: "So for our research outline on cloud storage security, we already have our topic sentence and two supporting arguments regarding data encryption and redundancy. What we\'re lacking is empirical statistical evidence to support our second claim."
+Aisha: "So for our research outline on cloud storage security, we already have our topic sentence and two supporting arguments regarding data encryption and redundancy. What we're lacking is empirical statistical evidence to support our second claim."
 Budi: "Actually, I found a 2025 survey from the IEEE Computer Society showing that 73% of cloud breaches were due to misconfigured access credentials rather than faulty cryptographic algorithms."
 Aisha: "That is perfect! That precisely reinforces our argument that human administrative protocol is the critical vulnerability."`,
       q: '4. Which phrase best paraphrases the students\' consensus on cloud security vulnerability?',
@@ -1210,7 +976,6 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
     }
   ],
 
-  // SECTION 2: STRUCTURE & GRAMMAR (20 pts / 5 Qs @ 4 pts)
   grammar: [
     {
       id: 'uts-g1',
@@ -1224,21 +989,16 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'Subject Complement (C)'
       ],
       answer: 1,
-      expl: '<strong>Analisis S-V-O-C-A:</strong> Bagian <em>"carefully reviewed"</em> adalah <strong>Verb / Predicate (V)</strong> yang menunjukkan tindakan verba utama dalam kalimat.'
+      expl: '<strong>Analisis S-V-O-C-A:</strong> Bagian <em>"carefully reviewed"</em> adalah <strong>Verb / Predicate (V)</strong>.'
     },
     {
       id: 'uts-g2',
       pts: 4,
       clo: 'CLO 2',
       q: '7. Which coordinating conjunction (FANBOYS) logically completes the compound sentence?\n"The database server experienced a sudden voltage drop, _____ the automated backup protocol instantly switched power to the auxiliary generator."',
-      options: [
-        'for',
-        'so',
-        'nor',
-        'but'
-      ],
+      options: ['for', 'so', 'nor', 'but'],
       answer: 1,
-      expl: '<strong>Aturan FANBOYS:</strong> Konjungsi <strong>"so"</strong> menyatakan konsekuensi/akibat logis (hasil dari jatuhnya tegangan server).'
+      expl: '<strong>Aturan FANBOYS:</strong> Konjungsi <strong>"so"</strong> menyatakan konsekuensi/akibat logis.'
     },
     {
       id: 'uts-g3',
@@ -1252,7 +1012,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'Because researchers face physical constraints and quantum computing holds immense potential.'
       ],
       answer: 0,
-      expl: '<strong>Aturan Koma Kalimat Kompleks:</strong> Jika Dependent Clause (diawali subordinating conjunction <em>"Although"</em>) diletakkan di depan, maka <strong>WAJIB</strong> diberi tanda koma sebelum Independent Clause.'
+      expl: '<strong>Aturan Koma Kalimat Kompleks:</strong> Jika Dependent Clause diletakkan di depan, maka <strong>WAJIB</strong> diberi tanda koma.'
     },
     {
       id: 'uts-g4',
@@ -1266,7 +1026,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'Compound-Complex Sentence'
       ],
       answer: 3,
-      expl: '<strong>Analisis Jenis Kalimat:</strong> Kalimat ini terdiri dari 2 Independent Clauses dihubungkan oleh <em>"but"</em> (Compound) dan klausa kedua memuat Dependent Relative Clause <em>"that human analysts frequently overlook"</em> (Complex). Gabungannya adalah <strong>Compound-Complex Sentence</strong>.'
+      expl: '<strong>Analisis Jenis Kalimat:</strong> Gabungan Compound (koordinasi "but") dan Complex (klausa dependen "that...").'
     },
     {
       id: 'uts-g5',
@@ -1280,11 +1040,10 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'Modern microprocessors generate substantial heat under sustained heavy loads.'
       ],
       answer: 1,
-      expl: '<strong>Sentence Fragment:</strong> Opsi B adalah klausa dependen (diawali <em>"Because"</em>) yang berdiri sendiri tanpa induk kalimat (Independent Clause), sehingga tidak utuh.'
+      expl: '<strong>Sentence Fragment:</strong> Opsi B adalah klausa dependen yang berdiri sendiri tanpa induk kalimat.'
     }
   ],
 
-  // SECTION 3: READING COMPREHENSION (35 pts / 7 Qs @ 5 pts)
   reading: [
     {
       id: 'uts-r1',
@@ -1300,7 +1059,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'When traveling with only a single 5kg laptop briefcase'
       ],
       answer: 2,
-      expl: '<strong>Kunci Jawaban Soal Asli Dosen:</strong> <em>"<u>Staff will put it in the hold for you and you will have to pay extra</u>"</em> jika ukuran/bobot bagasi melebihi batas.'
+      expl: '<strong>Kunci Jawaban Soal Asli Dosen:</strong> <em>"<u>Staff will put it in the hold for you and you will have to pay extra</u>"</em>.'
     },
     {
       id: 'uts-r2',
@@ -1332,7 +1091,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'A rhetorical question intended solely to entertain casual readers'
       ],
       answer: 1,
-      expl: '<strong>Materi Dosen Pertemuan 5 & 7:</strong> Topic Sentence wajib memuat <strong>Specific Topic</strong> + <strong>Controlling Idea</strong> yang membatasi fokus paragraf.'
+      expl: '<strong>Materi Dosen Pertemuan 5 & 7:</strong> Topic Sentence wajib memuat <strong>Specific Topic</strong> + <strong>Controlling Idea</strong>.'
     },
     {
       id: 'uts-r4',
@@ -1348,14 +1107,14 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'Treated metal surfaces'
       ],
       answer: 2,
-      expl: '<strong>Rujukan Pronoun Soal Dosen:</strong> Kata <em>"Its"</em> merujuk langsung ke <strong>Jarvis Miracle Cleaner</strong>.'
+      expl: '<strong>Rujukan Pronoun:</strong> Kata <em>"Its"</em> merujuk ke <strong>Jarvis Miracle Cleaner</strong>.'
     },
     {
       id: 'uts-r5',
       pts: 5,
       clo: 'CLO 3',
       passage: `Corporate Recruitment Notice:
-"A multinational renewable energy consortium is recruiting a Lead Cybersecurity Analyst. Candidates must possess a Bachelor\'s degree in Computer Science or Information Technology from a reputable academic institution, alongside verifiable credentials in ethical hacking."`,
+"A multinational renewable energy consortium is recruiting a Lead Cybersecurity Analyst. Candidates must possess a Bachelor's degree in Computer Science or Information Technology from a reputable academic institution, alongside verifiable credentials in ethical hacking."`,
       q: '15. The word "reputable" in the context of the recruitment notice is closest in meaning to:',
       options: [
         'inexpensive',
@@ -1364,7 +1123,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'recently established'
       ],
       answer: 1,
-      expl: '<strong>Kunci Resmi Dosen:</strong> <em>reputable = respectable</em> (terpandang, bereputasi baik).'
+      expl: '<strong>Kunci Resmi Dosen:</strong> <em>reputable = respectable</em>.'
     },
     {
       id: 'uts-r6',
@@ -1380,7 +1139,7 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'To translate English texts automatically into another language'
       ],
       answer: 1,
-      expl: '<strong>Fungsi Outlining:</strong> Memetakan struktur makro teks (main claims, supporting rationale, and organizational patterns).'
+      expl: '<strong>Fungsi Outlining:</strong> Memetakan struktur makro teks.'
     },
     {
       id: 'uts-r7',
@@ -1396,18 +1155,17 @@ Proctor: "Welcome students. Please listen attentively to the examination guideli
         'physically accelerate'
       ],
       answer: 1,
-      expl: '<strong>Contextual Clue:</strong> Berlawanan dengan <em>"retain digital bits indefinitely"</em>, memori volatil akan <em>purge</em> (menghapus/mengosongkan data seketika saat listrik mati).'
+      expl: '<strong>Contextual Clue:</strong> Lawan dari <em>"retain digital bits indefinitely"</em> adalah <em>purge</em> (menghapus/mengosongkan data).'
     }
   ]
 };
 
 // ==========================================
-// 3. APPLICATION STATE & CONTROLLER
+// 6. APPLICATION STATE & CONTROLLER
 // ==========================================
 
-// 6. APPLICATION STATE & CONTROLLER
 const AppState = {
-  activeTab: 'panel-syllabus',
+  activeTab: 'panel-reading',
   drillingAnswers: {},
   listeningAnswers: {},
   grammarAnswers: {},
@@ -1418,6 +1176,7 @@ const AppState = {
   examSubmitted: false
 };
 
+// Initialize App
 document.addEventListener('DOMContentLoaded', () => {
   initTabs();
   initAccordions();
@@ -1430,6 +1189,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderWritingModels();
 });
 
+// ================= Tab Navigation =================
 function initTabs() {
   const tabBtns = document.querySelectorAll('.tab-btn');
   const panels = document.querySelectorAll('.panel');
@@ -1437,6 +1197,7 @@ function initTabs() {
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetPanelId = btn.getAttribute('data-target');
+      
       tabBtns.forEach(b => b.classList.remove('active'));
       panels.forEach(p => p.classList.remove('active'));
 
@@ -1451,6 +1212,7 @@ function initTabs() {
   });
 }
 
+// ================= Accordions =================
 function initAccordions() {
   const moduleHeaders = document.querySelectorAll('.module-header');
   moduleHeaders.forEach(header => {
@@ -1463,6 +1225,7 @@ function initAccordions() {
   });
 }
 
+// ================= Render Dedicated Listening Arena =================
 function renderListeningDrills() {
   const container = document.getElementById('listening-content-container');
   if (!container) return;
@@ -1499,7 +1262,7 @@ function renderListeningDrills() {
       q.options.forEach((opt, optIdx) => {
         const letter = String.fromCharCode(65 + optIdx);
         html += `
-          <button type="button" class="opt-btn" onclick="handleListeningAnswer('\${drill.id}', '\${q.id}', ${optIdx})">
+          <button type="button" class="opt-btn" onclick="handleListeningAnswer('${drill.id}', '${q.id}', ${optIdx})">
             <span class="opt-letter">${letter}</span>
             <span>${escapeHtml(opt)}</span>
           </button>
@@ -1562,6 +1325,7 @@ function updateListeningBadge() {
   badge.textContent = `Dijawab: ${answered} / ${total} | Benar: ${correct}`;
 }
 
+// ================= Render Dedicated Grammar Arena =================
 function renderGrammarDrills() {
   const container = document.getElementById('grammar-content-container');
   if (!container) return;
@@ -1593,7 +1357,7 @@ function renderGrammarDrills() {
       q.options.forEach((opt, optIdx) => {
         const letter = String.fromCharCode(65 + optIdx);
         html += `
-          <button type="button" class="opt-btn" onclick="handleGrammarAnswer('\${drill.id}', '\${q.id}', ${optIdx})">
+          <button type="button" class="opt-btn" onclick="handleGrammarAnswer('${drill.id}', '${q.id}', ${optIdx})">
             <span class="opt-letter">${letter}</span>
             <span>${escapeHtml(opt)}</span>
           </button>
@@ -1656,6 +1420,7 @@ function updateGrammarBadge() {
   badge.textContent = `Dijawab: ${answered} / ${total} | Benar: ${correct}`;
 }
 
+// ================= Render 30 Reading Questions =================
 function renderDrillingQuestions() {
   const container = document.getElementById('drilling-content-container');
   if (!container) return;
@@ -1695,7 +1460,7 @@ function renderDrillingQuestions() {
       q.options.forEach((opt, optIdx) => {
         const letter = String.fromCharCode(65 + optIdx);
         html += `
-          <button type="button" class="opt-btn" onclick="handleDrillAnswer('\${passage.id}', '\${q.id}', ${optIdx})">
+          <button type="button" class="opt-btn" onclick="handleDrillAnswer('${passage.id}', '${q.id}', ${optIdx})">
             <span class="opt-letter">${letter}</span>
             <span>${escapeHtml(opt)}</span>
           </button>
@@ -1767,6 +1532,7 @@ function updateDrillStats(totalOverride) {
   statsEl.textContent = `Dijawab: ${answeredKeys.length} / ${total} | Benar: ${correctCount}`;
 }
 
+// ================= Render Writing Models =================
 function renderWritingModels() {
   const container = document.getElementById('writing-models-container');
   if (!container) return;
@@ -1782,7 +1548,7 @@ function renderWritingModels() {
           </div>
         </div>
 
-        <div class="passage-card" style="background: var(--mustard-soft); border-color: var(--mustard); font-size: 15px; line-height: 1.65;">
+        <div class="passage-card" style="background: var(--mustard-soft); border-color: var(--mustard); font-size: 15px;">
           ${escapeHtml(m.modelParagraph)}
         </div>
 
@@ -1791,7 +1557,7 @@ function renderWritingModels() {
           <table>
             <thead>
               <tr>
-                <th style="width: 190px;">Komponen Kalimat</th>
+                <th style="width: 180px;">Komponen Kalimat</th>
                 <th>Kalimat dalam Paragraf</th>
               </tr>
             </thead>
@@ -1812,6 +1578,7 @@ function renderWritingModels() {
   container.innerHTML = html;
 }
 
+// ================= 90-Minute Exam Simulator =================
 function initExamTimerControls() {
   const startBtn = document.getElementById('btn-timer-toggle');
   const resetBtn = document.getElementById('btn-timer-reset');
@@ -1878,6 +1645,7 @@ function resetExam() {
   const resultCard = document.getElementById('uts-result-card');
   if (resultCard) resultCard.classList.remove('show');
 
+  // Re-enable options
   const buttons = document.querySelectorAll('.exam-opt-btn');
   buttons.forEach(b => {
     b.disabled = false;
@@ -1905,7 +1673,9 @@ function renderTimerDisplay() {
   }
 }
 
+// Render UTS Simulation Questions
 function renderExamQuestions() {
+  // 1. Listening
   const listeningContainer = document.getElementById('exam-listening-container');
   if (listeningContainer) {
     let html = '';
@@ -1915,6 +1685,7 @@ function renderExamQuestions() {
     listeningContainer.innerHTML = html;
   }
 
+  // 2. Grammar
   const grammarContainer = document.getElementById('exam-grammar-container');
   if (grammarContainer) {
     let html = '';
@@ -1924,6 +1695,7 @@ function renderExamQuestions() {
     grammarContainer.innerHTML = html;
   }
 
+  // 3. Reading
   const readingContainer = document.getElementById('exam-reading-container');
   if (readingContainer) {
     let html = '';
@@ -1956,7 +1728,7 @@ function createExamQuestionHTML(q, section) {
   q.options.forEach((opt, idx) => {
     const letter = String.fromCharCode(65 + idx);
     optionsHTML += `
-      <button type="button" class="opt-btn exam-opt-btn" id="opt-${q.id}-${idx}" onclick="selectExamAnswer('\${q.id}', ${idx}, '\${section}')">
+      <button type="button" class="opt-btn exam-opt-btn" id="opt-${q.id}-${idx}" onclick="selectExamAnswer('${q.id}', ${idx}, '${section}')">
         <span class="opt-letter">${letter}</span>
         <span>${escapeHtml(opt)}</span>
       </button>
@@ -2019,6 +1791,7 @@ function updateLJKSummary() {
   }
 }
 
+// ================= Writing Outline & Word Count Evaluator =================
 function initOutlineBuilder() {
   const tsInput = document.getElementById('outline-ts');
   const sd1Input = document.getElementById('outline-sd1');
@@ -2088,22 +1861,26 @@ function evaluateWritingRubric() {
   const sd3Val = document.getElementById('outline-sd3')?.value.trim() || '';
   const csVal = document.getElementById('outline-cs')?.value.trim() || '';
 
+  // 1. Topic Sentence & Controlling Idea (max 5 pts)
   if (tsVal.length > 25) {
     writingScore += 5;
   } else if (tsVal.length > 10) {
     writingScore += 3;
   }
 
+  // 2. Supporting Details 1-3 (max 6 pts: 2 pts each)
   if (sd1Val.length > 15) writingScore += 2;
   if (sd2Val.length > 15) writingScore += 2;
   if (sd3Val.length > 15) writingScore += 2;
 
+  // 3. Concluding Sentence (max 4 pts)
   if (csVal.length > 20) {
     writingScore += 4;
   } else if (csVal.length > 8) {
     writingScore += 2;
   }
 
+  // 4. Checklist Self-Audit (max 5 pts)
   const cbChecked = document.querySelectorAll('.checklist-item input:checked').length;
   writingScore += Math.min(5, Math.round((cbChecked / 5) * 5));
 
@@ -2117,6 +1894,7 @@ function evaluateWritingRubric() {
   return writingScore;
 }
 
+// ================= Submit UTS Exam =================
 window.submitUTSExam = function() {
   if (AppState.examSubmitted) {
     alert('Ujian telah dikumpulkan. Silakan lihat hasil evaluasi di atas.');
@@ -2130,6 +1908,7 @@ window.submitUTSExam = function() {
   let grammarScore = 0;
   let readingScore = 0;
 
+  // Grade Listening (25 pts)
   UTS_EXAM_DATA.listening.forEach(q => {
     const userAns = AppState.examAnswers[q.id];
     const isCorrect = userAns && userAns.selected === q.answer;
@@ -2137,6 +1916,7 @@ window.submitUTSExam = function() {
     revealQuestionResult(q, userAns);
   });
 
+  // Grade Grammar (20 pts)
   UTS_EXAM_DATA.grammar.forEach(q => {
     const userAns = AppState.examAnswers[q.id];
     const isCorrect = userAns && userAns.selected === q.answer;
@@ -2144,6 +1924,7 @@ window.submitUTSExam = function() {
     revealQuestionResult(q, userAns);
   });
 
+  // Grade Reading (35 pts)
   UTS_EXAM_DATA.reading.forEach(q => {
     const userAns = AppState.examAnswers[q.id];
     const isCorrect = userAns && userAns.selected === q.answer;
@@ -2151,9 +1932,12 @@ window.submitUTSExam = function() {
     revealQuestionResult(q, userAns);
   });
 
+  // Grade Writing (20 pts)
   const writingScore = evaluateWritingRubric();
+
   const totalScore = listeningScore + grammarScore + readingScore + writingScore;
 
+  // Render Result Card
   renderExamResultCard(totalScore, listeningScore, grammarScore, readingScore, writingScore);
 };
 
@@ -2213,6 +1997,7 @@ function renderExamResultCard(total, lScore, gScore, rScore, wScore) {
   resultCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+// Utility: HTML Escape
 function escapeHtml(str) {
   if (!str) return '';
   return str

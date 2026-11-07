@@ -291,109 +291,376 @@
               <span class="module-toggle-icon">▼</span>
             </div>
             <div class="module-body">
-              <p>Dalam penulisan akademik bahasa Inggris, variasi struktur kalimat sangat menentukan kejelasan argumen. Kalimat diklasifikasikan berdasarkan jumlah dan jenis klausa yang menyusunnya:</p>
+              <!-- PANDUAN LENGKAP STRUKTUR KALIMAT & KLAUSA -->
+              <p style="font-size: 14.5px; line-height: 1.6; margin-bottom: 20px;">
+                Dalam penulisan akademik bahasa Inggris, variasi struktur kalimat sangat menentukan kejelasan dan kekuatan argumen. Kalimat diklasifikasikan berdasarkan <strong>jumlah dan jenis klausa</strong> (Independent vs Dependent Clause) yang menyusunnya:
+              </p>
 
-              <!-- 1. Simple Sentence -->
-              <div class="formula-box" style="border-left-color: var(--mustard);">
-                <strong>1. SIMPLE SENTENCE (Kalimat Tunggal)</strong><br>
-                Hanya memiliki <strong>1 Independent Clause</strong> (klausa bebas lengkap dengan Subject dan Finite Verb yang dapat berdiri sendiri sebagai kalimat utuh).<br>
-                • <em>Pola:</em> <code>[Subject] + [Verb] (+ Object / Complement / Adverbial)</code><br>
-                • <em>Contoh Akademik:</em> "The internet helps students to find information quickly."<br>
-                • <em>Contoh dengan Subjek Majemuk:</em> "Both software engineers and data analysts tested the neural network."
+              <!-- ================= 1. SIMPLE SENTENCE ================= -->
+              <div class="grammar-concept-card">
+                <div class="grammar-card-head">
+                  <h4 class="grammar-card-title">
+                    <span>1. SIMPLE SENTENCE (Kalimat Tunggal)</span>
+                  </h4>
+                  <span class="badge badge-mustard">1 Independent Clause</span>
+                </div>
+
+                <p style="font-size: 14px; margin-bottom: 12px;">
+                  Hanya memiliki <strong>1 Independent Clause</strong> (klausa bebas lengkap dengan <em>Subject</em> dan <em>Finite Verb</em> yang dapat berdiri sendiri sebagai gagasan utuh).
+                </p>
+
+                <div class="formula-box" style="margin-bottom: 14px;">
+                  <strong>Pola Dasar:</strong> <code>[Subject] + [Verb] (+ Object / Complement / Adverbial)</code>
+                </div>
+
+                <!-- Box Contoh Ber-Highlight -->
+                <div class="clause-example-box">
+                  <div style="margin-bottom: 6px;">
+                    <span class="clause-pill indep">Independent Clause</span>
+                  </div>
+                  <span class="clause-indep-text">
+                    <span class="hl-subject-token">The internet</span> 
+                    <span class="hl-verb-token">helps</span> 
+                    students to find information quickly.
+                  </span>
+                  <div style="font-size: 12px; color: var(--ink-soft); margin-top: 6px;">
+                    *Bedah Komponen: <strong>Subject:</strong> <em>The internet</em> | <strong>Verb:</strong> <em>helps</em> | <strong>Object:</strong> <em>students</em> | <strong>Adverbial:</strong> <em>to find information quickly</em>.
+                  </div>
+                </div>
+
+                <div class="clause-example-box">
+                  <div style="margin-bottom: 6px;">
+                    <span class="clause-pill indep">Independent Clause (Subjek Majemuk)</span>
+                  </div>
+                  <span class="clause-indep-text">
+                    <span class="hl-subject-token">Both software engineers and data analysts</span> 
+                    <span class="hl-verb-token">tested</span> 
+                    the neural network.
+                  </span>
+                  <div style="font-size: 12px; color: var(--ink-soft); margin-top: 6px;">
+                    *Catatan: Subjek majemuk (*compound subject*) tetap membentuk <strong>Simple Sentence</strong> selama hanya ada 1 predikat utama (*finite verb*).
+                  </div>
+                </div>
+
+                <!-- Mini Puzzle 1: Simple Sentence -->
+                <div class="puzzle-game-box" id="box-puz-simple">
+                  <div class="puzzle-game-head">
+                    <h5 class="puzzle-title">🧩 Mini Puzzle 1: Susun Simple Sentence</h5>
+                    <span class="badge badge-teal">Tantangan Interaktif</span>
+                  </div>
+                  <div class="puzzle-prompt">Klik kepingan kata acak di bawah ini untuk menyusun Simple Sentence akademik yang benar:</div>
+                  <div class="puzzle-drop-slot" id="slot-puz-simple" onclick="handleSlotClick('puz-simple')">
+                    <span class="puzzle-drop-placeholder" id="placeholder-puz-simple">Klik kata di bawah untuk memindahkannya ke sini...</span>
+                  </div>
+                  <div class="puzzle-tokens-bank" id="bank-puz-simple"></div>
+                  <div class="puzzle-actions">
+                    <button type="button" class="btn-sm btn-primary" onclick="checkPuzzle('puz-simple')">✔ Cek Susunan</button>
+                    <button type="button" class="btn-sm btn-secondary" onclick="resetPuzzle('puz-simple')">↺ Reset</button>
+                  </div>
+                  <div class="puzzle-feedback-badge" id="feedback-puz-simple"></div>
+                </div>
               </div>
 
-              <!-- 2. Compound Sentence & FANBOYS -->
-              <div class="formula-box" style="border-left-color: var(--teal);">
-                <strong>2. COMPOUND SENTENCE (Kalimat Majemuk Setara)</strong><br>
-                Menggabungkan <strong>2 atau lebih Independent Clauses</strong> yang memiliki bobot gramatikal setara. Kedua klausa dihubungkan oleh <strong>Coordinating Conjunction (FANBOYS)</strong> dan didahului oleh tanda koma.<br>
-                • <em>Rumus Wajib Tanda Koma:</em> <code>[Independent Clause] , [FANBOYS] [Independent Clause]</code>
+              <!-- ================= 2. COMPOUND SENTENCE & FANBOYS ================= -->
+              <div class="grammar-concept-card">
+                <div class="grammar-card-head">
+                  <h4 class="grammar-card-title">
+                    <span>2. COMPOUND SENTENCE (Kalimat Majemuk Setara)</span>
+                  </h4>
+                  <span class="badge badge-teal">2+ Independent Clauses + FANBOYS</span>
+                </div>
+
+                <p style="font-size: 14px; margin-bottom: 12px;">
+                  Menggabungkan <strong>2 atau lebih Independent Clauses</strong> yang memiliki bobot gramatikal setara. Kedua klausa dihubungkan oleh <strong>Coordinating Conjunction (FANBOYS)</strong> dan <strong>WAJIB didahului tanda koma (,)</strong>.
+                </p>
+
+                <div class="formula-box" style="margin-bottom: 14px; border-left-color: var(--teal);">
+                  <strong>Rumus Wajib Tanda Koma:</strong><br>
+                  <code>[Independent Clause] <span class="hl-comma-strong">,</span> <span class="hl-fanboys">FANBOYS</span> [Independent Clause]</code>
+                </div>
+
+                <!-- Box Contoh Ber-Highlight -->
+                <div class="clause-example-box">
+                  <div style="margin-bottom: 6px;">
+                    <span class="clause-pill indep">Independent 1</span>
+                    <span class="clause-pill indep" style="margin-left: 8px;">Independent 2</span>
+                  </div>
+                  <span class="clause-indep-text">The autonomous drone returned to base</span><span class="hl-comma-strong">,</span> 
+                  <span class="hl-fanboys">for</span> 
+                  <span class="clause-indep-text">its primary battery depleted below ten percent.</span>
+                  <div style="font-size: 12px; color: var(--ink-soft); margin-top: 6px;">
+                    *Konjungsi <strong>for</strong> berarti *karena/sebab* (*because*). Perhatikan tanda koma persis sebelum kata *for*.
+                  </div>
+                </div>
+
+                <div class="clause-example-box">
+                  <span class="clause-indep-text">I like programming</span><span class="hl-comma-strong">,</span> 
+                  <span class="hl-fanboys">and</span> 
+                  <span class="clause-indep-text">I also enjoy designing intuitive user interfaces.</span>
+                </div>
+
+                <div class="clause-example-box">
+                  <span class="clause-indep-text">The central server crashed</span><span class="hl-comma-strong">,</span> 
+                  <span class="hl-fanboys">so</span> 
+                  <span class="clause-indep-text">the technician rebooted the system immediately.</span>
+                </div>
+
+                <!-- Tabel FANBOYS Lengkap (Font Ringkas & Jelas) -->
+                <div style="margin: 18px 0 10px;">
+                  <strong style="font-family: var(--display); font-size: 13.5px; display: block; margin-bottom: 8px;">
+                    📋 Tabel Sakti 7 Konjungsi FANBOYS (Standar Teknik Informatika):
+                  </strong>
+                  <div class="rubrik-table-wrap">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th style="width: 50px;">Huruf</th>
+                          <th style="width: 80px;">Konjungsi</th>
+                          <th style="width: 180px;">Fungsi Logis / Semantik</th>
+                          <th>Contoh Kalimat Akademik Informatika</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="badge badge-mustard" style="font-weight:900;">F</span></td>
+                          <td><strong>For</strong></td>
+                          <td>Menyatakan alasan / sebab (<em>because</em>)</td>
+                          <td>The autonomous drone returned to base, <strong>for</strong> its primary battery depleted below ten percent.</td>
+                        </tr>
+                        <tr>
+                          <td><span class="badge badge-teal" style="font-weight:900;">A</span></td>
+                          <td><strong>And</strong></td>
+                          <td>Menambahkan ide yang sejalan (<em>addition</em>)</td>
+                          <td>I like programming, <strong>and</strong> I also enjoy designing intuitive user interfaces.</td>
+                        </tr>
+                        <tr>
+                          <td><span class="badge badge-tomato" style="font-weight:900;">N</span></td>
+                          <td><strong>Nor</strong></td>
+                          <td>Menyatakan penyangkalan ganda negatif</td>
+                          <td>The server did not crash during peak hours, <strong>nor</strong> did it corrupt any database records.</td>
+                        </tr>
+                        <tr>
+                          <td><span class="badge badge-plum" style="font-weight:900;">B</span></td>
+                          <td><strong>But</strong></td>
+                          <td>Menyatakan pertentangan / kontras langsung</td>
+                          <td>I wanted to purchase an enterprise server, <strong>but</strong> the licensing fee was too expensive.</td>
+                        </tr>
+                        <tr>
+                          <td><span class="badge badge-blue" style="font-weight:900;">O</span></td>
+                          <td><strong>Or</strong></td>
+                          <td>Menyajikan alternatif / pilihan</td>
+                          <td>Students must update their security credentials, <strong>or</strong> the system will terminate access.</td>
+                        </tr>
+                        <tr>
+                          <td><span class="badge badge-mustard" style="font-weight:900;">Y</span></td>
+                          <td><strong>Yet</strong></td>
+                          <td>Kontras yang mengejutkan (<em>nevertheless</em>)</td>
+                          <td>The sorting algorithm was mathematically complex, <strong>yet</strong> it executed in under two milliseconds.</td>
+                        </tr>
+                        <tr>
+                          <td><span class="badge badge-teal" style="font-weight:900;">S</span></td>
+                          <td><strong>So</strong></td>
+                          <td>Menyatakan hasil / konsekuensi logis</td>
+                          <td>The central server crashed, <strong>so</strong> the technician rebooted the system immediately.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Mini Puzzle 2: Compound Sentence & FANBOYS -->
+                <div class="puzzle-game-box" id="box-puz-compound">
+                  <div class="puzzle-game-head">
+                    <h5 class="puzzle-title">🧩 Mini Puzzle 2: Susun Compound Sentence (FANBOYS)</h5>
+                    <span class="badge badge-teal">Tantangan Interaktif</span>
+                  </div>
+                  <div class="puzzle-prompt">Susun kepingan menjadi Compound Sentence berstandar Informatika lengkap dengan tanda koma dan FANBOYS:</div>
+                  <div class="puzzle-drop-slot" id="slot-puz-compound" onclick="handleSlotClick('puz-compound')">
+                    <span class="puzzle-drop-placeholder" id="placeholder-puz-compound">Klik kata di bawah untuk memindahkannya ke sini...</span>
+                  </div>
+                  <div class="puzzle-tokens-bank" id="bank-puz-compound"></div>
+                  <div class="puzzle-actions">
+                    <button type="button" class="btn-sm btn-primary" onclick="checkPuzzle('puz-compound')">✔ Cek Susunan</button>
+                    <button type="button" class="btn-sm btn-secondary" onclick="resetPuzzle('puz-compound')">↺ Reset</button>
+                  </div>
+                  <div class="puzzle-feedback-badge" id="feedback-puz-compound"></div>
+                </div>
               </div>
 
-              <!-- Tabel FANBOYS Lengkap -->
-              <div class="rubrik-table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th style="width: 80px;">Huruf</th>
-                      <th style="width: 110px;">Konjungsi</th>
-                      <th style="width: 170px;">Fungsi Logis / Semantik</th>
-                      <th>Contoh Kalimat Berstandar Akademik Teknik Informatika</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><strong>F</strong></td>
-                      <td><strong>For</strong></td>
-                      <td>Menyatakan alasan / sebab (*because*)</td>
-                      <td>The autonomous drone returned to base, <strong>for</strong> its primary battery depleted below ten percent.</td>
-                    </tr>
-                    <tr>
-                      <td><strong>A</strong></td>
-                      <td><strong>And</strong></td>
-                      <td>Menambahkan ide yang sejalan (*addition*)</td>
-                      <td>I like programming, <strong>and</strong> I also enjoy designing intuitive user interfaces.</td>
-                    </tr>
-                    <tr>
-                      <td><strong>N</strong></td>
-                      <td><strong>Nor</strong></td>
-                      <td>Menyatakan penyangkalan ganda negatif</td>
-                      <td>The server did not crash during peak hours, <strong>nor</strong> did it corrupt any database records.</td>
-                    </tr>
-                    <tr>
-                      <td><strong>B</strong></td>
-                      <td><strong>But</strong></td>
-                      <td>Menyatakan pertentangan / kontras langsung</td>
-                      <td>I wanted to purchase an enterprise server, <strong>but</strong> the licensing fee was too expensive.</td>
-                    </tr>
-                    <tr>
-                      <td><strong>O</strong></td>
-                      <td><strong>Or</strong></td>
-                      <td>Menyajikan alternatif / pilihan</td>
-                      <td>Students must update their security credentials, <strong>or</strong> the system will terminate access.</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Y</strong></td>
-                      <td><strong>Yet</strong></td>
-                      <td>Kontras yang mengejutkan (*nevertheless*)</td>
-                      <td>The sorting algorithm was mathematically complex, <strong>yet</strong> it executed in under two milliseconds.</td>
-                    </tr>
-                    <tr>
-                      <td><strong>S</strong></td>
-                      <td><strong>So</strong></td>
-                      <td>Menyatakan hasil / konsekuensi logis</td>
-                      <td>The central server crashed, <strong>so</strong> the technician rebooted the system immediately.</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <!-- ================= 3. COMPLEX SENTENCE ================= -->
+              <div class="grammar-concept-card">
+                <div class="grammar-card-head">
+                  <h4 class="grammar-card-title">
+                    <span>3. COMPLEX SENTENCE (Kalimat Majemuk Bertingkat)</span>
+                  </h4>
+                  <span class="badge badge-blue">1 Indep + 1+ Dep Clause</span>
+                </div>
+
+                <p style="font-size: 14px; margin-bottom: 12px;">
+                  Terdiri dari <strong>1 Independent Clause</strong> + minimal <strong>1 Dependent Clause</strong> (klausa terikat yang diawali oleh <em>Subordinating Conjunction</em>).
+                </p>
+
+                <div style="margin-bottom: 14px; font-size: 13px; line-height: 1.6;">
+                  • <strong>Subordinator Umum:</strong> 
+                  <span class="hl-subord">because</span> <span class="hl-subord">although</span> <span class="hl-subord">even though</span> <span class="hl-subord">since</span> <span class="hl-subord">while</span> <span class="hl-subord">whereas</span> <span class="hl-subord">if</span> <span class="hl-subord">unless</span> <span class="hl-subord">after</span> <span class="hl-subord">before</span> <span class="hl-subord">when</span> <span class="hl-subord">until</span>.
+                </div>
+
+                <!-- Box Komparasi Aturan Koma -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 14px; margin-bottom: 16px;">
+                  
+                  <!-- Pola A -->
+                  <div style="border: 2px solid var(--teal); border-radius: 10px; padding: 14px; background: var(--teal-soft);">
+                    <div style="font-family: var(--display); font-weight: 800; font-size: 13.5px; color: var(--teal); margin-bottom: 6px;">
+                      📌 POLA A: Dependent Clause di DEPAN (WAJIB KOMA)
+                    </div>
+                    <div style="font-family: var(--mono); font-size: 11.5px; margin-bottom: 10px; background: #fff; padding: 6px 8px; border-radius: 6px; border: 1px solid var(--teal);">
+                      [Subordinator + Dep Clause] <span class="hl-comma-strong">,</span> [Indep Clause]
+                    </div>
+                    <div class="clause-example-box" style="margin: 0; background: #fff;">
+                      <span class="clause-pill dep">Dependent (Depan)</span> 
+                      <span class="hl-subord">Although</span> 
+                      <span class="clause-dep-text">he was nervous</span><span class="hl-comma-strong">,</span> 
+                      <span class="clause-pill indep">Independent</span> 
+                      <span class="clause-indep-text">he delivered an exceptional presentation.</span>
+                    </div>
+                    <div class="clause-example-box" style="margin-top: 8px; background: #fff;">
+                      <span class="clause-pill dep">Dependent (Depan)</span> 
+                      <span class="hl-subord">If</span> 
+                      <span class="clause-dep-text">students practice every day</span><span class="hl-comma-strong">,</span> 
+                      <span class="clause-pill indep">Independent</span> 
+                      <span class="clause-indep-text">they will become proficient programmers.</span>
+                    </div>
+                  </div>
+
+                  <!-- Pola B -->
+                  <div style="border: 2px solid var(--tomato); border-radius: 10px; padding: 14px; background: var(--tomato-soft);">
+                    <div style="font-family: var(--display); font-weight: 800; font-size: 13.5px; color: var(--tomato); margin-bottom: 6px;">
+                      📌 POLA B: Independent Clause di DEPAN (DILARANG KOMA)
+                    </div>
+                    <div style="font-family: var(--mono); font-size: 11.5px; margin-bottom: 10px; background: #fff; padding: 6px 8px; border-radius: 6px; border: 1px solid var(--tomato);">
+                      [Indep Clause] [Subordinator + Dep Clause] <em>(Tanpa Koma!)</em>
+                    </div>
+                    <div class="clause-example-box" style="margin: 0; background: #fff;">
+                      <span class="clause-pill indep">Independent (Depan)</span> 
+                      <span class="clause-indep-text">She stayed at home</span> 
+                      <span class="hl-subord">because</span> 
+                      <span class="clause-pill dep">Dependent</span> 
+                      <span class="clause-dep-text">it was raining heavily.</span>
+                    </div>
+                    <div style="font-size: 11.5px; color: var(--tomato); font-weight: 700; margin-top: 8px;">
+                      ⚠️ Peringatan Ujian UTS: Jangan pernah meletakkan koma sebelum kata "because" pada Pola B!
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Mini Puzzle 3: Complex Sentence -->
+                <div class="puzzle-game-box" id="box-puz-complex">
+                  <div class="puzzle-game-head">
+                    <h5 class="puzzle-title">🧩 Mini Puzzle 3: Susun Complex Sentence Pola A (Koma Wajib)</h5>
+                    <span class="badge badge-teal">Tantangan Interaktif</span>
+                  </div>
+                  <div class="puzzle-prompt">Susun kepingan menjadi Complex Sentence Pola A (Dependent Clause di depan dengan tanda koma):</div>
+                  <div class="puzzle-drop-slot" id="slot-puz-complex" onclick="handleSlotClick('puz-complex')">
+                    <span class="puzzle-drop-placeholder" id="placeholder-puz-complex">Klik kata di bawah untuk memindahkannya ke sini...</span>
+                  </div>
+                  <div class="puzzle-tokens-bank" id="bank-puz-complex"></div>
+                  <div class="puzzle-actions">
+                    <button type="button" class="btn-sm btn-primary" onclick="checkPuzzle('puz-complex')">✔ Cek Susunan</button>
+                    <button type="button" class="btn-sm btn-secondary" onclick="resetPuzzle('puz-complex')">↺ Reset</button>
+                  </div>
+                  <div class="puzzle-feedback-badge" id="feedback-puz-complex"></div>
+                </div>
               </div>
 
-              <!-- 3. Complex Sentence -->
-              <div class="formula-box" style="border-left-color: var(--blue);">
-                <strong>3. COMPLEX SENTENCE (Kalimat Majemuk Bertingkat)</strong><br>
-                Terdiri dari <strong>1 Independent Clause</strong> + minimal <strong>1 Dependent Clause</strong> (klausa terikat yang diawali oleh <em>Subordinating Conjunction</em>).<br>
-                • <em>Subordinator Umum:</em> <code>because, although, even though, since, while, whereas, if, unless, after, before, when, until</code>.<br><br>
-                <strong>Aturan Emas Tanda Koma Kalimat Kompleks:</strong><br>
-                • <strong>Pola A (Dependent Clause di Depan):</strong> WAJIB diberi tanda koma sebelum induk kalimat!<br>
-                &nbsp;&nbsp;<em>Contoh:</em> "<strong>Although</strong> he was nervous<strong>,</strong> he delivered an exceptional presentation."<br>
-                &nbsp;&nbsp;<em>Contoh:</em> "<strong>If</strong> students practice every day<strong>,</strong> they will become proficient programmers."<br>
-                • <strong>Pola B (Independent Clause di Depan):</strong> TIDAK BOLEH diberi koma sebelum subordinator!<br>
-                &nbsp;&nbsp;<em>Contoh:</em> "She stayed at home <strong>because</strong> it was raining heavily."
+              <!-- ================= 4. COMPOUND-COMPLEX SENTENCE ================= -->
+              <div class="grammar-concept-card">
+                <div class="grammar-card-head">
+                  <h4 class="grammar-card-title">
+                    <span>4. COMPOUND-COMPLEX SENTENCE</span>
+                  </h4>
+                  <span class="badge badge-plum">Min. 2 Indep + 1 Dep Clause</span>
+                </div>
+
+                <p style="font-size: 14px; margin-bottom: 12px;">
+                  Menggabungkan minimal <strong>2 Independent Clauses</strong> dan minimal <strong>1 Dependent Clause</strong> dalam satu kesatuan argumen yang padu.
+                </p>
+
+                <!-- Box Contoh Ber-Highlight -->
+                <div class="clause-example-box">
+                  <div style="margin-bottom: 6px;">
+                    <span class="clause-pill indep">Indep 1</span>
+                    <span class="clause-pill indep" style="margin-left: 6px;">Indep 2</span>
+                    <span class="clause-pill dep" style="margin-left: 6px;">Dep Clause</span>
+                  </div>
+                  <span class="clause-indep-text">The students were exhausted</span><span class="hl-comma-strong">,</span> 
+                  <span class="hl-fanboys">but</span> 
+                  <span class="clause-indep-text">they continued developing the application</span> 
+                  <span class="hl-subord">because</span> 
+                  <span class="clause-dep-text">the competition deadline was approaching.</span>
+                </div>
               </div>
 
-              <!-- 4. Compound-Complex Sentence -->
-              <div class="formula-box" style="border-left-color: var(--plum);">
-                <strong>4. COMPOUND-COMPLEX SENTENCE</strong><br>
-                Menggabungkan minimal <strong>2 Independent Clauses</strong> dan minimal <strong>1 Dependent Clause</strong>.<br>
-                • <em>Contoh:</em> "The students were exhausted, <strong>but</strong> they continued developing the application <strong>because</strong> the competition deadline was approaching."
-              </div>
+              <!-- ================= 5. TIGA KESALAHAN FATAL UJIAN ================= -->
+              <div class="grammar-concept-card" style="border-color: var(--tomato); background: #fffaf8;">
+                <div class="grammar-card-head" style="border-bottom-color: var(--tomato-soft);">
+                  <h4 class="grammar-card-title" style="color: var(--tomato);">
+                    <span>⚠️ 3 Kesalahan Kalimat yang Wajib Dihindari dalam Ujian</span>
+                  </h4>
+                  <span class="badge badge-tomato">Sentence Traps</span>
+                </div>
 
-              <div class="warning-callout">
-                <strong>⚠️ 3 Kesalahan Kalimat yang Wajib Dihindari dalam Ujian:</strong><br>
-                1. <strong>Sentence Fragment:</strong> Klausa dependen berdiri sendiri tanpa induk kalimat (Contoh salah: <em>"Because the server failed."</em> ❌).<br>
-                2. <strong>Run-on Sentence:</strong> Dua kalimat mandiri digabung tanpa konjungsi atau titik.<br>
-                3. <strong>Comma Splice:</strong> Dua klausa mandiri hanya dipisahkan koma tanpa kata hubung FANBOYS (Contoh salah: <em>"I like coding, I design websites."</em> ❌ → Benar: <em>"I like coding, and I design websites."</em> ✔️).
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 10px;">
+                  
+                  <div style="background: #fff; border: 1.5px solid var(--tomato); border-radius: 8px; padding: 12px 14px;">
+                    <strong style="color: var(--tomato);">1. Sentence Fragment</strong>
+                    <p style="font-size: 13px; margin: 4px 0 6px;">Klausa dependen yang berdiri sendiri tanpa adanya induk kalimat (*independent clause*).</p>
+                    <div style="font-family: var(--mono); font-size: 12px;">
+                      ❌ <span style="text-decoration: line-through; color: #a00;">"Because the server failed."</span><br>
+                      ✔️ <span style="color: var(--teal); font-weight: 700;">"Because the server failed, the application stopped working."</span>
+                    </div>
+                  </div>
+
+                  <div style="background: #fff; border: 1.5px solid var(--tomato); border-radius: 8px; padding: 12px 14px;">
+                    <strong style="color: var(--tomato);">2. Run-on Sentence</strong>
+                    <p style="font-size: 13px; margin: 4px 0 6px;">Dua kalimat mandiri yang digabungkan secara langsung tanpa konjungsi, koma, atau tanda titik.</p>
+                    <div style="font-family: var(--mono); font-size: 12px;">
+                      ❌ <span style="text-decoration: line-through; color: #a00;">"The system crashed the data was lost."</span><br>
+                      ✔️ <span style="color: var(--teal); font-weight: 700;">"The system crashed, and the data was lost."</span>
+                    </div>
+                  </div>
+
+                  <div style="background: #fff; border: 1.5px solid var(--tomato); border-radius: 8px; padding: 12px 14px;">
+                    <strong style="color: var(--tomato);">3. Comma Splice</strong>
+                    <p style="font-size: 13px; margin: 4px 0 6px;">Dua klausa mandiri yang hanya dipisahkan tanda koma tanpa adanya kata hubung FANBOYS.</p>
+                    <div style="font-family: var(--mono); font-size: 12px;">
+                      ❌ <span style="text-decoration: line-through; color: #a00;">"I like coding, I design websites."</span><br>
+                      ✔️ <span style="color: var(--teal); font-weight: 700;">"I like coding, and I design websites."</span> <em>(Tambah koma + FANBOYS)</em><br>
+                      ✔️ <span style="color: var(--teal); font-weight: 700;">"I like coding; I design websites."</span> <em>(Gunakan titik-koma)</em>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Mini Puzzle 4: Comma Splice Fixer -->
+                <div class="puzzle-game-box" id="box-puz-trap" style="margin-top: 14px;">
+                  <div class="puzzle-game-head">
+                    <h5 class="puzzle-title">🧩 Mini Puzzle 4: Perbaiki Comma Splice</h5>
+                    <span class="badge badge-tomato">Tantangan Perbaikan</span>
+                  </div>
+                  <div class="puzzle-prompt">Susun kepingan menjadi Compound Sentence resmi dengan tanda koma dan FANBOYS untuk memperbaiki Comma Splice:</div>
+                  <div class="puzzle-drop-slot" id="slot-puz-trap" onclick="handleSlotClick('puz-trap')">
+                    <span class="puzzle-drop-placeholder" id="placeholder-puz-trap">Klik kata di bawah untuk memindahkannya ke sini...</span>
+                  </div>
+                  <div class="puzzle-tokens-bank" id="bank-puz-trap"></div>
+                  <div class="puzzle-actions">
+                    <button type="button" class="btn-sm btn-primary" onclick="checkPuzzle('puz-trap')">✔ Cek Susunan</button>
+                    <button type="button" class="btn-sm btn-secondary" onclick="resetPuzzle('puz-trap')">↺ Reset</button>
+                  </div>
+                  <div class="puzzle-feedback-badge" id="feedback-puz-trap"></div>
+                </div>
               </div>
-            </div>
+</div>
           </div>
 
           <!-- Wadah dinamis latihan Grammar dari app.js -->

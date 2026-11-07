@@ -776,6 +776,151 @@ textarea.outline-input {
   resize: vertical;
 }
 
+/* ================= Writing Studio & Smart Word Counter ================= */
+.topic-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topic-pill {
+  padding: 6px 12px;
+  background: var(--card);
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--display);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
+  user-select: none;
+}
+
+.topic-pill:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
+  background: var(--paper-deep);
+}
+
+.topic-pill.active {
+  background: var(--teal);
+  color: #fff;
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.word-counter-dashboard {
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+
+.word-counter-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.word-count-display {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.word-count-num {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.word-count-target {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+.word-progress-wrap {
+  width: 100%;
+  height: 14px;
+  background: var(--paper-deep);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.word-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--mustard);
+  border-radius: 999px;
+  transition: width 0.15s ease, background-color 0.2s ease;
+}
+
+.counter-status-banner {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  border: 1.5px solid var(--ink);
+}
+
+.counter-status-banner.banner-info {
+  background: var(--blue-soft);
+  border-color: var(--blue);
+}
+
+.counter-status-banner.banner-warning {
+  background: var(--mustard-soft);
+  border-color: var(--mustard);
+}
+
+.counter-status-banner.banner-success {
+  background: var(--teal-soft);
+  border-color: var(--teal);
+}
+
+.counter-status-banner.banner-danger {
+  background: var(--tomato-soft);
+  border-color: var(--tomato);
+}
+
+.word-metrics-grid {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.metric-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
 .outline-checklist {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));

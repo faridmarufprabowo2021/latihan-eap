@@ -1835,23 +1835,158 @@ function syncFullParagraphDraft() {
   }
 }
 
+// ================= Academic Word Counter Engine =================
+function countAcademicWords(text) {
+  if (!text || typeof text !== 'string') return 0;
+  // Normalize whitespace (including non-breaking spaces, zero-width chars, newlines, tabs)
+  const normalized = text
+    .replace(/[\u00A0\u1680\u180E\u2000-\u200B\u202F\u205F\u3000\uFEFF]/g, ' ')
+    .trim();
+  if (!normalized) return 0;
+  // Match genuine academic words: letters/numbers with optional internal hyphens/apostrophes
+  // Standalone symbols, punctuation, bullets, or multiple spaces/newlines are never counted
+  const matches = normalized.match(/\b[a-zA-Z0-9]+(?:['’\-][a-zA-Z0-9]+)*\b/g);
+  return matches ? matches.length : 0;
+}
+
 function updateParagraphWordCounter() {
   const area = document.getElementById('full-paragraph-area');
   const badge = document.getElementById('paragraph-word-counter');
-  if (!area || !badge) return;
+  if (!area) return;
 
-  const text = area.value.trim();
-  const words = text ? text.split(/\s+/).filter(Boolean).length : 0;
-  badge.textContent = `${words} Kata (Target Dosen: 100–150 Kata)`;
+  // Mark as manually edited so auto-sync doesn't overwrite user's work
+  area.setAttribute('data-manual-edit', 'true');
 
-  if (words >= 100 && words <= 150) {
-    badge.className = 'badge badge-teal';
-  } else if (words > 150) {
-    badge.className = 'badge badge-tomato';
+  const text = area.value || '';
+  const words = countAcademicWords(text);
+
+  // Compute detailed analytics
+  const cleanNoSpace = text.replace(/\s+/g, '');
+  const charsNoSpace = cleanNoSpace.length;
+  const charsTotal = text.length;
+
+  // Sentences: separated by ., ?, ! followed by space or end of string
+  const sentenceMatches = text.trim().match(/[^.!?]+[.!?]+(\s|$)/g);
+  const sentences = sentenceMatches ? sentenceMatches.length : (words > 0 ? 1 : 0);
+  const avgWordsPerSentence = sentences > 0 ? (words / sentences).toFixed(1) : 0;
+
+  // Update DOM elements if present
+  const exactNumEl = document.getElementById('counter-exact-num');
+  if (exactNumEl) exactNumEl.textContent = words;
+
+  const mWords = document.getElementById('m-words');
+  if (mWords) mWords.textContent = words;
+
+  const mCharsNoSpace = document.getElementById('m-chars-nospace');
+  if (mCharsNoSpace) mCharsNoSpace.textContent = charsNoSpace;
+
+  const mCharsTotal = document.getElementById('m-chars-total');
+  if (mCharsTotal) mCharsTotal.textContent = charsTotal;
+
+  const mSentences = document.getElementById('m-sentences');
+  if (mSentences) mSentences.textContent = sentences;
+
+  const mAvgSentence = document.getElementById('m-avg-sentence');
+  if (mAvgSentence) mAvgSentence.textContent = avgWordsPerSentence;
+
+  // Progress Bar (0 to 150 words = 0% to 100%)
+  const progressBar = document.getElementById('counter-progress-bar');
+  const progressPercent = Math.min(100, Math.round((words / 150) * 100));
+  if (progressBar) {
+    progressBar.style.width = `${progressPercent}%`;
+  }
+
+  // Status message & badge styling
+  const feedbackEl = document.getElementById('counter-feedback-msg');
+
+  if (words === 0) {
+    if (badge) {
+      badge.textContent = '⚪ Belum Ada Teks (Target: 100–150 Kata)';
+      badge.className = 'badge badge-mustard';
+    }
+    if (progressBar) progressBar.style.background = 'var(--mustard)';
+    if (feedbackEl) {
+      feedbackEl.className = 'counter-status-banner banner-info';
+      feedbackEl.innerHTML = 'ℹ️ Masukkan draf paragraf Anda. Sistem menghitung token kata akademik murni (tidak menghitung spasi atau enter berulang).';
+    }
+  } else if (words < 100) {
+    const diff = 100 - words;
+    if (badge) {
+      badge.textContent = `⚠️ ${words} Kata (Kurang ${diff} kata lagi)`;
+      badge.className = 'badge badge-mustard';
+    }
+    if (progressBar) progressBar.style.background = 'var(--mustard)';
+    if (feedbackEl) {
+      feedbackEl.className = 'counter-status-banner banner-warning';
+      feedbackEl.innerHTML = `⚠️ <strong>Kurang ${diff} kata lagi</strong> untuk mencapai standar minimal 100 kata. Kembangkan supporting details Anda.`;
+    }
+  } else if (words <= 150) {
+    if (badge) {
+      badge.textContent = `✅ ${words} Kata (Optimal 100–150 Kata)`;
+      badge.className = 'badge badge-teal';
+    }
+    if (progressBar) progressBar.style.background = 'var(--teal)';
+    if (feedbackEl) {
+      feedbackEl.className = 'counter-status-banner banner-success';
+      feedbackEl.innerHTML = `✅ <strong>Sempurna!</strong> Panjang paragraf (${words} kata) memenuhi standar resmi dosen perkuliahan (100–150 kata).`;
+    }
   } else {
-    badge.className = 'badge badge-mustard';
+    const over = words - 150;
+    if (badge) {
+      badge.textContent = `⛔ ${words} Kata (Kelebihan ${over} kata)`;
+      badge.className = 'badge badge-tomato';
+    }
+    if (progressBar) progressBar.style.background = 'var(--tomato)';
+    if (feedbackEl) {
+      feedbackEl.className = 'counter-status-banner banner-danger';
+      feedbackEl.innerHTML = `⛔ <strong>Melebihi batas ${over} kata!</strong> Ringkas kalimat Anda agar tidak melampaui batas 150 kata.`;
+    }
   }
 }
+
+// Topic Selection & Studio Helpers
+let currentSelectedTopicIdx = 0;
+
+window.selectWritingTopic = function(idx) {
+  currentSelectedTopicIdx = idx;
+  const pills = document.querySelectorAll('.topic-pill');
+  pills.forEach((p, i) => {
+    if (i === idx) p.classList.add('active');
+    else p.classList.remove('active');
+  });
+};
+
+window.loadSelectedTopicModel = function() {
+  const model = WRITING_TOPIC_MODELS[currentSelectedTopicIdx] || WRITING_TOPIC_MODELS[0];
+  const area = document.getElementById('full-paragraph-area');
+  if (!area) return;
+  area.value = model.modelParagraph;
+  updateParagraphWordCounter();
+};
+
+window.copyParagraphDraft = function() {
+  const area = document.getElementById('full-paragraph-area');
+  if (!area || !area.value.trim()) {
+    alert('Area tulisan masih kosong.');
+    return;
+  }
+  navigator.clipboard.writeText(area.value.trim()).then(() => {
+    alert('Draf paragraf berhasil disalin ke clipboard!');
+  }).catch(() => {
+    area.select();
+    document.execCommand('copy');
+    alert('Draf paragraf berhasil disalin!');
+  });
+};
+
+window.clearParagraphDraft = function() {
+  const area = document.getElementById('full-paragraph-area');
+  if (!area) return;
+  if (confirm('Yakin ingin membersihkan area tulisan?')) {
+    area.value = '';
+    updateParagraphWordCounter();
+  }
+};
 
 function evaluateWritingRubric() {
   let writingScore = 0;

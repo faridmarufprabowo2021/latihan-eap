@@ -456,20 +456,79 @@
           <div id="writing-models-container" style="margin: 20px 0;"></div>
 
           <!-- Interactive Workspace -->
-          <div class="card" style="background: var(--paper-deep); border: 2px dashed var(--ink);">
+          <div class="card" style="background: var(--paper-deep); border: 2.5px solid var(--ink); box-shadow: var(--shadow);">
             <div class="card-header">
-              <h4 class="card-title" style="font-size: 18px;">✍️ Workspace Mandiri: Tulis Paragraf Akademik (100–150 Kata)</h4>
-              <span class="badge badge-mustard" id="paragraph-word-counter">0 Kata (Target Dosen: 100–150 Kata)</span>
+              <div>
+                <h4 class="card-title" style="font-size: 20px;">✍️ Studio Mandiri: Tulis Paragraf Akademik (100–150 Kata)</h4>
+                <p style="margin: 4px 0 0; color: var(--ink-soft); font-size: 13.5px;">Dilengkapi Smart Word Counter presisi akademis bebas bug spasi/enter</p>
+              </div>
+              <span class="badge badge-mustard" id="paragraph-word-counter">⚪ Mulai Menulis (Target: 100–150 Kata)</span>
             </div>
 
-            <p style="font-size: 14px; margin-bottom: 14px;">Pilihlah salah satu topik resmi dari slide dosen:<br>
-            <em>(1) The Importance of Technology in Daily Life, (2) Why I Chose Informatics Engineering as My Major, (3) The Impact of Social Media on Students, (4) The Benefits and Risks of Using Internet, (5) How Smartphones Change the Way We Communicate.</em></p>
-
-            <div class="outline-form-group">
-              <label class="outline-label" for="full-paragraph-area">
-                <span>Draf Paragraf Lengkap (100–150 Kata):</span>
+            <!-- Topic Selector Pills -->
+            <div style="margin-bottom: 20px;">
+              <label style="display: block; font-family: var(--display); font-weight: 800; font-size: 13.5px; margin-bottom: 10px;">
+                🎯 Pilih Salah Satu Topik Resmi Dosen (Meeting 5):
               </label>
-              <textarea id="full-paragraph-area" class="outline-input" style="min-height: 140px;" placeholder="Tuliskan paragraf akademik Anda di sini. Monitor jumlah kata pada indikator di kanan atas agar memenuhi rentang 100–150 kata..."></textarea>
+              <div class="topic-pills-wrap" id="topic-pills-container">
+                <button type="button" class="topic-pill active" onclick="selectWritingTopic(0)">💻 (1) Importance of Technology</button>
+                <button type="button" class="topic-pill" onclick="selectWritingTopic(1)">🎓 (2) Why Informatics Major</button>
+                <button type="button" class="topic-pill" onclick="selectWritingTopic(2)">📱 (3) Impact of Social Media</button>
+                <button type="button" class="topic-pill" onclick="selectWritingTopic(3)">🌐 (4) Benefits & Risks of Internet</button>
+                <button type="button" class="topic-pill" onclick="selectWritingTopic(4)">💬 (5) How Smartphones Change Communication</button>
+              </div>
+            </div>
+
+            <!-- Smart Word Counter Dashboard -->
+            <div class="word-counter-dashboard">
+              <div class="word-counter-top">
+                <div class="word-count-display">
+                  <span class="word-count-num" id="counter-exact-num">0</span>
+                  <span class="word-count-target">/ 100–150 Kata</span>
+                </div>
+                <div style="font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--ink-soft);">
+                  Standar Mutu UTS: Wajib 100–150 Kata
+                </div>
+              </div>
+
+              <!-- Visual Progress Bar -->
+              <div class="word-progress-wrap" title="Indikator Rentang Kata Dosen (100–150 Kata)">
+                <div class="word-progress-bar" id="counter-progress-bar" style="width: 0%;"></div>
+              </div>
+
+              <!-- Status Feedback Message -->
+              <div id="counter-feedback-msg" class="counter-status-banner banner-info">
+                ℹ️ Masukkan draf paragraf Anda. Sistem menghitung token kata akademik murni (tidak menghitung spasi atau enter berulang).
+              </div>
+
+              <!-- Detailed Metrics Grid -->
+              <div class="word-metrics-grid" style="margin-top: 12px;">
+                <div class="metric-chip">📝 <strong id="m-words">0</strong> Kata</div>
+                <div class="metric-chip">🔤 <strong id="m-chars-nospace">0</strong> Karakter (Tanpa Spasi)</div>
+                <div class="metric-chip">🔤 <strong id="m-chars-total">0</strong> Karakter Total</div>
+                <div class="metric-chip">📑 <strong id="m-sentences">0</strong> Kalimat</div>
+                <div class="metric-chip">📊 <strong id="m-avg-sentence">0</strong> Kata/Kalimat</div>
+              </div>
+            </div>
+
+            <div class="outline-form-group" style="margin-bottom: 0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+                <label class="outline-label" for="full-paragraph-area" style="margin: 0;">
+                  <span>Draf Paragraf Lengkap:</span>
+                </label>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <button type="button" class="btn-sm btn-secondary" onclick="loadSelectedTopicModel()">
+                    <span>📥 Muat Contoh Model Dosen (105–123 Kata)</span>
+                  </button>
+                  <button type="button" class="btn-sm btn-secondary" onclick="copyParagraphDraft()">
+                    <span>📋 Salin Teks</span>
+                  </button>
+                  <button type="button" class="btn-sm btn-secondary" onclick="clearParagraphDraft()">
+                    <span>🧹 Bersihkan</span>
+                  </button>
+                </div>
+              </div>
+              <textarea id="full-paragraph-area" class="outline-input" style="min-height: 160px; font-size: 15px; line-height: 1.65;" placeholder="Ketik atau tempelkan draf paragraf akademik Anda di sini. Monitor jumlah kata di atas agar memenuhi rentang 100–150 kata..."></textarea>
             </div>
           </div>
         </div>

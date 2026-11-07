@@ -222,115 +222,803 @@ Roger: "Yes, 4:30 pm is perfect. My mobile number is 07788 136711."`,
 
 const GRAMMAR_DRILLS = [
   {
-    id: 'g-pos',
-    title: 'Drill 1: Parts of Speech Mastery (Meeting 3)',
-    source: 'Latihan Dosen: Meeting 3 (Parts of Speech)',
-    questions: [
+    "id": "g-pos",
+    "title": "Drill 1: Parts of Speech Mastery — 8 Classes (Meeting 3, Part A)",
+    "source": "Dokumen Dosen: exercise of PART OF SPEECH (Section A - 40 Soal)",
+    "questions": [
       {
-        id: 'pos-1',
-        cat: 'NOUN',
-        q: '1. The engineer checked the _____ before starting the test.',
-        options: ['equipment', 'carefully', 'because', 'strong'],
-        answer: 0,
-        expl: 'Kunci: A (equipment). Kata benda (Noun) dibutuhkan sebagai objek setelah kata sandang "the".'
+        "id": "pos-1",
+        "cat": "NOUN",
+        "q": "1. The engineer checked the _____ before starting the test.",
+        "options": [
+          "equipment",
+          "carefully",
+          "because",
+          "strong"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (equipment). Kata benda (Noun) dibutuhkan sebagai direct object setelah kata sandang \"the\". \"Carefully\" adalah adverb, \"because\" adalah konjungsi, dan \"strong\" adalah adjective."
       },
       {
-        id: 'pos-2',
-        cat: 'NOUN',
-        q: '2. Regular _____ can prevent machine failure.',
-        options: ['maintains', 'maintenance', 'maintained', 'efficient'],
-        answer: 1,
-        expl: 'Kunci: B (maintenance). "Maintenance" adalah kata benda (Noun) yang berfungsi sebagai Subject kalimat.'
+        "id": "pos-2",
+        "cat": "NOUN",
+        "q": "2. Regular _____ can prevent machine failure.",
+        "options": [
+          "maintains",
+          "maintenance",
+          "maintained",
+          "efficient"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (maintenance). \"Maintenance\" adalah kata benda (Noun) berakhiran -ance yang menempati posisi Subject kalimat."
       },
       {
-        id: 'pos-3',
-        cat: 'PRONOUN',
-        q: '3. The engineers finished the test, and _____ wrote a report.',
-        options: ['they', 'them', 'their', 'theirs'],
-        answer: 0,
-        expl: 'Kunci: A (they). Kata ganti subjek jamak (Subject Pronoun) yang menggantikan "The engineers".'
+        "id": "pos-3",
+        "cat": "NOUN",
+        "q": "3. The _____ of the bridge requires accurate measurements.",
+        "options": [
+          "design",
+          "designed",
+          "designing",
+          "designs"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (design). Kata benda tunggal (Noun) dibutuhkan setelah \"The\" dan sebelum preposisi \"of\". Kata kerja tunggal \"requires\" menunjukkan subjek berbentuk tunggal (singular)."
       },
       {
-        id: 'pos-4',
-        cat: 'VERB',
-        q: '4. The machine _____ automatically when the temperature is too high.',
-        options: ['stops', 'stopping', 'stop', 'stopped'],
-        answer: 0,
-        expl: 'Kunci: A (stops). Subjek tunggal pihak ketiga (The machine) membutuhkan Simple Present Verb dengan akhiran -s.'
+        "id": "pos-4",
+        "cat": "NOUN",
+        "q": "4. Which word is a noun?",
+        "options": [
+          "efficient",
+          "improves",
+          "efficiently",
+          "efficiency"
+        ],
+        "answer": 3,
+        "expl": "Kunci: D (efficiency). Kata berakhiran sufiks -cy adalah Noun (kata benda). \"Efficient\" (adjective), \"improves\" (verb), \"efficiently\" (adverb)."
       },
       {
-        id: 'pos-5',
-        cat: 'ADJECTIVE',
-        q: '5. The technician used an _____ instrument.',
-        options: ['accuracy', 'accurately', 'accurate', 'accurateness'],
-        answer: 2,
-        expl: 'Kunci: C (accurate). Kata sifat (Adjective) dibutuhkan untuk menerangkan kata benda "instrument".'
+        "id": "pos-5",
+        "cat": "NOUN",
+        "q": "5. The laboratory has modern _____ for measuring temperature.",
+        "options": [
+          "tools",
+          "equips",
+          "predicts",
+          "discovery"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (tools). \"Tools\" adalah kata benda jamak (countable noun) yang tepat menduduki posisi objek setelah kata sifat \"modern\"."
       },
       {
-        id: 'pos-6',
-        cat: 'ADVERB',
-        q: '6. The technician measured the temperature _____.',
-        options: ['accurate', 'accuracy', 'accurately', 'accurateness'],
-        answer: 2,
-        expl: 'Kunci: C (accurately). Kata keterangan cara (Adverb of manner berakhiran -ly) menerangkan kata kerja "measured".'
+        "id": "pos-6",
+        "cat": "PRONOUN",
+        "q": "6. The engineers finished the test, and _____ wrote a report.",
+        "options": [
+          "they",
+          "them",
+          "their",
+          "theirs"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (they). Kata ganti subjek jamak (Subject Pronoun) untuk menggantikan \"The engineers\"."
       },
       {
-        id: 'pos-7',
-        cat: 'PREPOSITION',
-        q: '7. The sensor is _____ the two components.',
-        options: ['between', 'during', 'because', 'with'],
-        answer: 0,
-        expl: 'Kunci: A (between). Preposisi "between" digunakan untuk menunjukkan posisi di antara dua objek.'
+        "id": "pos-7",
+        "cat": "PRONOUN",
+        "q": "7. The machine is old, but _____ still works.",
+        "options": [
+          "he",
+          "they",
+          "it",
+          "them"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (it). \"It\" adalah kata ganti orang ketiga tunggal netral (Pronoun) yang menggantikan benda tunggal \"The machine\"."
       },
       {
-        id: 'pos-8',
-        cat: 'CONJUNCTION',
-        q: '8. The motor is small, _____ it is powerful.',
-        options: ['although', 'but', 'because', 'when'],
-        answer: 1,
-        expl: 'Kunci: B (but). Konjungsi koordinatif FANBOYS "but" digunakan untuk menghubungkan dua klausa yang berlawanan/kontras.'
+        "id": "pos-8",
+        "cat": "PRONOUN",
+        "q": "8. The technician gave the tools to _____.",
+        "options": [
+          "we",
+          "us",
+          "our",
+          "ours"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (us). \"Us\" adalah kata ganti objek (Object Pronoun) yang mengikuti kata depan (preposisi) \"to\"."
+      },
+      {
+        "id": "pos-9",
+        "cat": "PRONOUN",
+        "q": "9. This is the sensor _____ measures pressure.",
+        "options": [
+          "who",
+          "which",
+          "them",
+          "he"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (which). \"Which\" adalah kata ganti penghubung (Relative Pronoun) untuk merujuk pada benda/alat (\"the sensor\")."
+      },
+      {
+        "id": "pos-10",
+        "cat": "PRONOUN",
+        "q": "10. The students brought _____ own laptops.",
+        "options": [
+          "they",
+          "them",
+          "their",
+          "theirs"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (their). \"Their\" adalah Possessive Determiner/Adjective yang menerangkan kepemilikan sebelum frasa kata benda \"own laptops\"."
+      },
+      {
+        "id": "pos-11",
+        "cat": "VERB",
+        "q": "11. The machine _____ automatically when the temperature is too high.",
+        "options": [
+          "stops",
+          "stopping",
+          "stop",
+          "stopped"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (stops). Subjek orang ketiga tunggal (\"The machine\") dalam fakta ilmiah (Simple Present) memerlukan kata kerja tunggal berakhiran -s."
+      },
+      {
+        "id": "pos-12",
+        "cat": "VERB",
+        "q": "12. The engineers _____ the system last week.",
+        "options": [
+          "test",
+          "tests",
+          "tested",
+          "testing"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (tested). Keterangan waktu lampau yang pasti (\"last week\") menuntut bentuk Past Tense (V2) \"tested\"."
+      },
+      {
+        "id": "pos-13",
+        "cat": "VERB",
+        "q": "13. The device can _____ pressure accurately.",
+        "options": [
+          "measures",
+          "measuring",
+          "measure",
+          "measured"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (measure). Setelah modal auxiliary verb (\"can\"), kata kerja selalu dalam bentuk dasar tanpa imbuhan (Bare Infinitive / V1)."
+      },
+      {
+        "id": "pos-14",
+        "cat": "VERB",
+        "q": "14. The report _____ been completed.",
+        "options": [
+          "has",
+          "have",
+          "is",
+          "does"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (has). Kalimat pasif Present Perfect (\"has been completed\") dengan subjek tunggal \"The report\" menggunakan auxiliary \"has\"."
+      },
+      {
+        "id": "pos-15",
+        "cat": "VERB",
+        "q": "15. Students _____ wear safety equipment in the laboratory.",
+        "options": [
+          "should",
+          "can to",
+          "would to",
+          "are"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (should). Modal verb \"should\" diikuti langsung oleh bare infinitive \"wear\" untuk menyatakan anjuran/kewajiban standar laboratorium."
+      },
+      {
+        "id": "pos-16",
+        "cat": "ADJECTIVE",
+        "q": "16. The technician used an _____ instrument.",
+        "options": [
+          "accuracy",
+          "accurately",
+          "accurate",
+          "accurateness"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (accurate). Kata sifat (Adjective) dibutuhkan di depan kata benda \"instrument\" untuk menerangkan karakteristik alat."
+      },
+      {
+        "id": "pos-17",
+        "cat": "ADJECTIVE",
+        "q": "17. This motor is _____ than the previous model.",
+        "options": [
+          "efficient",
+          "more efficient",
+          "most efficiently",
+          "efficiency"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (more efficient). Derajat perbandingan komparatif (Comparative Adjective) untuk kata sifat bersuku kata banyak sebelum kata \"than\" adalah \"more efficient\"."
+      },
+      {
+        "id": "pos-18",
+        "cat": "ADJECTIVE",
+        "q": "18. The _____ cable needs to be replaced.",
+        "options": [
+          "damage",
+          "damaged",
+          "damagingly",
+          "damages"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (damaged). Participle adjective (V3) \"damaged\" berfungsi sebagai kata sifat yang menerangkan kondisi kabel (\"kabel yang rusak\")."
+      },
+      {
+        "id": "pos-19",
+        "cat": "ADJECTIVE",
+        "q": "19. Which word is an adjective?",
+        "options": [
+          "reliability",
+          "reliably",
+          "reliable",
+          "rely"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (reliable). Kata berakhiran -able adalah Adjective (kata sifat). \"Reliability\" (noun), \"reliably\" (adverb), \"rely\" (verb)."
+      },
+      {
+        "id": "pos-20",
+        "cat": "ADJECTIVE",
+        "q": "20. We need a _____ solution to the problem.",
+        "options": [
+          "practical",
+          "practically",
+          "practice",
+          "practiced"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (practical). Kata berakhiran sufiks -al di sini adalah Adjective yang memodifikasi kata benda \"solution\"."
+      },
+      {
+        "id": "pos-21",
+        "cat": "ADVERB",
+        "q": "21. The technician measured the temperature _____.",
+        "options": [
+          "accurate",
+          "accuracy",
+          "accurately",
+          "accurateness"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (accurately). Kata keterangan cara (Adverb of Manner berakhiran -ly) menerangkan bagaimana kata kerja \"measured\" dilaksanakan."
+      },
+      {
+        "id": "pos-22",
+        "cat": "ADVERB",
+        "q": "22. The new system works _____ efficiently than the old one.",
+        "options": [
+          "more",
+          "very",
+          "much",
+          "most"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (more). Bentuk perbandingan komparatif untuk adverb \"efficiently\" sebelum kata \"than\" adalah \"more efficiently\"."
+      },
+      {
+        "id": "pos-23",
+        "cat": "ADVERB",
+        "q": "23. The result was _____ accurate.",
+        "options": [
+          "extreme",
+          "extremely",
+          "extremity",
+          "extremes"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (extremely). Kata keterangan derajat (Adverb of Degree berakhiran -ly) memodifikasi dan menguatkan kata sifat \"accurate\"."
+      },
+      {
+        "id": "pos-24",
+        "cat": "ADVERB",
+        "q": "24. The machine was old; _____, it still worked.",
+        "options": [
+          "however",
+          "careful",
+          "because",
+          "under"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (however). \"However\" adalah Conjunctive Adverb (kata keterangan penghubung antar-klausa) yang menyatakan kontras di antara titik-koma dan koma."
+      },
+      {
+        "id": "pos-25",
+        "cat": "ADVERB",
+        "q": "25. The temperature increased; _____, the system stopped.",
+        "options": [
+          "therefore",
+          "slow",
+          "accurate",
+          "between"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (therefore). \"Therefore\" adalah Conjunctive Adverb yang menyatakan konsekuensi/akibat logis di antara titik-koma dan koma."
+      },
+      {
+        "id": "pos-26",
+        "cat": "PREPOSITION",
+        "q": "26. The sensor is _____ the two components.",
+        "options": [
+          "between",
+          "during",
+          "because",
+          "with"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (between). Preposisi \"between\" digunakan untuk menyatakan posisi ruang di antara dua objek/komponen."
+      },
+      {
+        "id": "pos-27",
+        "cat": "PREPOSITION",
+        "q": "27. The cable passes _____ the wall.",
+        "options": [
+          "through",
+          "at",
+          "for",
+          "during"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (through). Preposisi \"through\" menunjukkan lintasan yang menembus atau melewati bagian dalam suatu penghalang (dinding)."
+      },
+      {
+        "id": "pos-28",
+        "cat": "PREPOSITION",
+        "q": "28. The experiment was conducted _____ the laboratory.",
+        "options": [
+          "by",
+          "on",
+          "to",
+          "in"
+        ],
+        "answer": 3,
+        "expl": "Kunci: D (in). Preposisi \"in\" digunakan untuk menunjukkan keberadaan atau aktivitas di dalam ruangan tertutup/laboratorium."
+      },
+      {
+        "id": "pos-29",
+        "cat": "PREPOSITION",
+        "q": "29. The device was repaired _____ the technician.",
+        "options": [
+          "with",
+          "by",
+          "between",
+          "during"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (by). Preposisi \"by\" digunakan dalam konstruksi pasif (\"was repaired\") untuk menandai pelaku (agent) perbaikan."
+      },
+      {
+        "id": "pos-30",
+        "cat": "PREPOSITION",
+        "q": "30. The machine stopped _____ a power failure.",
+        "options": [
+          "because of",
+          "between",
+          "through",
+          "on"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (because of). \"Because of\" adalah frasa preposisi majemuk yang diikuti frasa kata benda (\"a power failure\") untuk menunjukkan penyebab."
+      },
+      {
+        "id": "pos-31",
+        "cat": "CONJUNCTION",
+        "q": "31. The machine stopped _____ the temperature was too high.",
+        "options": [
+          "although",
+          "but",
+          "or",
+          "because"
+        ],
+        "answer": 3,
+        "expl": "Kunci: D (because). Konjungsi subordinatif \"because\" menghubungkan klausa alasan (\"the temperature was too high\") dengan klausa utama tanpa tanda koma."
+      },
+      {
+        "id": "pos-32",
+        "cat": "CONJUNCTION",
+        "q": "32. The motor is small, _____ it is powerful.",
+        "options": [
+          "although",
+          "but",
+          "because",
+          "when"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (but). Konjungsi koordinatif FANBOYS \"but\" didahului tanda koma untuk menggabungkan dua klausa independen yang bertentangan/kontras."
+      },
+      {
+        "id": "pos-33",
+        "cat": "CONJUNCTION",
+        "q": "33. The test failed, _____ we repeated it.",
+        "options": [
+          "so",
+          "although",
+          "because",
+          "while"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (so). Konjungsi koordinatif FANBOYS \"so\" didahului koma untuk menyatakan hubungan hasil atau akibat langsung."
+      },
+      {
+        "id": "pos-34",
+        "cat": "CONJUNCTION",
+        "q": "34. _____ the device is expensive, it is reliable.",
+        "options": [
+          "Although",
+          "And",
+          "Or",
+          "So"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (Although). Konjungsi subordinatif \"Although\" di awal kalimat majemuk bertingkat (Complex Sentence) menyatakan konsesi/kontras."
+      },
+      {
+        "id": "pos-35",
+        "cat": "CONJUNCTION",
+        "q": "35. Call the technician _____ the system stops unexpectedly.",
+        "options": [
+          "and",
+          "but",
+          "because of",
+          "if"
+        ],
+        "answer": 3,
+        "expl": "Kunci: D (if). Konjungsi subordinatif bersyarat \"if\" memperkenalkan klausa kondisi di masa mendatang."
+      },
+      {
+        "id": "pos-36",
+        "cat": "INTERJECTION",
+        "q": "36. _____! I forgot to save the file.",
+        "options": [
+          "Wow",
+          "Because",
+          "Oops",
+          "Carefully"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (Oops). Kata seru \"Oops!\" secara universal dipakai untuk mengekspresikan kesadaran akan kekeliruan atau kecerobohan yang tak disengaja."
+      },
+      {
+        "id": "pos-37",
+        "cat": "INTERJECTION",
+        "q": "37. _____! The prototype works perfectly.",
+        "options": [
+          "Wow",
+          "Although",
+          "Under",
+          "Efficiently"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (Wow). Kata seru \"Wow!\" mengekspresikan rasa kagum, kepuasan, atau apresiasi tinggi terhadap hasil kerja prototipe."
+      },
+      {
+        "id": "pos-38",
+        "cat": "INTERJECTION",
+        "q": "38. _____! We finally solved the problem.",
+        "options": [
+          "Ghoshhhhh",
+          "Because",
+          "Through",
+          "Great"
+        ],
+        "answer": 3,
+        "expl": "Kunci: D (Great). Kata seru \"Great!\" digunakan untuk merayakan keberhasilan atau kepuasan setelah memecahkan suatu permasalahan rumit."
+      },
+      {
+        "id": "pos-39",
+        "cat": "INTERJECTION",
+        "q": "39. _____ no! The computer has stopped.",
+        "options": [
+          "Oh",
+          "So",
+          "And",
+          "Very"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (Oh). \"Oh no!\" adalah ungkapan seru (interjection phrase) umum yang menyatakan rasa kaget atau cemas atas kendala sistem yang mendadak mati."
+      },
+      {
+        "id": "pos-40",
+        "cat": "INTERJECTION",
+        "q": "40. Which word is an interjection?",
+        "options": [
+          "Excellent!",
+          "efficient",
+          "efficiency",
+          "efficiently"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (Excellent!). \"Excellent!\" yang diakhiri tanda seru berfungsi sebagai kata seru (Interjection) untuk memuji atau menyatakan apresiasi tinggi."
       }
     ]
   },
   {
-    id: 'g-sent-types',
-    title: 'Drill 2: Simple, Compound, & Complex Sentences (Meeting 4)',
-    source: 'Latihan Dosen: Meeting 4 (Sentence Types)',
-    questions: [
+    "id": "g-pos-academic",
+    "title": "Drill 2: Parts of Speech in Academic Sentences (Meeting 3, Part B)",
+    "source": "Dokumen Dosen: exercise of PART OF SPEECH (Section B - 10 Soal)",
+    "questions": [
       {
-        id: 'st-1',
-        q: '1. Identify the sentence type:\n"The internet helps students to find information quickly."',
-        options: ['Simple Sentence', 'Compound Sentence', 'Complex Sentence', 'Compound-Complex Sentence'],
-        answer: 0,
-        expl: 'Kunci: A (Simple Sentence). Kalimat ini hanya memiliki 1 klausa independen (Subject: The internet, Verb: helps).'
+        "id": "pos-b1",
+        "cat": "NOUN",
+        "q": "1. The students collected several __________ for their research, and they analyzed them carefully before writing the report.",
+        "options": [
+          "information",
+          "informative",
+          "inform",
+          "informatively"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (information). Posisi setelah determiner \"several\" dan sebelum frasa preposisi \"for their research\" membutuhkan Noun (kata benda)."
       },
       {
-        id: 'st-2',
-        q: '2. Identify the sentence type:\n"I like programming, and I also enjoy designing websites."',
-        options: ['Simple Sentence', 'Compound Sentence', 'Complex Sentence', 'Compound-Complex Sentence'],
-        answer: 1,
-        expl: 'Kunci: B (Compound Sentence). Terdiri dari 2 klausa independen yang dihubungkan konjungsi koordinatif FANBOYS "and" dengan tanda koma.'
+        "id": "pos-b2",
+        "cat": "PRONOUN",
+        "q": "2. Rina submitted the assignment before the deadline, and the lecturer praised __________ for her careful work.",
+        "options": [
+          "she",
+          "hers",
+          "herself",
+          "her"
+        ],
+        "answer": 3,
+        "expl": "Kunci: D (her). Kata kerja transitif \"praised\" membutuhkan Object Pronoun pihak ketiga tunggal perempuan (\"her\")."
       },
       {
-        id: 'st-3',
-        q: '3. Identify the sentence type:\n"She stayed at home because it was raining heavily."',
-        options: ['Simple Sentence', 'Compound Sentence', 'Complex Sentence', 'Compound-Complex Sentence'],
-        answer: 2,
-        expl: 'Kunci: C (Complex Sentence). Terdiri dari 1 klausa independen ("She stayed at home") dan 1 klausa dependen diawali subordinator "because".'
+        "id": "pos-b3",
+        "cat": "VERB",
+        "q": "3. The engineers __________ the new system, and they will present the results tomorrow.",
+        "options": [
+          "tested",
+          "testing",
+          "test",
+          "tests"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (tested). Finite Verb dalam bentuk Past Tense (\"tested\") menyatakan pengujian yang sudah tuntas dilaksanakan sebelum hasil dipresentasikan besok."
       },
       {
-        id: 'st-4',
-        q: '4. Identify the sentence type:\n"The server crashed, so the technician fixed it immediately."',
-        options: ['Simple Sentence', 'Compound Sentence', 'Complex Sentence', 'Compound-Complex Sentence'],
-        answer: 1,
-        expl: 'Kunci: B (Compound Sentence). Dua klausa independen dihubungkan oleh FANBOYS "so" untuk menyatakan akibat logis.'
+        "id": "pos-b4",
+        "cat": "ADJECTIVE",
+        "q": "4. The university bought a __________ laboratory computer, and the students used it to complete their programming project.",
+        "options": [
+          "powerful new black Japanese",
+          "new powerful Japanese black",
+          "Japanese black powerful new",
+          "black Japanese new powerful"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (powerful new black Japanese). Urutan standar susunan kata sifat (Royal Order of Adjectives): Opinion (powerful) → Age (new) → Color (black) → Origin/Nationality (Japanese)."
       },
       {
-        id: 'st-5',
-        q: '5. Identify the sentence type:\n"If students practice every day, they will become better at programming."',
-        options: ['Simple Sentence', 'Compound Sentence', 'Complex Sentence', 'Compound-Complex Sentence'],
-        answer: 2,
-        expl: 'Kunci: C (Complex Sentence). Klausa dependen bersyarat ("If students practice every day,") diletakkan di depan dengan koma sebelum induk kalimat.'
+        "id": "pos-b5",
+        "cat": "ADVERB",
+        "q": "5. The students completed the experiment __________, and they submitted the report before the lecturer arrived.",
+        "options": [
+          "careful",
+          "carefully",
+          "care",
+          "carefulness"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (carefully). Dibutuhkan Adverb of Manner (-ly) untuk memodifikasi bagaimana kata kerja \"completed\" dilakukan."
+      },
+      {
+        "id": "pos-b6",
+        "cat": "PREPOSITION",
+        "q": "6. The researcher stored the important data __________ a secure server, and she checked the files every evening.",
+        "options": [
+          "at",
+          "on",
+          "by",
+          "from"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (on). Dalam konteks komputasi akademik, data disimpan \"on a server\" atau \"on a cloud drive\" (menggunakan preposisi \"on\")."
+      },
+      {
+        "id": "pos-b7",
+        "cat": "CONJUNCTION",
+        "q": "7. The internet connection was unstable, __________ the students continued their online presentation successfully.",
+        "options": [
+          "because",
+          "although",
+          "so that",
+          "but"
+        ],
+        "answer": 3,
+        "expl": "Kunci: D (but). Dua klausa independen yang menunjukkan kontras/pertentangan dan dipisahkan tanda koma memerlukan konjungsi koordinatif FANBOYS \"but\"."
+      },
+      {
+        "id": "pos-b8",
+        "cat": "INTERJECTION",
+        "q": "8. __________! The computer suddenly restarted, and we had not saved the latest version of our project.",
+        "options": [
+          "However",
+          "Unfortunately",
+          "Wow",
+          "Oh No"
+        ],
+        "answer": 3,
+        "expl": "Kunci: D (Oh No). Ungkapan seru (Interjection) \"Oh No!\" paling tepat menggambarkan rasa terkejut dan kesal atas insiden komputer mendadak restart."
+      },
+      {
+        "id": "pos-b9",
+        "cat": "ADVERB",
+        "q": "9. The lecturer explained the complicated concept __________, so the students could understand it easily.",
+        "options": [
+          "clear",
+          "clearly",
+          "clarity",
+          "clearing"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (clearly). Kata keterangan cara (Adverb of Manner) \"clearly\" diperlukan untuk memodifikasi kata kerja \"explained\"."
+      },
+      {
+        "id": "pos-b10",
+        "cat": "ADJECTIVE",
+        "q": "10. The researchers developed an __________ application, and it helped users manage their daily activities more efficiently.",
+        "options": [
+          "innovative useful",
+          "useful innovation",
+          "innovatively use",
+          "innovation useful"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (innovative useful). Artikel \"an\" mewajibkan kata berikutnya diawali bunyi vokal (\"innovative\" diawali /ɪ/), berfungsi sebagai kata sifat berurutan untuk kata benda \"application\"."
+      }
+    ]
+  },
+  {
+    "id": "g-sent-types",
+    "title": "Drill 3: Simple, Compound, & Complex Sentences (Meeting 4)",
+    "source": "Slide Kuliah Dosen: Meeting 4 - Sentences (10 Soal Otentik)",
+    "questions": [
+      {
+        "id": "st-1",
+        "cat": "SIMPLE",
+        "q": "1. Identify the sentence type:\n\"The internet helps students to find information quickly.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence",
+          "Compound-Complex Sentence"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (Simple Sentence). Kalimat ini hanya memiliki 1 klausa independen (Subject: The internet, Verb: helps)."
+      },
+      {
+        "id": "st-2",
+        "cat": "COMPOUND",
+        "q": "2. Identify the sentence type:\n\"I like programming, and I also enjoy designing websites.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence",
+          "Compound-Complex Sentence"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (Compound Sentence). Terdiri dari 2 klausa independen yang dihubungkan konjungsi koordinatif FANBOYS \"and\" dengan tanda koma."
+      },
+      {
+        "id": "st-3",
+        "cat": "COMPLEX",
+        "q": "3. Identify the sentence type:\n\"She stayed at home because it was raining heavily.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence",
+          "Compound-Complex Sentence"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (Complex Sentence). Terdiri dari 1 klausa independen (\"She stayed at home\") dan 1 klausa dependen diawali subordinator \"because\"."
+      },
+      {
+        "id": "st-4",
+        "cat": "COMPOUND",
+        "q": "4. Identify the sentence type:\n\"We use computers every day, but we sometimes forget how powerful they are.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence",
+          "Compound-Complex Sentence"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (Compound Sentence). Dua klausa independen dihubungkan oleh FANBOYS \"but\" dengan tanda koma untuk menyatakan kontras."
+      },
+      {
+        "id": "st-5",
+        "cat": "COMPLEX",
+        "q": "5. Identify the sentence type:\n\"Although he was nervous, he gave a good presentation.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence",
+          "Compound-Complex Sentence"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (Complex Sentence). Terdiri dari klausa dependen diawali subordinator \"Although\" di depan (dengan koma) dan klausa independen."
+      },
+      {
+        "id": "st-6",
+        "cat": "COMPLEX",
+        "q": "6. Identify the sentence type:\n\"Many students join online courses because they want to improve their skills.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence",
+          "Compound-Complex Sentence"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (Complex Sentence). Terdiri dari klausa independen utama dan klausa dependen yang diawali subordinator alasan \"because\"."
+      },
+      {
+        "id": "st-7",
+        "cat": "COMPOUND",
+        "q": "7. Identify the sentence type:\n\"The server crashed, so the technician fixed it immediately.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence",
+          "Compound-Complex Sentence"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (Compound Sentence). Dua klausa independen dihubungkan oleh FANBOYS \"so\" dengan tanda koma untuk menyatakan akibat logis."
+      },
+      {
+        "id": "st-8",
+        "cat": "SIMPLE",
+        "q": "8. Identify the sentence type:\n\"Computers are very useful in education.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence",
+          "Compound-Complex Sentence"
+        ],
+        "answer": 0,
+        "expl": "Kunci: A (Simple Sentence). Hanya memiliki 1 klausa independen lengkap (Subject: Computers, Linking Verb: are, Subject Complement: very useful)."
+      },
+      {
+        "id": "st-9",
+        "cat": "COMPOUND",
+        "q": "9. Identify the sentence type:\n\"I wanted to buy a new laptop, but it was too expensive.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence",
+          "Compound-Complex Sentence"
+        ],
+        "answer": 1,
+        "expl": "Kunci: B (Compound Sentence). Dua klausa independen digabungkan oleh FANBOYS \"but\" dengan koma."
+      },
+      {
+        "id": "st-10",
+        "cat": "COMPLEX",
+        "q": "10. Identify the sentence type:\n\"If students practice every day, they will become better at programming.\"",
+        "options": [
+          "Simple Sentence",
+          "Compound Sentence",
+          "Complex Sentence",
+          "Compound-Complex Sentence"
+        ],
+        "answer": 2,
+        "expl": "Kunci: C (Complex Sentence). Klausa dependen bersyarat (\"If students practice every day,\") diletakkan di depan dengan koma sebelum induk kalimat."
       }
     ]
   }
@@ -1427,6 +2115,7 @@ function renderListeningDrills() {
   });
 
   container.innerHTML = html;
+  updateListeningBadge();
 }
 
 window.handleListeningAnswer = function(drillId, questionId, selectedIdx) {
@@ -1538,6 +2227,7 @@ function renderGrammarDrills() {
   });
 
   container.innerHTML = html;
+  updateGrammarBadge();
 }
 
 window.handleGrammarAnswer = function(drillId, questionId, selectedIdx) {

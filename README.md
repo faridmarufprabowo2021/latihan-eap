@@ -70,7 +70,11 @@ Bedah tuntas komponen tata bahasa akademik:
   - *Aturan koma:*
     - Dependent Clause di awal: `[Subordinator + Klausa], [Klausa Utama].` (Pakai koma).
     - Dependent Clause di akhir: `[Klausa Utama] [Subordinator + Klausa].` (Tanpa koma).
-- **Latihan Drill Pilihan Ganda & Analisis Pola Kalimat:** Uji pemahaman klasifikasi Simple, Compound, Complex, dan Compound-Complex secara interaktif.
+- **Latihan Drill Pilihan Ganda & Analisis Pola Kalimat (Total 60 Soal Otentik):**
+  - **Drill 1:** *Parts of Speech Mastery — 8 Classes* (40 butir soal lengkap dari bank soal resmi dosen *exercise of PART OF SPEECH* Bagian A: Noun, Pronoun, Verb, Adjective, Adverb, Preposition, Conjunction, dan Interjection masing-masing 5 butir soal).
+  - **Drill 2:** *Parts of Speech in Academic Sentences* (10 butir soal dari bank soal resmi dosen *exercise of PART OF SPEECH* Bagian B: identifikasi dan analisis kelas kata kontekstual pada kalimat majemuk akademik).
+  - **Drill 3:** *Simple, Compound, & Complex Sentences* (10 butir soal klasifikasi jenis kalimat otentik dari slide kuliah resmi dosen Meeting 4).
+  - *Fitur Unggulan:* Setiap butir soal dilengkapi badge penanda kategori kelas kata, kunci jawaban presisi 100%, serta pembahasan mendalam (*explanations*) kaidah gramatika yang mudah dipahami.
 
 ### 3. 📖 Reading Comprehension (Pertemuan 5 & 6)
 Memuat **30 soal otentik** dari bank latihan resmi dosen (*READING Drilling ANS - Word*) yang mencakup 8 naskah bacaan:

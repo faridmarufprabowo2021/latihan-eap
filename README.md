@@ -45,12 +45,11 @@ Aplikasi ini membagi seluruh materi kuliah ke dalam halaman dan modul mandiri ya
 ## 🌟 Modul & Halaman Interaktif
 
 ### 1. 🎧 Listening Arena (Pertemuan 1 & 2)
-Memuat ringkasan strategi mendengarkan akademik dan 5 paket latihan audio otentik dosen:
-- **Set 1:** *Nathan's School (Brooklyn Free School)* — 7 butir soal pilihan ganda tentang kurikulum tanpa ujian, aturan kehadiran, dan biaya sekolah.
-- **Set 2:** *Miley Cyrus Biography* — 10 butir soal riwayat karier, peran Hannah Montana, pendapatan awal, dan prestasi Billboard.
-- **Set 3:** *Roger Brown Youth Council* — 5 butir soal formulir identitas, alamat tempat tinggal (Buckworth Street), pekerjaan sampingan, dan komite disabilitas.
-- **Set 4:** *Community Festival Events* — Latihan mencatat waktu kegiatan, pameran seni, dan lokasi tenda.
-- **Set 5:** *Computing & Informatics Conference* — Latihan mencatat registrasi *early-bird*, sesi *keynote*, dan lokakarya keamanan siber.
+Memuat ringkasan strategi mendengarkan akademik dan paket latihan audio otentik dosen yang dilengkapi **Audio Player Interaktif Beraksen British (UK RP)** dengan fitur kontrol kecepatan (0.8x, 1.0x, 1.2x) serta toggle transkrip tersembunyi:
+- **Set 1:** *Nathan's School (Brooklyn Free School)* — 7 butir soal pilihan ganda dialog Host & Nathan (Aksen British, sumber *Oxford Solutions*).
+- **Set 2:** *Miley Cyrus Biography* — 10 butir soal riwayat karier dan prestasi Billboard (Narasi British yang jernih).
+- **Set 3:** *Roger Brown Youth Council* — 5 butir soal formulir identitas, pekerjaan, dan komite disabilitas (Dialog Otentik *Cambridge IELTS 11 Test 2 Section 1* lengkap dengan link rekaman asli).
+- **Set 4 & 5 (UTS Exam Simulator):** Skenario audio akademik beraksen British untuk kuliah algoritma, konsultasi KRS, pengumuman seminar AI, diskusi jurnal cloud security, dan briefing ujian.
 
 ### 2. ⚡ Structure & Grammar (Pertemuan 3 & 4)
 Bedah tuntas komponen tata bahasa akademik:

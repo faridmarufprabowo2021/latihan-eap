@@ -18,7 +18,8 @@ const LISTENING_DRILLS = [
   {
     id: 'lis-nathan',
     title: "Exercise 1: Radio Interview — Nathan's School (Brooklyn Free School)",
-    source: 'Latihan Dosen: Meeting 2 (Set 1)',
+    source: 'Latihan Dosen: Meeting 2 (Set 1) | Oxford Solutions British English',
+    audioUrl: 'audio/lis-nathan.mp3',
     transcript: `[RADIO INTERVIEW TRANSCRIPT]
 Host: "Welcome back to Education Today. Today we're visiting Brooklyn Free School in New York to speak with Nathan, a 16-year-old high school student. Nathan, tell us about how your school works."
 Nathan: "Hi! Well, Brooklyn Free School is really unique. There are no tests, no homework, and no mandatory grades. In my section of the school, students are aged 12 to 18, and there are about 60 students in total. We choose what we want to study every day."
@@ -81,7 +82,8 @@ Nathan: "I absolutely love it. It's an inspiring place to learn."`,
   {
     id: 'lis-miley',
     title: 'Exercise 2: Biography Profile — Miley Cyrus Short Biography',
-    source: 'Latihan Dosen: Meeting 2 (Set 2)',
+    source: 'Latihan Dosen: Meeting 2 (Set 2) | British Narrator Profile',
+    audioUrl: 'audio/lis-miley.mp3',
     transcript: `[BIOGRAPHY AUDIO TRANSCRIPT]
 Narrator: "Miley Cyrus was born to be a star. She was born on November 23rd, 1992, in Franklin, Tennessee. Cyrus became famous worldwide when she starred in the television show "Hannah Montana" on Disney Channel. Two years later, she expanded her fame into mainstream pop music. Her 3D concert movie obtained more than 55 million dollars at the box office on opening weekend. Remarkably, by age 16, Miley already had achieved two number-one albums on the Billboard charts. Her energetic single "Party in the USA" became her best-selling single across the United States. Many music critics and fans respect her because she fearlessly takes artistic risks. In 2011, she was officially ranked in Hollywood as the second richest person under 25. Later in 2012, Miley made a notable guest appearance in the sitcom "Two and a Half Men", participating a few times throughout the season."`,
     questions: [
@@ -160,7 +162,9 @@ Narrator: "Miley Cyrus was born to be a star. She was born on November 23rd, 199
   {
     id: 'lis-council',
     title: 'Exercise 3: IELTS Form Completion — Joining Youth Council (Roger Brown)',
-    source: 'Latihan Dosen: Meeting 2 (Set 3)',
+    source: 'Latihan Dosen: Meeting 2 (Set 3) | Cambridge IELTS 11 Test 2 (UK RP)',
+    audioUrl: 'audio/lis-council.mp3',
+    officialSourceUrl: 'https://mini-ielts.com/1296/listening/joining-the-youth-council',
     transcript: `[IELTS SECTION 1 CONVERSATION]
 Officer: "Good morning, Youth Council office. How can I help you?"
 Roger: "Hello, my name is Roger Brown, and I'd like to ask about joining the Youth Council."
@@ -1582,6 +1586,7 @@ const UTS_EXAM_DATA = {
       id: 'uts-l1',
       pts: 5,
       clo: 'CLO 1',
+      audioUrl: 'audio/uts-lis-1.mp3',
       audioSim: `[ACADEMIC LECTURE EXCERPT — COMPUTER SCIENCE]
 Professor: "Good morning class. Today we are initiating our unit on algorithmic optimization. Now, many novice programmers assume optimization simply means shortening lines of code. However, our primary objective this morning is to demonstrate how data structures directly dictate memory allocation and execution time, especially in high-throughput database systems. Therefore, please observe this benchmark graph..."`,
       q: "1. What is the primary purpose of the professor's lecture?",
@@ -1598,6 +1603,7 @@ Professor: "Good morning class. Today we are initiating our unit on algorithmic 
       id: 'uts-l2',
       pts: 5,
       clo: 'CLO 1',
+      audioUrl: 'audio/uts-lis-2.mp3',
       audioSim: `[CAMPUS CONSULTATION — STUDENT & ACADEMIC ADVISOR]
 Advisor: "Come in, Dimas. I received your email regarding course prerequisites. You mentioned wanting to take Advanced Software Engineering next semester. However, the departmental catalog strictly requires that you must have completed Object-Oriented Programming with a minimum grade of B before enrolling."
 Dimas: "I see. I took OOP last semester and received an A-, but my grade sheet hasn't updated on the online portal yet."
@@ -1616,6 +1622,7 @@ Advisor: "In that case, bring a signed verification slip from your instructor to
       id: 'uts-l3',
       pts: 5,
       clo: 'CLO 1',
+      audioUrl: 'audio/uts-lis-3.mp3',
       audioSim: `[SEMINAR ANNOUNCEMENT — FACULTY OF INFORMATICS]
 Host: "Attention all attendees. Before Dr. Hartono delivers the keynote on Artificial Intelligence ethics, please take note of our workshop schedule. The interactive lab breakout session will take place in Multimedia Lab 3 on the second floor, not the auditorium as printed in the flyer. Furthermore, all participants requiring a certificate of participation must scan the QR code located near the exit doors prior to 4:30 PM."`,
       q: '3. What specific detail did the host correct regarding the workshop schedule?',
@@ -1632,6 +1639,7 @@ Host: "Attention all attendees. Before Dr. Hartono delivers the keynote on Artif
       id: 'uts-l4',
       pts: 5,
       clo: 'CLO 1',
+      audioUrl: 'audio/uts-lis-4.mp3',
       audioSim: `[STUDY GROUP DISCUSSION — UNIVERSITY LIBRARY]
 Aisha: "So for our research outline on cloud storage security, we already have our topic sentence and two supporting arguments regarding data encryption and redundancy. What we're lacking is empirical statistical evidence to support our second claim."
 Budi: "Actually, I found a 2025 survey from the IEEE Computer Society showing that 73% of cloud breaches were due to misconfigured access credentials rather than faulty cryptographic algorithms."
@@ -1650,6 +1658,7 @@ Aisha: "That is perfect! That precisely reinforces our argument that human admin
       id: 'uts-l5',
       pts: 5,
       clo: 'CLO 1',
+      audioUrl: 'audio/uts-lis-5.mp3',
       audioSim: `[CAMPUS BRIEFING — UTS EXAM PREPARATION]
 Proctor: "Welcome students. Please listen attentively to the examination guidelines. To answer the multiple-choice questions on your LJK sheet, a 2B pencil is mandatory; pens cannot be scanned by the optical grader. However, for Section 4, the paragraph outline writing task, you must use a black or blue pen. You are strictly prohibited from bringing cell phones or smartwatches to your desk. Arrive at least 30 minutes early, as any student arriving even one second late will face immediate disqualification."`,
       q: '5. What is the mandatory rule regarding the Writing section of the exam?',
@@ -2070,9 +2079,42 @@ function renderListeningDrills() {
           </div>
         </div>
 
-        <div class="passage-card" style="background: var(--blue-soft); border-color: var(--blue);">
-          <h4>🎧 Audio Transcript & Dialogue Scenario:</h4>
-          <pre style="white-space: pre-wrap; font-family: var(--font); margin: 0; font-size: 14px; line-height: 1.6;">${escapeHtml(drill.transcript)}</pre>
+        <div class="audio-player-box">
+          <div class="audio-player-header">
+            <div class="audio-player-title">
+              <span>🎙️ British Audio Track</span>
+              <span class="audio-player-accent-badge">🇬🇧 UK RP Accent</span>
+            </div>
+            <div style="display:flex; gap:6px; align-items:center;">
+              <span style="font-size:12px; font-weight:700; color:var(--ink-soft);">Speed:</span>
+              <button type="button" class="audio-speed-btn" onclick="setAudioSpeed('audio-${drill.id}', 0.8, this)">0.8x</button>
+              <button type="button" class="audio-speed-btn active" onclick="setAudioSpeed('audio-${drill.id}', 1.0, this)">1.0x</button>
+              <button type="button" class="audio-speed-btn" onclick="setAudioSpeed('audio-${drill.id}', 1.2, this)">1.2x</button>
+            </div>
+          </div>
+          
+          <div class="audio-player-controls">
+            <audio id="audio-${drill.id}" controls preload="metadata" style="width: 100%;">
+              <source src="${drill.audioUrl}" type="audio/mpeg">
+              Browser Anda tidak mendukung audio HTML5.
+            </audio>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; flex-wrap:wrap; gap:8px;">
+            <button type="button" class="transcript-toggle-btn" onclick="toggleTranscript('trans-${drill.id}', this)">
+              👁️ Tampilkan Transkrip Teks
+            </button>
+            ${drill.officialSourceUrl ? `
+              <a href="${drill.officialSourceUrl}" target="_blank" rel="noopener noreferrer" style="font-size:12px; font-weight:700; color:#0056b3; text-decoration:underline;">
+                🔗 Buka Audio Asli Cambridge IELTS 11 ↗
+              </a>
+            ` : ''}
+          </div>
+
+          <div class="transcript-collapsible" id="trans-${drill.id}">
+            <strong style="display:block; margin-bottom:4px; font-size:12px; color:var(--ink-soft); font-family:var(--mono);">TRANSCRIPT:</strong>
+            <pre style="white-space: pre-wrap; font-family: var(--font); margin: 0; font-size: 13.5px; line-height: 1.6; background:#fff; padding:10px; border-radius:8px; border:1px solid #ddd;">${escapeHtml(drill.transcript)}</pre>
+          </div>
         </div>
 
         <div class="drilling-questions-wrap">
@@ -2595,9 +2637,28 @@ function createExamQuestionHTML(q, section) {
   let extraBox = '';
   if (q.audioSim) {
     extraBox = `
-      <div class="passage-card" style="background: var(--blue-soft); border-color: var(--blue); margin-bottom: 12px;">
-        <strong style="display:block; margin-bottom: 4px; font-family: var(--mono); font-size: 12px; color: #1e556e;">🎧 AUDIO TRANSCRIPT SIMULATION:</strong>
-        <pre style="white-space: pre-wrap; font-family: var(--font); margin: 0; font-size: 13.5px; line-height: 1.5;">${escapeHtml(q.audioSim)}</pre>
+      <div class="audio-player-box" style="margin-bottom: 14px;">
+        <div class="audio-player-header">
+          <div class="audio-player-title">
+            <span>🎧 Audio Butir Soal ${escapeHtml(q.id.replace('uts-l', ''))}</span>
+            <span class="audio-player-accent-badge">🇬🇧 UK Accent</span>
+          </div>
+          <div style="display:flex; gap:6px; align-items:center;">
+            <button type="button" class="audio-speed-btn" onclick="setAudioSpeed('audio-${q.id}', 0.8, this)">0.8x</button>
+            <button type="button" class="audio-speed-btn active" onclick="setAudioSpeed('audio-${q.id}', 1.0, this)">1.0x</button>
+          </div>
+        </div>
+        <audio id="audio-${q.id}" controls preload="metadata" style="width: 100%;">
+          <source src="${q.audioUrl}" type="audio/mpeg">
+        </audio>
+        <div style="margin-top: 8px;">
+          <button type="button" class="transcript-toggle-btn" style="font-size:11.5px; padding:4px 10px;" onclick="toggleTranscript('trans-${q.id}', this)">
+            👁️ Tampilkan Transkrip Audio
+          </button>
+          <div class="transcript-collapsible" id="trans-${q.id}">
+            <pre style="white-space: pre-wrap; font-family: var(--font); margin: 6px 0 0; font-size: 13px; line-height: 1.5; background:#fff; padding:8px; border-radius:6px; border:1px solid #ddd;">${escapeHtml(q.audioSim)}</pre>
+          </div>
+        </div>
       </div>
     `;
   } else if (q.passage) {
@@ -3041,3 +3102,25 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
+
+// Audio Player Helpers
+window.setAudioSpeed = function(audioId, speed, btn) {
+  const audio = document.getElementById(audioId);
+  if (audio) {
+    audio.playbackRate = speed;
+  }
+  if (btn && btn.parentElement) {
+    const btns = btn.parentElement.querySelectorAll('.audio-speed-btn');
+    btns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+};
+
+window.toggleTranscript = function(transId, btn) {
+  const transEl = document.getElementById(transId);
+  if (!transEl) return;
+  const isShown = transEl.classList.toggle('show');
+  if (btn) {
+    btn.textContent = isShown ? '🙈 Sembunyikan Transkrip' : '👁️ Tampilkan Transkrip Teks';
+  }
+};
